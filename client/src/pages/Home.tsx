@@ -168,18 +168,18 @@ export default function Home() {
         </motion.div>
       </main>
 
+      {/* Mobile Mascot - repositioned above the white footer area */}
+      <div className="lg:hidden absolute bottom-24 left-1/2 -translate-x-1/2 scale-[0.7] z-20">
+         <Mascot />
+      </div>
+
       {/* Bottom White Area - Further Compressed */}
-      <div className="h-20 bg-white rounded-t-[2rem] relative z-0 flex items-center justify-center mt-auto">
+      <div className="h-20 bg-white rounded-t-[2rem] relative z-10 flex items-center justify-center mt-auto">
         <div className="text-center">
           <h3 className="text-[#0047AB] text-lg md:text-xl font-bold flex items-center justify-center leading-tight">
             Nasohold<span className="text-[10px] align-top">™</span>
           </h3>
           <p className="text-[#0047AB] text-[10px] md:text-xs font-semibold">Nasal Sprays</p>
-        </div>
-        
-        {/* Mobile Mascot - repositioned to avoid overlap */}
-        <div className="lg:hidden absolute -top-24 left-1/2 -translate-x-1/2 scale-[0.6]">
-           <Mascot />
         </div>
       </div>
     </div>
