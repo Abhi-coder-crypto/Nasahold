@@ -241,6 +241,7 @@ export default function AdminDashboard() {
         </div>
       </main>
 
+      {/* Details Dialog */}
       <Dialog open={!!selectedUser} onOpenChange={() => setSelectedUser(null)}>
         <DialogContent className="max-w-2xl bg-white p-0 overflow-hidden flex flex-col max-h-[90vh]">
           <DialogHeader className="p-6 pb-4 border-b bg-white">
@@ -248,45 +249,46 @@ export default function AdminDashboard() {
               Participant Details: {selectedUser?.name}
             </DialogTitle>
           </DialogHeader>
-          <div className="flex-1 overflow-y-auto p-6">
-            <div className="grid grid-cols-2 gap-4 mb-6">
-            <div className="p-3 bg-slate-50 rounded-lg">
-              <p className="text-xs text-gray-500 uppercase font-semibold">Email</p>
-              <p className="text-sm font-medium">{selectedUser?.email}</p>
-            </div>
-            <div className="p-3 bg-slate-50 rounded-lg">
-              <p className="text-xs text-gray-500 uppercase font-semibold">Phone</p>
-              <p className="text-sm font-medium">{selectedUser?.number}</p>
-            </div>
-            <div className="p-3 bg-slate-50 rounded-lg">
-              <p className="text-xs text-gray-500 uppercase font-semibold">Date Completed</p>
-              <p className="text-sm font-medium">{selectedUser && new Date(selectedUser.completedAt).toLocaleString()}</p>
-            </div>
-            <div className="p-3 bg-slate-50 rounded-lg">
-              <p className="text-xs text-gray-500 uppercase font-semibold">Total Score</p>
-              <p className="text-sm font-bold text-primary">{selectedUser?.score} / 7</p>
-            </div>
-          </div>
-          
-          <h3 className="font-bold text-sm uppercase tracking-wider text-gray-500 mb-3">Quiz Responses</h3>
-          <ScrollArea className="h-[400px] pr-4">
-            <div className="space-y-4">
-              {QUESTIONS.map((q) => (
-                <div key={q.id} className="border-b border-gray-100 pb-3 last:border-0">
-                  <p className="text-sm font-bold text-gray-700 mb-2">{q.id}. {q.text}</p>
-                  <div className="bg-slate-50 p-3 rounded-lg border border-slate-100">
-                    <p className="text-sm text-gray-600">
-                      {selectedUser?.answers?.[q.id] 
-                        ? (Array.isArray(selectedUser.answers[q.id]) 
-                            ? (selectedUser.answers[q.id] as string[]).join(", ") 
-                            : selectedUser.answers[q.id])
-                        : "No answer provided"}
-                    </p>
-                  </div>
+          <ScrollArea className="flex-1 overflow-y-auto">
+            <div className="p-6">
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <div className="p-3 bg-slate-50 rounded-lg">
+                  <p className="text-xs text-gray-500 uppercase font-semibold">Email</p>
+                  <p className="text-sm font-medium">{selectedUser?.email}</p>
                 </div>
-              ))}
+                <div className="p-3 bg-slate-50 rounded-lg">
+                  <p className="text-xs text-gray-500 uppercase font-semibold">Phone</p>
+                  <p className="text-sm font-medium">{selectedUser?.number}</p>
+                </div>
+                <div className="p-3 bg-slate-50 rounded-lg">
+                  <p className="text-xs text-gray-500 uppercase font-semibold">Date Completed</p>
+                  <p className="text-sm font-medium">{selectedUser && new Date(selectedUser.completedAt).toLocaleString()}</p>
+                </div>
+                <div className="p-3 bg-slate-50 rounded-lg">
+                  <p className="text-xs text-gray-500 uppercase font-semibold">Total Score</p>
+                  <p className="text-sm font-bold text-primary">{selectedUser?.score} / 7</p>
+                </div>
+              </div>
+              
+              <h3 className="font-bold text-sm uppercase tracking-wider text-gray-500 mb-3">Quiz Responses</h3>
+              <div className="space-y-4">
+                {QUESTIONS.map((q) => (
+                  <div key={q.id} className="border-b border-gray-100 pb-3 last:border-0">
+                    <p className="text-sm font-bold text-gray-700 mb-2">{q.id}. {q.text}</p>
+                    <div className="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                      <p className="text-sm text-gray-600">
+                        {selectedUser?.answers?.[q.id] 
+                          ? (Array.isArray(selectedUser.answers[q.id]) 
+                              ? (selectedUser.answers[q.id] as string[]).join(", ") 
+                              : selectedUser.answers[q.id])
+                          : "No answer provided"}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          </ScrollArea>
         </DialogContent>
       </Dialog>
     </div>
