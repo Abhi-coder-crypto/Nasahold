@@ -1,66 +1,57 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
+import { setupVite, serveStatic, log } from "./vite";
 import { createServer } from "http";
 import { connectMongo } from "./db";
 import path from "path";
 import fs from "fs";
 
 const app = express();
-const httpServer = createServer(app);
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Initialize DB and Routes
+app.use((req, res, next) => {
+  const start = Date.now();
+  const path = req.path;
+  let resSent = false;
+
+  res.on("finish", () => {
+    const duration = Date.now() - start;
+    if (path.startsWith("/api")) {
+      log(`${req.method} ${path} ${res.statusCode} in ${duration}ms`);
+    }
+  });
+
+  next();
+});
+
 (async () => {
+  const httpServer = createServer(app);
+
   try {
     await connectMongo();
     await registerRoutes(httpServer, app);
   } catch (err) {
     console.error("Initialization error:", err);
   }
-})();
 
-// Health check endpoint
-app.get("/api/health", (_req, res) => {
-  res.json({ status: "ok" });
-});
+  app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
+    const status = err.status || err.statusCode || 500;
+    const message = err.message || "Internal Server Error";
+    res.status(status).json({ message });
+    throw err;
+  });
 
-// Handle SPA routing
-app.use((req, res, next) => {
-  if (req.path.startsWith("/api")) {
-    return next();
-  }
-  
-  const distPath = path.resolve(process.cwd(), "dist", "public");
-  
-  // Try to serve static files first
-  const filePath = path.join(distPath, req.path);
-  if (fs.existsSync(filePath) && fs.lstatSync(filePath).isFile()) {
-    return res.sendFile(filePath);
+  if (app.get("env") === "development") {
+    await setupVite(httpServer, app);
+  } else {
+    serveStatic(app);
   }
 
-  // Fallback to index.html for SPA routes
-  const indexPage = path.join(distPath, "index.html");
-  if (fs.existsSync(indexPage)) {
-    return res.sendFile(indexPage);
-  }
-  
-  // Final fallback to client index (for dev or if build is missing)
-  const clientIndex = path.resolve(process.cwd(), "client", "index.html");
-  if (fs.existsSync(clientIndex)) {
-    return res.sendFile(clientIndex);
-  }
-  
-  next();
-});
-
-// Production specific listener
-if (process.env.NODE_ENV !== "production" && !process.env.VERCEL) {
   const port = parseInt(process.env.PORT || "5000", 10);
   httpServer.listen(port, "0.0.0.0", () => {
-    console.log(`serving on port ${port}`);
+    log(`serving on port ${port}`);
   });
-}
+})();
 
 export default app;
