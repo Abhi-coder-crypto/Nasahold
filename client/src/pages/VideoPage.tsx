@@ -32,12 +32,12 @@ export default function VideoPage() {
       </div>
 
       {/* Main Content - Centered in one view */}
-      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 py-0 -mt-16">
+      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 py-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="w-full max-w-2xl lg:max-w-4xl space-y-4"
+          className="w-full max-w-2xl lg:max-w-4xl space-y-4 -mt-8 md:-mt-12"
         >
           <div className="text-center space-y-1 mb-2">
             <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-white tracking-tight">
@@ -70,8 +70,8 @@ export default function VideoPage() {
         </motion.div>
 
         {/* Mascot Positioned left */}
-        <div className="absolute left-[5%] -bottom-[8%] z-30 pointer-events-none hidden lg:block">
-          <Mascot className="scale-100" />
+        <div className="absolute left-[5%] bottom-[0%] z-30 pointer-events-none hidden lg:block">
+          <Mascot className="scale-75" />
         </div>
       </main>
 
@@ -81,9 +81,9 @@ export default function VideoPage() {
       </div>
 
       {/* Bottom White Area - Further Compressed */}
-      <div className="h-20 bg-white rounded-t-[2rem] relative z-10 flex items-center justify-center mt-auto">
+      <div className="h-14 bg-white rounded-t-[1.5rem] relative z-10 flex items-center justify-center mt-auto">
         <div className="text-center">
-          <h3 className="text-[#0047AB] text-lg md:text-xl font-bold">
+          <h3 className="text-[#0047AB] text-base md:text-lg font-bold">
             Nasohold<span className="text-[10px] align-top">™</span>
           </h3>
           <p className="text-[#0047AB] text-[10px] md:text-xs font-semibold">Nasal Sprays</p>
