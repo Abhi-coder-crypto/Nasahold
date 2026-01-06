@@ -87,13 +87,19 @@ export default function Home() {
             <Mascot className="scale-75" />
           </div>
 
-          {/* CTA */}
+          {/* CTA - Only show if not registered or after registration */}
           <div className="pt-2">
-            <Link href="/video">
-              <Button size="lg" className="h-12 md:h-14 px-6 md:px-8 text-base md:text-lg rounded-full shadow-lg shadow-primary/20 transition-all hover:shadow-xl hover:shadow-primary/30 active:scale-95 group w-full sm:w-auto">
-                Watch Video <Play className="ml-2 h-5 md:h-6 w-5 md:w-6 fill-current" />
-              </Button>
-            </Link>
+            {!form.formState.isSubmitSuccessful ? (
+              <p className="text-sm text-muted-foreground italic">
+                Please register using the form to watch the video and play.
+              </p>
+            ) : (
+              <Link href="/video">
+                <Button size="lg" className="h-12 md:h-14 px-6 md:px-8 text-base md:text-lg rounded-full shadow-lg shadow-primary/20 transition-all hover:shadow-xl hover:shadow-primary/30 active:scale-95 group w-full sm:w-auto">
+                  Watch Video <Play className="ml-2 h-5 md:h-6 w-5 md:w-6 fill-current" />
+                </Button>
+              </Link>
+            )}
           </div>
         </motion.div>
 

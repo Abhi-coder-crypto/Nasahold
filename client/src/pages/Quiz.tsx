@@ -262,7 +262,7 @@ export default function Quiz() {
           <div className="py-6 text-center space-y-2">
             <p className="text-muted-foreground uppercase tracking-wider text-sm font-semibold">Your Score</p>
             <p className="text-6xl font-bold text-primary">
-              {score}<span className="text-2xl text-muted-foreground">/5</span>
+              {score}<span className="text-2xl text-muted-foreground">/7</span>
             </p>
             {submitQuiz.isPending && (
               <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground pt-4">
