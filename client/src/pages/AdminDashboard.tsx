@@ -48,6 +48,10 @@ export default function AdminDashboard() {
 
   const { data: users, isLoading } = useQuery<User[]>({
     queryKey: ["/api/admin/users"],
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+    staleTime: Infinity,
   });
 
   const handleRefresh = async () => {
@@ -106,9 +110,12 @@ export default function AdminDashboard() {
           </div>
         </div>
         <div className="flex items-center gap-6">
-          <div className="flex items-center gap-2 text-sm text-gray-400">
-            <RefreshCcw className="h-4 w-4" />
-            <span>Auto-refresh</span>
+          <div 
+            className="flex items-center gap-2 text-sm text-gray-400 cursor-pointer hover:text-white transition-colors"
+            onClick={handleRefresh}
+          >
+            <RefreshCcw className={`h-4 w-4 ${isRefreshing ? 'animate-spin' : ''}`} />
+            <span>Refresh Data</span>
           </div>
           <div className="flex items-center gap-3">
             <div className="bg-primary/20 text-primary h-8 w-8 rounded-full flex items-center justify-center font-bold">
