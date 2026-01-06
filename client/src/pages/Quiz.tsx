@@ -89,6 +89,32 @@ export default function Quiz() {
   const [score, setScore] = useState(0);
   const [, setLocation] = useLocation();
   
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (!isFinished) {
+        e.preventDefault();
+        e.returnValue = "";
+      }
+    };
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, [isFinished]);
+
+  // Handle refresh or direct access without registration
+  useEffect(() => {
+    const isRegistered = localStorage.getItem("userEmail");
+    if (!isRegistered && !isFinished) {
+      setLocation("/");
+    }
+    
+    // Detect refresh by checking performance navigation type
+    const navEntries = performance.getEntriesByType("navigation");
+    if (navEntries.length > 0 && (navEntries[0] as PerformanceNavigationTiming).type === "reload") {
+      localStorage.removeItem("userEmail"); // Clear registration on refresh
+      setLocation("/");
+    }
+  }, [setLocation, isFinished]);
+
   const submitQuiz = useSubmitQuiz();
 
   const currentQuestion = QUESTIONS[currentStep];
@@ -143,10 +169,15 @@ export default function Quiz() {
     // Submit to backend
     try {
       const email = localStorage.getItem("userEmail");
+      const name = localStorage.getItem("userName");
+      const number = localStorage.getItem("userNumber");
+      
       await submitQuiz.mutateAsync({
         answers: answers,
         score: calculatedScore,
-        email: email || undefined // Send email if available
+        email: email || undefined,
+        name: name || undefined,
+        number: number || undefined
       } as any);
     } catch (e) {
       console.error("Submission failed", e);

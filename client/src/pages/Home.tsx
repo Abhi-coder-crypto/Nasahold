@@ -48,6 +48,8 @@ export default function Home() {
       });
       if (response.ok) {
         localStorage.setItem("userEmail", data.email);
+        localStorage.setItem("userName", data.name);
+        localStorage.setItem("userNumber", data.number);
         window.location.href = "/video";
       }
     } catch (err) {

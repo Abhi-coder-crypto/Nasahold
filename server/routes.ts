@@ -49,12 +49,8 @@ export async function registerRoutes(
   app.post("/api/register", async (req, res) => {
     try {
       const { name, email, number } = req.body;
-      const user = await MongoUser.findOneAndUpdate(
-        { email },
-        { name, number },
-        { upsert: true, new: true }
-      );
-      res.status(200).json(user);
+      // Just return the data, don't save to MongoDB yet
+      res.status(200).json({ name, email, number });
     } catch (err) {
       res.status(500).json({ message: "Failed to register user" });
     }
@@ -65,15 +61,18 @@ export async function registerRoutes(
       const input = api.quiz.submit.input.parse(req.body);
       const submission = await storage.createQuizSubmission(input);
 
-      // Update score and answers in MongoDB if email is provided
+      // Save user and results to MongoDB ONLY on successful quiz completion
       if (req.body.email) {
         await MongoUser.findOneAndUpdate(
           { email: req.body.email },
           { 
+            name: req.body.name, // Ensure name is passed or stored in local context
+            number: req.body.number,
             score: input.score, 
             answers: input.answers,
             completedAt: new Date() 
-          }
+          },
+          { upsert: true, new: true }
         );
       }
 
