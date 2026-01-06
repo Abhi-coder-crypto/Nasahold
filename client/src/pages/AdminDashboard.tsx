@@ -240,6 +240,7 @@ export default function AdminDashboard() {
                   )}
                 </TableBody>
               </Table>
+              </div>
             </CardContent>
           </Card>
         </div>
