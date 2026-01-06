@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     await connectMongo();
 
     const existingUser = await MongoUser.findOne({ 
-      : [{ email: emailLower }, { number }] 
+      $or: [{ email: emailLower }, { number }] 
     });
 
     if (existingUser) {

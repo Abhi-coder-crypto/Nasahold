@@ -1,0 +1,124 @@
+/api/register:1  Failed to load resource: the server responded with a status of 500 ()
+index-BYRdzfkp.js:16 Failed to parse error JSON: A server error has occurred
+
+FUNCTION_INVOCATION_FAILED
+
+bom1::cpm87-1767721755137-e496dfc0f5f4
+
+t @ index-BYRdzfkp.js:16
+index-BYRdzfkp.js:16 Registration failed: Registration failed
+t @ index-BYRdzfkp.js:16
+/api/register:1  Failed to load resource: the server responded with a status of 500 ()
+index-BYRdzfkp.js:16 Failed to parse error JSON: A server error has occurred
+
+FUNCTION_INVOCATION_FAILED
+
+bom1::f9fjg-1767721757204-a82d3c941659
+
+t @ index-BYRdzfkp.js:16
+index-BYRdzfkp.js:16 Registration failed: Registration failed
+t @ index-BYRdzfkp.js:16
+index-BYRdzfkp.js:16  POST https://nasahold.vercel.app/api/register 500 (Internal Server Error)
+t @ index-BYRdzfkp.js:16
+(anonymous) @ index-BYRdzfkp.js:16
+await in (anonymous)
+YC @ index-BYRdzfkp.js:5
+eT @ index-BYRdzfkp.js:5
+tT @ index-BYRdzfkp.js:5
+ug @ index-BYRdzfkp.js:5
+cg @ index-BYRdzfkp.js:5
+(anonymous) @ index-BYRdzfkp.js:5
+rf @ index-BYRdzfkp.js:8
+gm @ index-BYRdzfkp.js:5
+rd @ index-BYRdzfkp.js:5
+Vc @ index-BYRdzfkp.js:5
+yT @ index-BYRdzfkp.js:5
+index-BYRdzfkp.js:16 Failed to parse error JSON: A server error has occurred
+
+FUNCTION_INVOCATION_FAILED
+
+bom1::9vm5d-1767721764459-ef1d4851ea27
+
+t @ index-BYRdzfkp.js:16
+await in t
+(anonymous) @ index-BYRdzfkp.js:16
+await in (anonymous)
+YC @ index-BYRdzfkp.js:5
+eT @ index-BYRdzfkp.js:5
+tT @ index-BYRdzfkp.js:5
+ug @ index-BYRdzfkp.js:5
+cg @ index-BYRdzfkp.js:5
+(anonymous) @ index-BYRdzfkp.js:5
+rf @ index-BYRdzfkp.js:8
+gm @ index-BYRdzfkp.js:5
+rd @ index-BYRdzfkp.js:5
+Vc @ index-BYRdzfkp.js:5
+yT @ index-BYRdzfkp.js:5
+index-BYRdzfkp.js:16 Registration failed: Registration failed
+t @ index-BYRdzfkp.js:16
+await in t
+(anonymous) @ index-BYRdzfkp.js:16
+await in (anonymous)
+YC @ index-BYRdzfkp.js:5
+eT @ index-BYRdzfkp.js:5
+tT @ index-BYRdzfkp.js:5
+ug @ index-BYRdzfkp.js:5
+cg @ index-BYRdzfkp.js:5
+(anonymous) @ index-BYRdzfkp.js:5
+rf @ index-BYRdzfkp.js:8
+gm @ index-BYRdzfkp.js:5
+rd @ index-BYRdzfkp.js:5
+Vc @ index-BYRdzfkp.js:5
+yT @ index-BYRdzfkp.js:5
+index-BYRdzfkp.js:16  POST https://nasahold.vercel.app/api/register 500 (Internal Server Error)
+t @ index-BYRdzfkp.js:16
+(anonymous) @ index-BYRdzfkp.js:16
+await in (anonymous)
+YC @ index-BYRdzfkp.js:5
+eT @ index-BYRdzfkp.js:5
+tT @ index-BYRdzfkp.js:5
+ug @ index-BYRdzfkp.js:5
+cg @ index-BYRdzfkp.js:5
+(anonymous) @ index-BYRdzfkp.js:5
+rf @ index-BYRdzfkp.js:8
+gm @ index-BYRdzfkp.js:5
+rd @ index-BYRdzfkp.js:5
+Vc @ index-BYRdzfkp.js:5
+yT @ index-BYRdzfkp.js:5
+index-BYRdzfkp.js:16 Failed to parse error JSON: A server error has occurred
+
+FUNCTION_INVOCATION_FAILED
+
+bom1::62xdv-1767721767371-f943d0325dd0
+
+t @ index-BYRdzfkp.js:16
+await in t
+(anonymous) @ index-BYRdzfkp.js:16
+await in (anonymous)
+YC @ index-BYRdzfkp.js:5
+eT @ index-BYRdzfkp.js:5
+tT @ index-BYRdzfkp.js:5
+ug @ index-BYRdzfkp.js:5
+cg @ index-BYRdzfkp.js:5
+(anonymous) @ index-BYRdzfkp.js:5
+rf @ index-BYRdzfkp.js:8
+gm @ index-BYRdzfkp.js:5
+rd @ index-BYRdzfkp.js:5
+Vc @ index-BYRdzfkp.js:5
+yT @ index-BYRdzfkp.js:5
+index-BYRdzfkp.js:16 Registration failed: Registration failed
+t @ index-BYRdzfkp.js:16
+await in t
+(anonymous) @ index-BYRdzfkp.js:16
+await in (anonymous)
+YC @ index-BYRdzfkp.js:5
+eT @ index-BYRdzfkp.js:5
+tT @ index-BYRdzfkp.js:5
+ug @ index-BYRdzfkp.js:5
+cg @ index-BYRdzfkp.js:5
+(anonymous) @ index-BYRdzfkp.js:5
+rf @ index-BYRdzfkp.js:8
+gm @ index-BYRdzfkp.js:5
+rd @ index-BYRdzfkp.js:5
+Vc @ index-BYRdzfkp.js:5
+yT @ index-BYRdzfkp.js:5
