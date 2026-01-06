@@ -5,7 +5,7 @@ export function Mascot({ className }: { className?: string }) {
   return (
     <motion.div
       animate={{
-        y: [0, -15, 0],
+        y: [0, -10, 0],
       }}
       transition={{
         duration: 4,
@@ -17,7 +17,7 @@ export function Mascot({ className }: { className?: string }) {
       <img
         src={mascotImg}
         alt="Nasohold Mascot"
-        className="w-48 md:w-80 lg:w-96 object-contain drop-shadow-2xl"
+        className="w-40 md:w-72 lg:w-80 object-contain drop-shadow-2xl"
       />
     </motion.div>
   );
