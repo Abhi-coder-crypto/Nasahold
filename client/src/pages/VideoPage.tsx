@@ -32,18 +32,18 @@ export default function VideoPage() {
       </div>
 
       {/* Main Content - Centered in one view */}
-      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 py-0 -mt-8">
+      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 py-0 -mt-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="w-full max-w-2xl space-y-2"
+          className="w-full max-w-2xl space-y-4"
         >
-          <div className="text-center space-y-0">
-            <h2 className="text-lg md:text-2xl font-bold text-white">
+          <div className="text-center space-y-1 mb-2">
+            <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
               Watch & Learn
             </h2>
-            <p className="text-blue-100 text-xs md:text-sm">
+            <p className="text-blue-100 text-sm md:text-base font-medium opacity-90">
               Pay close attention to answer questions later!
             </p>
           </div>
