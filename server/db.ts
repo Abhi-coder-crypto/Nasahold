@@ -38,4 +38,10 @@ const UserSchema = new mongoose.Schema({
   completedAt: { type: Date, default: Date.now },
 });
 
+const AdminSchema = new mongoose.Schema({
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+});
+
 export const MongoUser = mongoose.models.User || mongoose.model("User", UserSchema);
+export const MongoAdmin = mongoose.models.Admin || mongoose.model("Admin", AdminSchema);

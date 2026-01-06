@@ -4,13 +4,44 @@ import type { Server } from "http";
 import { storage } from "./storage";
 import { api } from "@shared/routes";
 import { z } from "zod";
-import { MongoUser } from "./db";
+import { MongoUser, MongoAdmin } from "./db";
 import * as XLSX from "xlsx";
 
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
+  // Seed admin user
+  (async () => {
+    try {
+      const adminExists = await MongoAdmin.findOne({ username: "Nasoadmin" });
+      if (!adminExists) {
+        await MongoAdmin.create({
+          username: "Nasoadmin",
+          password: "nasohold"
+        });
+        console.log("Admin user seeded successfully");
+      }
+    } catch (err) {
+      console.error("Failed to seed admin user:", err);
+    }
+  })();
+
+  // Admin Login Route
+  app.post("/api/admin/login", async (req, res) => {
+    try {
+      const { username, password } = req.body;
+      const admin = await MongoAdmin.findOne({ username, password });
+      if (admin) {
+        res.json({ success: true });
+      } else {
+        res.status(401).json({ message: "Invalid credentials" });
+      }
+    } catch (err) {
+      res.status(500).json({ message: "Login failed" });
+    }
+  });
+
   // Admin Routes
   app.get("/api/admin/users", async (_req, res) => {
     try {
