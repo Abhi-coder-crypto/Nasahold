@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Mascot } from "@/components/Mascot";
 import { motion } from "framer-motion";
-import { Play, X, Zap, Gamepad2, Plus } from "lucide-react";
+import { X, Zap, Gamepad2, Plus } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -11,7 +11,6 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -58,61 +57,55 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#0047AB] flex flex-col overflow-hidden font-sans">
+    <div className="relative h-screen bg-[#0047AB] flex flex-col overflow-hidden font-sans">
       <Header />
+      
       {/* Background Decorative Icons */}
       <div className="absolute inset-0 pointer-events-none opacity-20">
-        <X className="absolute top-10 left-10 text-white w-8 h-8" />
+        <X className="absolute top-20 left-10 text-white w-8 h-8" />
         <Plus className="absolute top-40 right-10 text-white w-6 h-6" />
-        <Zap className="absolute top-5 left-1/2 text-yellow-400 w-6 h-6" />
+        <Zap className="absolute top-10 left-1/2 text-yellow-400 w-6 h-6" />
         <Gamepad2 className="absolute top-32 left-5 text-blue-300 w-10 h-10 -rotate-12" />
-        <div className="absolute top-20 left-1/4 w-4 h-4 border-2 border-white rounded-sm" />
-        <div className="absolute top-60 right-1/4 w-3 h-3 bg-white rotate-45" />
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col items-center px-6 relative z-10 pt-8 pb-24">
+      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 py-4">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center space-y-2 mb-8"
+          transition={{ duration: 0.6 }}
+          className="text-center space-y-1 mb-6"
         >
-          <p className="text-white text-xl md:text-2xl font-medium">Welcome to</p>
+          <p className="text-white text-lg md:text-xl font-medium">Welcome to</p>
           <div className="flex flex-col items-center">
-            <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-none">
-              Nasohold<span className="text-3xl align-top">™</span>
+            <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-none">
+              Nasohold<span className="text-2xl align-top">™</span>
             </h1>
-            <h2 className="text-4xl md:text-6xl font-bold text-white mt-1">
+            <h2 className="text-3xl md:text-5xl font-bold text-white">
               MEMORY GAME
             </h2>
           </div>
-          <p className="text-[#FFD700] text-lg md:text-2xl font-bold pt-4 max-w-xs md:max-w-md leading-tight">
+          <p className="text-[#FFD700] text-base md:text-xl font-bold pt-2 max-w-xs md:max-w-md leading-tight">
             Watch the video and test your memory to win exciting prices!!!
           </p>
         </motion.div>
 
-        {/* Mascot Positioned at the bottom left relative to content */}
-        <div className="absolute bottom-24 left-10 z-30 pointer-events-none hidden lg:block">
-          <Mascot className="scale-125" />
-        </div>
-
-        {/* Mobile Mascot */}
-        <div className="lg:hidden mb-6">
-           <Mascot className="scale-90" />
+        {/* Mascot Positioned left-ish but not overlapping form */}
+        <div className="absolute left-[5%] bottom-[20%] z-30 pointer-events-none hidden lg:block">
+          <Mascot className="scale-110" />
         </div>
 
         {/* Form Container */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full max-w-sm mb-8 z-20"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="w-full max-w-sm z-20"
         >
           <Card className="border-none shadow-2xl bg-white/10 backdrop-blur-md">
             <CardContent className="pt-6">
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
                   <FormField
                     control={form.control}
                     name="name"
@@ -122,7 +115,7 @@ export default function Home() {
                           <Input
                             placeholder="Full Name"
                             {...field}
-                            className="h-12 bg-white text-gray-900 placeholder:text-gray-400"
+                            className="h-10 bg-white text-gray-900 placeholder:text-gray-400"
                           />
                         </FormControl>
                         <FormMessage />
@@ -139,7 +132,7 @@ export default function Home() {
                             placeholder="Email Address"
                             type="email"
                             {...field}
-                            className="h-12 bg-white text-gray-900 placeholder:text-gray-400"
+                            className="h-10 bg-white text-gray-900 placeholder:text-gray-400"
                           />
                         </FormControl>
                         <FormMessage />
@@ -155,7 +148,7 @@ export default function Home() {
                           <Input
                             placeholder="Phone Number"
                             {...field}
-                            className="h-12 bg-white text-gray-900 placeholder:text-gray-400"
+                            className="h-10 bg-white text-gray-900 placeholder:text-gray-400"
                           />
                         </FormControl>
                         <FormMessage />
@@ -164,7 +157,7 @@ export default function Home() {
                   />
                   <Button
                     type="submit"
-                    className="w-full h-12 bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] font-bold text-lg rounded-md shadow-lg transition-all active:scale-[0.98]"
+                    className="w-full h-11 bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] font-bold text-lg rounded-md shadow-lg transition-all active:scale-[0.98]"
                   >
                     REGISTER TO PLAY
                   </Button>
@@ -175,21 +168,18 @@ export default function Home() {
         </motion.div>
       </main>
 
-      {/* Bottom White Wave Area */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-white rounded-t-[3rem] z-0 flex items-center justify-center">
-        <div className="relative w-full h-full flex flex-col items-center justify-center">
-           {/* Decorative elements at bottom */}
-           <div className="absolute top-0 left-0 right-0 flex justify-between px-10 pointer-events-none translate-y-[-50%]">
-              <div className="w-10 h-10 border-2 border-pink-400 rotate-12 rounded-sm" />
-              <div className="w-8 h-8 border-2 border-blue-400 -rotate-12 rounded-full" />
-           </div>
-           
-           <div className="text-center pt-8">
-              <h3 className="text-[#0047AB] text-3xl md:text-4xl font-bold flex items-center justify-center">
-                Nasohold<span className="text-sm align-top">™</span>
-              </h3>
-              <p className="text-[#0047AB] text-sm md:text-base font-semibold">Nasal Sprays</p>
-           </div>
+      {/* Bottom Area - Compressed */}
+      <div className="h-32 bg-white rounded-t-[3rem] relative z-0 flex items-center justify-center mt-auto">
+        <div className="text-center">
+          <h3 className="text-[#0047AB] text-2xl md:text-3xl font-bold flex items-center justify-center">
+            Nasohold<span className="text-xs align-top">™</span>
+          </h3>
+          <p className="text-[#0047AB] text-xs md:text-sm font-semibold">Nasal Sprays</p>
+        </div>
+        
+        {/* Mobile Mascot - repositioned to avoid overlap */}
+        <div className="lg:hidden absolute -top-16 left-1/2 -translate-x-1/2 scale-75">
+           <Mascot />
         </div>
       </div>
     </div>
