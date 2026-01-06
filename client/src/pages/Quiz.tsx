@@ -217,6 +217,15 @@ export default function Quiz() {
       <Header />
       
       <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 py-0 -mt-20">
+        {/* Progress Chart and Question Number at the top */}
+        <div className="w-full max-w-2xl mb-8 space-y-2">
+          <div className="flex justify-between items-end text-white">
+            <span className="text-sm font-medium opacity-80 uppercase tracking-wider">Question {currentStep + 1} of {QUESTIONS.length}</span>
+            <span className="text-2xl font-bold">{Math.round(progress)}%</span>
+          </div>
+          <Progress value={progress} className="h-2 bg-white/20" />
+        </div>
+
         <AnimatePresence mode="wait">
           <motion.div
             key={currentStep}
@@ -267,18 +276,16 @@ export default function Quiz() {
                 })}
               </div>
 
-              {currentQuestion.type === "multiple" && (
-                <div className="mt-8 flex justify-end">
-                  <Button 
-                    onClick={handleNext}
-                    disabled={!canProceed}
-                    size="lg"
-                    className="h-12 px-8 text-lg font-bold rounded-full bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] shadow-xl"
-                  >
-                    Next <ChevronRight className="ml-2 w-5 h-5" />
-                  </Button>
-                </div>
-              )}
+              <div className="mt-8 flex justify-end">
+                <Button 
+                  onClick={handleNext}
+                  disabled={!canProceed}
+                  size="lg"
+                  className="h-12 px-8 text-lg font-bold rounded-full bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] shadow-xl"
+                >
+                  Next <ChevronRight className="ml-2 w-5 h-5" />
+                </Button>
+              </div>
             </div>
           </motion.div>
         </AnimatePresence>
@@ -320,7 +327,7 @@ export default function Quiz() {
           <div className="py-6 text-center space-y-2">
             <p className="text-muted-foreground uppercase tracking-wider text-sm font-semibold">Your Final Score</p>
             <p className="text-6xl font-bold text-primary">
-              {score}<span className="text-2xl text-muted-foreground">/5</span>
+              {score}<span className="text-2xl text-muted-foreground">/7</span>
             </p>
             {submitQuiz.isPending && (
               <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground pt-4">
