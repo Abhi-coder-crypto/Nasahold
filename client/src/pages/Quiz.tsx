@@ -142,10 +142,12 @@ export default function Quiz() {
 
     // Submit to backend
     try {
+      const email = localStorage.getItem("userEmail");
       await submitQuiz.mutateAsync({
         answers: answers,
-        score: calculatedScore
-      });
+        score: calculatedScore,
+        email: email || undefined // Send email if available
+      } as any);
     } catch (e) {
       console.error("Submission failed", e);
     }
