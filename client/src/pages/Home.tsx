@@ -94,7 +94,7 @@ export default function Home() {
         </motion.div>
 
         {/* Mascot Positioned left-ish but not overlapping form */}
-        <div className="absolute left-[5%] bottom-[5%] z-30 pointer-events-none hidden lg:block">
+        <div className="absolute left-[5%] bottom-[2%] z-30 pointer-events-none hidden lg:block">
           <Mascot className="scale-75" />
         </div>
 
@@ -179,7 +179,7 @@ export default function Home() {
       </main>
 
       {/* Mobile Mascot - repositioned above the white footer area */}
-      <div className="lg:hidden absolute bottom-10 left-1/2 -translate-x-1/2 scale-[0.6] z-20">
+      <div className="lg:hidden absolute bottom-6 left-1/2 -translate-x-1/2 scale-[0.6] z-20">
          <Mascot />
       </div>
 
