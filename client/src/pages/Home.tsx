@@ -72,30 +72,30 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 pt-4 pb-12">
+      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 pt-2 pb-8">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center space-y-1 mb-4 mt-8"
+          className="text-center space-y-0.5 mb-2 mt-2"
         >
-          <p className="text-white text-lg md:text-xl font-medium">Welcome to</p>
+          <p className="text-white text-base md:text-lg font-medium">Welcome to</p>
           <div className="flex flex-col items-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-none">
-              Nasohold<span className="text-2xl align-top">™</span>
+            <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight leading-none">
+              Nasohold<span className="text-xl align-top">™</span>
             </h1>
-            <h2 className="text-3xl md:text-5xl font-bold text-white">
+            <h2 className="text-2xl md:text-4xl font-bold text-white">
               MEMORY GAME
             </h2>
           </div>
-          <p className="text-[#FFD700] text-base md:text-xl font-bold pt-2 max-w-xs md:max-w-md leading-tight">
+          <p className="text-[#FFD700] text-sm md:text-lg font-bold pt-1 max-w-xs md:max-w-md leading-tight">
             Watch the video and test your memory to win exciting prices!!!
           </p>
         </motion.div>
 
         {/* Mascot Positioned left-ish but not overlapping form */}
-        <div className="absolute left-[5%] -bottom-[5%] z-30 pointer-events-none hidden lg:block">
-          <Mascot className="scale-110" />
+        <div className="absolute left-[2%] bottom-[10%] z-30 pointer-events-none hidden lg:block">
+          <Mascot className="scale-90" />
         </div>
 
         {/* Form Container */}
@@ -106,22 +106,22 @@ export default function Home() {
           className="w-full max-w-sm z-20"
         >
           <Card className="border-none shadow-2xl bg-white/10 backdrop-blur-md">
-            <CardContent className="pt-6">
+            <CardContent className="pt-4 pb-4">
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
                   <FormField
                     control={form.control}
                     name="name"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="space-y-1">
                         <FormControl>
                           <Input
                             placeholder="Full Name"
                             {...field}
-                            className="h-10 bg-white text-gray-900 placeholder:text-gray-400"
+                            className="h-9 bg-white text-gray-900 placeholder:text-gray-400"
                           />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="text-[10px]" />
                       </FormItem>
                     )}
                   />
@@ -129,16 +129,16 @@ export default function Home() {
                     control={form.control}
                     name="email"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="space-y-1">
                         <FormControl>
                           <Input
                             placeholder="Email Address"
                             type="email"
                             {...field}
-                            className="h-10 bg-white text-gray-900 placeholder:text-gray-400"
+                            className="h-9 bg-white text-gray-900 placeholder:text-gray-400"
                           />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="text-[10px]" />
                       </FormItem>
                     )}
                   />
@@ -146,7 +146,7 @@ export default function Home() {
                     control={form.control}
                     name="number"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="space-y-1">
                         <FormControl>
                           <Input
                             placeholder="Phone Number"
@@ -158,16 +158,16 @@ export default function Home() {
                                 field.onChange(value);
                               }
                             }}
-                            className="h-10 bg-white text-gray-900 placeholder:text-gray-400"
+                            className="h-9 bg-white text-gray-900 placeholder:text-gray-400"
                           />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="text-[10px]" />
                       </FormItem>
                     )}
                   />
                   <Button
                     type="submit"
-                    className="w-full h-11 bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] font-bold text-lg rounded-md shadow-lg transition-all active:scale-[0.98]"
+                    className="w-full h-10 bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] font-bold text-base rounded-md shadow-lg transition-all active:scale-[0.98]"
                   >
                     REGISTER TO PLAY
                   </Button>
