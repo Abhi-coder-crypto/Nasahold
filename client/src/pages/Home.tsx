@@ -179,7 +179,7 @@ export default function Home() {
       </main>
 
       {/* Mobile Mascot - repositioned above the white footer area */}
-      <div className="lg:hidden absolute bottom-24 left-1/2 -translate-x-1/2 scale-[0.7] z-20">
+      <div className="lg:hidden absolute bottom-20 left-1/2 -translate-x-1/2 scale-[0.7] z-20">
          <Mascot />
       </div>
 
