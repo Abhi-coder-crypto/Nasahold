@@ -23,9 +23,6 @@
       "dest": "dist/public/assets/$1"
     },
     {
-      "handle": "filesystem"
-    },
-    {
       "src": "/(.*)",
       "dest": "dist/public/index.html"
     }
