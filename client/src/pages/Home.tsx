@@ -36,9 +36,20 @@ export default function Home() {
     },
   });
 
-  const onSubmit = (data: LoginFormValues) => {
-    console.log("Form submitted:", data);
-    // Future integration with MongoDB
+  const onSubmit = async (data: LoginFormValues) => {
+    try {
+      const response = await fetch("/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        localStorage.setItem("userEmail", data.email);
+        window.location.href = "/video";
+      }
+    } catch (err) {
+      console.error("Registration failed:", err);
+    }
   };
 
   return (
