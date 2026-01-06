@@ -3,7 +3,7 @@ import { Link } from "wouter";
 
 export function Header() {
   return (
-    <header className="w-full py-4 px-6 md:px-12 flex justify-start items-center sticky top-0 z-50 bg-white/50 backdrop-blur-sm border-b border-white/20">
+    <header className="w-full py-4 px-6 md:px-12 flex justify-center items-center sticky top-0 z-50 bg-white/50 backdrop-blur-sm border-b border-white/20">
       <Link href="/">
         <div className="relative group cursor-pointer">
           <img
