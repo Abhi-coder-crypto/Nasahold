@@ -33,24 +33,26 @@ app.use((req, res, next) => {
   }
   
   const distPath = path.resolve(process.cwd(), "dist", "public");
-  const filePath = path.join(distPath, req.path);
   
+  // Try to serve static files first
+  const filePath = path.join(distPath, req.path);
   if (fs.existsSync(filePath) && fs.lstatSync(filePath).isFile()) {
     return res.sendFile(filePath);
   }
 
+  // Fallback to index.html for SPA routes
   const indexPage = path.join(distPath, "index.html");
   if (fs.existsSync(indexPage)) {
-    res.sendFile(indexPage);
-  } else {
-    // Fallback for dev or missing build
-    const clientIndex = path.resolve(process.cwd(), "client", "index.html");
-    if (fs.existsSync(clientIndex)) {
-      res.sendFile(clientIndex);
-    } else {
-      next();
-    }
+    return res.sendFile(indexPage);
   }
+  
+  // Final fallback to client index (for dev or if build is missing)
+  const clientIndex = path.resolve(process.cwd(), "client", "index.html");
+  if (fs.existsSync(clientIndex)) {
+    return res.sendFile(clientIndex);
+  }
+  
+  next();
 });
 
 // Production specific listener
