@@ -36,8 +36,29 @@ app.use((req, res, next) => {
     return next();
   }
   
-  // In Vercel, static files are handled by the 'routes' config in vercel.json
-  // If the request reaches here, it's either an API call or a missed static file
+  // Vercel deployment path for static files is often in /var/task/dist/public
+  const distPath = path.resolve(process.cwd(), "dist", "public");
+  
+  // Try to serve static files first
+  if (req.path.includes(".")) {
+    const filePath = path.join(distPath, req.path);
+    if (fs.existsSync(filePath) && fs.lstatSync(filePath).isFile()) {
+      return res.sendFile(filePath);
+    }
+  }
+
+  // Fallback to index.html for all other routes (SPA)
+  const indexPage = path.join(distPath, "index.html");
+  if (fs.existsSync(indexPage)) {
+    return res.sendFile(indexPage);
+  }
+  
+  // Final fallback to client index for local development
+  const clientIndex = path.resolve(process.cwd(), "client", "index.html");
+  if (fs.existsSync(clientIndex)) {
+    return res.sendFile(clientIndex);
+  }
+  
   res.status(404).send("Not Found");
 });
 
