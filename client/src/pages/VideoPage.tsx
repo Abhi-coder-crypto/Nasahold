@@ -75,17 +75,17 @@ export default function VideoPage() {
         </div>
       </main>
 
-      {/* Bottom Area - Compressed */}
-      <div className="h-32 bg-white rounded-t-[3rem] relative z-0 flex items-center justify-center mt-auto">
+      {/* Bottom White Area - Further Compressed */}
+      <div className="h-16 bg-white rounded-t-[2rem] relative z-0 flex items-center justify-center mt-auto">
         <div className="text-center">
-          <h3 className="text-[#0047AB] text-2xl md:text-3xl font-bold">
-            Nasohold<span className="text-xs align-top">™</span>
+          <h3 className="text-[#0047AB] text-lg md:text-xl font-bold">
+            Nasohold<span className="text-[10px] align-top">™</span>
           </h3>
-          <p className="text-[#0047AB] text-xs md:text-sm font-semibold">Nasal Sprays</p>
+          <p className="text-[#0047AB] text-[10px] md:text-xs font-semibold">Nasal Sprays</p>
         </div>
         
         {/* Mobile Mascot */}
-        <div className="lg:hidden absolute -top-16 left-1/2 -translate-x-1/2 scale-75">
+        <div className="lg:hidden absolute -top-12 left-1/2 -translate-x-1/2 scale-[0.6]">
            <Mascot />
         </div>
       </div>
