@@ -70,7 +70,7 @@ export default function VideoPage() {
         </motion.div>
 
         {/* Mascot Positioned left */}
-        <div className="absolute left-[5%] bottom-0 z-30 pointer-events-none hidden lg:block">
+        <div className="absolute left-[5%] -bottom-[5%] z-30 pointer-events-none hidden lg:block">
           <Mascot className="scale-110" />
         </div>
       </main>
