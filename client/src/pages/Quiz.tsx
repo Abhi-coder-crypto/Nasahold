@@ -298,7 +298,7 @@ export default function Quiz() {
         </div>
         
         {/* Mascot - positioned like in the image */}
-        <div className="absolute right-[10%] -top-24 pointer-events-none">
+        <div className="absolute right-[5%] -top-20 pointer-events-none">
            <Mascot className="scale-[0.8]" />
         </div>
 
