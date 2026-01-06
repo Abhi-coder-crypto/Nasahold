@@ -20,35 +20,35 @@ export default function VideoPage() {
         <Gamepad2 className="absolute top-32 left-5 text-blue-300 w-10 h-10 -rotate-12" />
       </div>
 
-      <div className="px-4 py-2 flex justify-start items-center relative z-20">
+      <div className="px-4 flex justify-start items-center relative z-20 h-6">
         <Button
           variant="ghost"
           size="sm"
           onClick={() => setLocation("/")}
-          className="text-white hover:bg-white/10 h-8"
+          className="text-white hover:bg-white/10 h-6"
         >
-          <ArrowLeft className="mr-1 h-4 w-4" /> Back
+          <ArrowLeft className="mr-1 h-3 w-3" /> Back
         </Button>
       </div>
 
       {/* Main Content - Centered in one view */}
-      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 py-2">
+      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 py-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="w-full max-w-3xl space-y-4"
+          className="w-full max-w-2xl space-y-2"
         >
-          <div className="text-center space-y-1">
-            <h2 className="text-xl md:text-3xl font-bold text-white">
+          <div className="text-center space-y-0">
+            <h2 className="text-lg md:text-2xl font-bold text-white">
               Watch & Learn
             </h2>
-            <p className="text-blue-100 text-sm md:text-base">
+            <p className="text-blue-100 text-xs md:text-sm">
               Pay close attention to answer questions later!
             </p>
           </div>
 
-          <div className="aspect-video w-full max-h-[50vh] rounded-xl overflow-hidden shadow-2xl border-4 border-white bg-black mx-auto">
+          <div className="aspect-video w-full max-h-[45vh] rounded-xl overflow-hidden shadow-2xl border-4 border-white bg-black mx-auto">
             <iframe
               width="100%"
               height="100%"
@@ -60,18 +60,18 @@ export default function VideoPage() {
             ></iframe>
           </div>
 
-          <div className="flex justify-center pt-2">
+          <div className="flex justify-center pt-1">
             <Link href="/quiz">
-              <Button size="lg" className="h-12 px-8 text-lg font-bold rounded-full bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] shadow-xl transition-all active:scale-95 group">
-                START GAME <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <Button size="lg" className="h-10 px-6 text-base font-bold rounded-full bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] shadow-xl transition-all active:scale-95 group">
+                START GAME <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
           </div>
         </motion.div>
 
         {/* Mascot Positioned left */}
-        <div className="absolute left-[5%] -bottom-[5%] z-30 pointer-events-none hidden lg:block">
-          <Mascot className="scale-110" />
+        <div className="absolute left-[5%] -bottom-[8%] z-30 pointer-events-none hidden lg:block">
+          <Mascot className="scale-100" />
         </div>
       </main>
 
