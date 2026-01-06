@@ -19,7 +19,10 @@ import { Header } from "@/components/Header";
 
 const loginSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Invalid email address"),
+  email: z
+    .string()
+    .email("Invalid email address")
+    .endsWith("@gmail.com", "Only Gmail addresses are allowed"),
   number: z
     .string()
     .length(10, "Phone number must be exactly 10 digits")
