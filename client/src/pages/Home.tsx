@@ -56,6 +56,13 @@ export default function Home() {
         localStorage.setItem("userName", data.name);
         localStorage.setItem("userNumber", data.number);
         window.location.href = "/video";
+      } else {
+        const errorData = await response.json();
+        if (response.status === 409) {
+          form.setError("email", { message: "Email or Phone number already registered" });
+        } else {
+          console.error("Registration failed:", errorData.message);
+        }
       }
     } catch (err) {
       console.error("Registration failed:", err);

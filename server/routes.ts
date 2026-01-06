@@ -49,7 +49,16 @@ export async function registerRoutes(
   app.post("/api/register", async (req, res) => {
     try {
       const { name, email, number } = req.body;
-      // Just return the data, don't save to MongoDB yet
+      
+      // Check if user already exists in MongoDB
+      const existingUser = await MongoUser.findOne({ 
+        $or: [{ email: email.toLowerCase() }, { number }] 
+      });
+
+      if (existingUser) {
+        return res.status(409).json({ message: "Email or Phone number already registered" });
+      }
+
       res.status(200).json({ name, email, number });
     } catch (err) {
       res.status(500).json({ message: "Failed to register user" });

@@ -5,6 +5,9 @@ import { z } from "zod";
 
 export const quizSubmissions = pgTable("quiz_submissions", {
   id: serial("id").primaryKey(),
+  name: text("name"),
+  email: text("email").unique(),
+  number: text("number").unique(),
   answers: jsonb("answers").notNull(), // Store answers as JSON
   score: integer("score").notNull(),
   createdAt: timestamp("created_at").defaultNow(),

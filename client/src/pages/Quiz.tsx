@@ -143,8 +143,7 @@ export default function Quiz() {
 
   const handleSelect = (option: string) => {
     if (currentQuestion.type === "single") {
-      if (answers[currentQuestion.id]) return; // Prevent multiple selections for single choice
-      
+      // Allow changing selection
       setAnswers(prev => ({ ...prev, [currentQuestion.id]: option }));
       
       // Check if correct
