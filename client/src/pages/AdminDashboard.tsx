@@ -241,15 +241,15 @@ export default function AdminDashboard() {
         </div>
       </main>
 
-      {/* Details Dialog */}
       <Dialog open={!!selectedUser} onOpenChange={() => setSelectedUser(null)}>
-        <DialogContent className="max-w-2xl bg-white">
-          <DialogHeader>
+        <DialogContent className="max-w-2xl bg-white p-0 overflow-hidden flex flex-col max-h-[90vh]">
+          <DialogHeader className="p-6 pb-4 border-b bg-white">
             <DialogTitle className="text-xl font-bold text-[#1A1C2E]">
               Participant Details: {selectedUser?.name}
             </DialogTitle>
           </DialogHeader>
-          <div className="grid grid-cols-2 gap-4 mb-6">
+          <div className="flex-1 overflow-y-auto p-6">
+            <div className="grid grid-cols-2 gap-4 mb-6">
             <div className="p-3 bg-slate-50 rounded-lg">
               <p className="text-xs text-gray-500 uppercase font-semibold">Email</p>
               <p className="text-sm font-medium">{selectedUser?.email}</p>
@@ -286,7 +286,7 @@ export default function AdminDashboard() {
                 </div>
               ))}
             </div>
-          </ScrollArea>
+          </div>
         </DialogContent>
       </Dialog>
     </div>
