@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Mascot } from "@/components/Mascot";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 
 export default function Home() {
   return (
@@ -38,9 +38,9 @@ export default function Home() {
 
           {/* CTA */}
           <div className="pt-2">
-            <Link href="/quiz">
-              <Button size="lg" className="h-12 md:h-14 px-6 md:px-8 text-base md:text-lg rounded-full shadow-lg shadow-primary/20 transition-all hover:shadow-xl hover:shadow-primary/30 active:scale-95">
-                Start Game <ArrowRight className="ml-2 h-5 md:h-6 w-5 md:w-6" />
+            <Link href="/video">
+              <Button size="lg" className="h-12 md:h-14 px-6 md:px-8 text-base md:text-lg rounded-full shadow-lg shadow-primary/20 transition-all hover:shadow-xl hover:shadow-primary/30 active:scale-95 group">
+                Watch Video <Play className="ml-2 h-5 md:h-6 w-5 md:w-6 fill-current" />
               </Button>
             </Link>
           </div>
