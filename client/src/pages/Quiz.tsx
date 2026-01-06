@@ -123,14 +123,6 @@ export default function Quiz() {
   const handleSelect = (option: string) => {
     if (currentQuestion.type === "single") {
       setAnswers(prev => ({ ...prev, [currentQuestion.id]: option }));
-      // Automatically proceed for single choice after a short delay for feedback
-      setTimeout(() => {
-        if (currentStep < QUESTIONS.length - 1) {
-          setCurrentStep(prev => prev + 1);
-        } else {
-          finishQuiz();
-        }
-      }, 300);
     } else {
       // Multiple select logic
       const current = (answers[currentQuestion.id] as string[]) || [];
@@ -254,7 +246,6 @@ export default function Quiz() {
                     <button
                       key={idx}
                       onClick={() => handleSelect(option)}
-                      disabled={isAnswered && currentQuestion.type === "single"}
                       className={`
                         w-full text-left p-4 md:p-5 rounded-full border-2 transition-all duration-200 flex items-center group
                         ${isSelected 
@@ -265,9 +256,15 @@ export default function Quiz() {
                         ${isWrong ? "ring-2 ring-red-400" : ""}
                       `}
                     >
-                      <span className={`text-xl md:text-2xl font-bold mr-3 ${isSelected ? "text-yellow-400" : "text-cyan-300"}`}>
-                        {label}.
-                      </span>
+                      {currentQuestion.type === "multiple" ? (
+                        <div className={`w-6 h-6 rounded border-2 mr-3 flex items-center justify-center transition-colors ${isSelected ? "bg-yellow-400 border-yellow-400" : "border-cyan-300"}`}>
+                          {isSelected && <Check className="w-4 h-4 text-[#0047AB]" />}
+                        </div>
+                      ) : (
+                        <span className={`text-xl md:text-2xl font-bold mr-3 ${isSelected ? "text-yellow-400" : "text-cyan-300"}`}>
+                          {label}.
+                        </span>
+                      )}
                       <span className={`text-xl md:text-2xl font-bold text-white`}>
                         {option}
                       </span>
@@ -361,7 +358,7 @@ export default function Quiz() {
               </div>
               
               {/* Result Mascot */}
-              <div className="absolute right-[5%] -top-40 pointer-events-none w-48 h-48">
+              <div className="absolute right-[2%] -top-40 pointer-events-none w-48 h-48">
                  <Mascot className="scale-125" />
               </div>
 
