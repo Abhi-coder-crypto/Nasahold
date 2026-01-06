@@ -1,6 +1,6 @@
 
 import { z } from 'zod';
-import { insertQuizSubmissionSchema, quizSubmissions } from './schema';
+import { insertQuizSubmissionSchema, quizSubmissions } from './schema.js';
 
 export const errorSchemas = {
   validation: z.object({
