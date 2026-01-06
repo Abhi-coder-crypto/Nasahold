@@ -1,16 +1,15 @@
-import express from "express";
+import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes.js";
 import { createServer } from "http";
 import { connectMongo } from "./db.js";
 
 const app = express();
-const httpServer = createServer(app);
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Initialize DB and Routes
 (async () => {
+  const httpServer = createServer(app);
   try {
     await connectMongo();
     await registerRoutes(httpServer, app);
@@ -19,17 +18,16 @@ app.use(express.urlencoded({ extended: false }));
   }
 })();
 
-// Initial Health check
+// Health check endpoint
 app.get("/api/health", (_req, res) => {
   res.json({ status: "ok" });
 });
 
-// Production specific listener
-if (process.env.NODE_ENV !== "production" && !process.env.VERCEL) {
-  const port = parseInt(process.env.PORT || "5000", 10);
-  httpServer.listen(port, "0.0.0.0", () => {
-    console.log(`serving on port ${port}`);
-  });
-}
+// Error handling middleware
+app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
+  const status = err.status || err.statusCode || 500;
+  const message = err.message || "Internal Server Error";
+  res.status(status).json({ message });
+});
 
 export default app;
