@@ -313,37 +313,66 @@ export default function Quiz() {
 
       {/* Result Dialog */}
       <Dialog open={isFinished} onOpenChange={(open) => !open && setLocation("/")}>
-        <DialogContent className="sm:max-w-md bg-white/95 backdrop-blur-xl border-white/20 shadow-2xl">
-          <DialogHeader className="flex flex-col items-center text-center space-y-4 pt-6">
-            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-2">
-              <Trophy className="w-10 h-10 text-green-600" />
+        <DialogContent className="max-w-md p-0 overflow-hidden bg-transparent border-none shadow-none">
+          <div className="relative w-full aspect-[9/16] md:aspect-auto md:h-[85vh] bg-[#0047AB] flex flex-col overflow-hidden font-sans">
+            {/* Background Decorative Icons */}
+            <div className="absolute inset-0 pointer-events-none opacity-20">
+              <X className="absolute top-20 left-10 text-white w-8 h-8" />
+              <Plus className="absolute top-40 right-10 text-white w-6 h-6" />
+              <Zap className="absolute top-10 left-1/2 text-yellow-400 w-6 h-6" />
+              <Gamepad2 className="absolute top-32 left-5 text-blue-300 w-10 h-10 -rotate-12" />
             </div>
-            <DialogTitle className="text-3xl font-display text-secondary">Congratulations!</DialogTitle>
-            <DialogDescription className="text-lg text-center">
-              You have successfully completed the Nasohold knowledge challenge.
-            </DialogDescription>
-          </DialogHeader>
 
-          <div className="py-6 text-center space-y-2">
-            <p className="text-muted-foreground uppercase tracking-wider text-sm font-semibold">Your Final Score</p>
-            <p className="text-6xl font-bold text-primary">
-              {score}<span className="text-2xl text-muted-foreground">/7</span>
-            </p>
-            {submitQuiz.isPending && (
-              <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground pt-4">
-                <Loader2 className="animate-spin h-4 w-4" /> Saving results...
+            <Header />
+
+            <main className="flex-1 flex flex-col items-center justify-start px-6 relative z-10 pt-8 text-center">
+              <p className="text-[#FFD700] text-xl font-bold uppercase tracking-widest mb-2">THANK YOU FOR PLAYING</p>
+              
+              <div className="mb-8">
+                <p className="text-white text-sm font-medium opacity-80 uppercase tracking-widest">THE</p>
+                <h1 className="text-5xl font-bold text-white tracking-tight leading-none">
+                  Nasohold<span className="text-2xl align-top">™</span>
+                </h1>
+                <p className="text-white text-xl font-bold tracking-widest">MEMORY GAME</p>
               </div>
-            )}
-          </div>
 
-          <DialogFooter className="sm:justify-center pb-4">
-            <Button 
-              onClick={() => setLocation("/")} 
-              className="w-full sm:w-auto px-8 py-6 text-lg rounded-xl"
-            >
-              Back to Home
-            </Button>
-          </DialogFooter>
+              {/* Score Badge */}
+              <div className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full py-3 px-8 mb-8 shadow-xl border-2 border-white/20">
+                <p className="text-white text-3xl font-bold">
+                  Your Score: <span className="text-yellow-300">{score} / 7</span>
+                </p>
+              </div>
+
+              <div className="space-y-2 mb-8">
+                <h2 className="text-[#FFD700] text-5xl font-serif italic leading-tight">Congratulations!</h2>
+                <p className="text-[#FFD700] text-xl font-bold max-w-xs mx-auto leading-tight">
+                  You've won a personalized Nasohold calendar featuring your photo.
+                </p>
+              </div>
+            </main>
+
+            {/* Bottom White Area */}
+            <div className="h-32 bg-white rounded-t-[3rem] relative z-20 flex items-center justify-center mt-auto pb-4">
+              <div className="text-center">
+                <h3 className="text-[#0047AB] text-3xl font-bold flex items-center justify-center leading-none">
+                  Nasohold<span className="text-sm align-top">™</span>
+                </h3>
+                <p className="text-[#0047AB] text-sm font-semibold">Nasal Sprays</p>
+              </div>
+              
+              {/* Result Mascot */}
+              <div className="absolute right-[5%] -top-40 pointer-events-none w-48 h-48">
+                 <Mascot className="scale-125" />
+              </div>
+
+              <button 
+                onClick={() => setLocation("/")}
+                className="absolute -top-10 left-1/2 -translate-x-1/2 bg-white text-blue-600 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+          </div>
         </DialogContent>
       </Dialog>
     </div>
