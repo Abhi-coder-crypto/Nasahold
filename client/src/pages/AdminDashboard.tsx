@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -11,6 +12,13 @@ import {
 import { Button } from "@/components/ui/button";
 import { Download, Users, Trophy, Loader2, Clock, CheckCircle, RefreshCcw, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface User {
   _id: string;
@@ -19,9 +27,23 @@ interface User {
   number: string;
   score: number;
   completedAt: string;
+  answers: Record<string, string | string[]>;
 }
 
+const QUESTIONS = [
+  { id: 1, text: "Nasohold uses which pump technology to ensure uniform dose delivery with smooth actuation?" },
+  { id: 2, text: "What is the mean droplet size delivered by the Aptar VP6 pump used in Nasohold?" },
+  { id: 3, text: "Which sweetener is used in Nasohold to improve taste and patient compliance?" },
+  { id: 4, text: "What is the plume geometry angle of Nasohold nasal spray?" },
+  { id: 5, text: "Which intranasal corticosteroid molecule does Nasohold contain?" },
+  { id: 6, text: "In your clinical practice, for which of the following indications will you commonly use Nasohold?" },
+  { id: 7, text: "Which feature of Nasohold stood out the most to you?" },
+];
+
 export default function AdminDashboard() {
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+
   const { data: users, isLoading, refetch } = useQuery<User[]>({
     queryKey: ["/api/admin/users"],
   });
@@ -29,6 +51,12 @@ export default function AdminDashboard() {
   const handleExport = async () => {
     window.open("/api/admin/export", "_blank");
   };
+
+  const filteredUsers = users?.filter(user => 
+    user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    user.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    user.number.includes(searchQuery)
+  );
 
   if (isLoading) {
     return (
@@ -114,7 +142,12 @@ export default function AdminDashboard() {
               </Button>
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-                <Input placeholder="Search users..." className="pl-10 w-64 bg-white border-gray-200" />
+                <Input 
+                  placeholder="Search users..." 
+                  className="pl-10 w-64 bg-white border-gray-200"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
               </div>
               <Button onClick={handleExport} className="bg-primary hover:bg-primary/90">
                 <Download className="h-4 w-4 mr-2" /> Export
@@ -136,7 +169,7 @@ export default function AdminDashboard() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {users?.map((user) => (
+                  {filteredUsers?.map((user) => (
                     <TableRow key={user._id} className="border-b border-gray-50 hover:bg-slate-50/50 transition-colors">
                       <TableCell className="py-4 px-6 font-medium text-gray-900">{user.name}</TableCell>
                       <TableCell className="py-4 px-6 text-gray-600">{user.email}</TableCell>
@@ -150,16 +183,23 @@ export default function AdminDashboard() {
                         </span>
                       </TableCell>
                       <TableCell className="py-4 px-6 text-right">
-                        <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80">View</Button>
+                        <Button 
+                          variant="ghost" 
+                          size="sm" 
+                          className="text-primary hover:text-primary/80"
+                          onClick={() => setSelectedUser(user)}
+                        >
+                          View
+                        </Button>
                       </TableCell>
                     </TableRow>
                   ))}
-                  {users?.length === 0 && (
+                  {filteredUsers?.length === 0 && (
                     <TableRow>
                       <TableCell colSpan={6} className="text-center py-20">
                         <div className="flex flex-col items-center gap-2 text-gray-400">
-                          <RefreshCcw className="h-8 w-8 animate-spin-slow" />
-                          <p>No participants found yet.</p>
+                          <RefreshCcw className="h-8 w-8" />
+                          <p>No participants found matching your search.</p>
                         </div>
                       </TableCell>
                     </TableRow>
@@ -170,6 +210,55 @@ export default function AdminDashboard() {
           </Card>
         </div>
       </main>
+
+      {/* Details Dialog */}
+      <Dialog open={!!selectedUser} onOpenChange={() => setSelectedUser(null)}>
+        <DialogContent className="max-w-2xl bg-white">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-bold text-[#1A1C2E]">
+              Participant Details: {selectedUser?.name}
+            </DialogTitle>
+          </DialogHeader>
+          <div className="grid grid-cols-2 gap-4 mb-6">
+            <div className="p-3 bg-slate-50 rounded-lg">
+              <p className="text-xs text-gray-500 uppercase font-semibold">Email</p>
+              <p className="text-sm font-medium">{selectedUser?.email}</p>
+            </div>
+            <div className="p-3 bg-slate-50 rounded-lg">
+              <p className="text-xs text-gray-500 uppercase font-semibold">Phone</p>
+              <p className="text-sm font-medium">{selectedUser?.number}</p>
+            </div>
+            <div className="p-3 bg-slate-50 rounded-lg">
+              <p className="text-xs text-gray-500 uppercase font-semibold">Date Completed</p>
+              <p className="text-sm font-medium">{selectedUser && new Date(selectedUser.completedAt).toLocaleString()}</p>
+            </div>
+            <div className="p-3 bg-slate-50 rounded-lg">
+              <p className="text-xs text-gray-500 uppercase font-semibold">Total Score</p>
+              <p className="text-sm font-bold text-primary">{selectedUser?.score} / 7</p>
+            </div>
+          </div>
+          
+          <h3 className="font-bold text-sm uppercase tracking-wider text-gray-500 mb-3">Quiz Responses</h3>
+          <ScrollArea className="h-[400px] pr-4">
+            <div className="space-y-4">
+              {QUESTIONS.map((q) => (
+                <div key={q.id} className="border-b border-gray-100 pb-3 last:border-0">
+                  <p className="text-sm font-bold text-gray-700 mb-2">{q.id}. {q.text}</p>
+                  <div className="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                    <p className="text-sm text-gray-600">
+                      {selectedUser?.answers?.[q.id] 
+                        ? (Array.isArray(selectedUser.answers[q.id]) 
+                            ? (selectedUser.answers[q.id] as string[]).join(", ") 
+                            : selectedUser.answers[q.id])
+                        : "No answer provided"}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </ScrollArea>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
