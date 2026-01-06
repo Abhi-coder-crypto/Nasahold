@@ -150,9 +150,6 @@ export default function AdminDashboard() {
                 <p className="text-sm font-medium text-gray-500 mb-1">Average Score</p>
                 <div className="text-3xl font-bold text-orange-500">{averageScore}</div>
               </div>
-              <div className="bg-orange-500/10 p-3 rounded-xl">
-                <Trophy className="h-6 w-6 text-orange-500" />
-              </div>
             </CardContent>
           </Card>
         </div>
