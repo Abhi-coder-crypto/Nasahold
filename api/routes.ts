@@ -4,7 +4,8 @@ import type { Server } from "http";
 import { storage } from "./storage";
 import { api } from "@shared/routes";
 import { z } from "zod";
-import { MongoUser } from "./db";
+import { MongoUser, connectMongo } from "./db";
+import mongoose from "mongoose";
 import * as XLSX from "xlsx";
 
 export async function registerRoutes(
@@ -28,7 +29,7 @@ export async function registerRoutes(
         Name: u.name,
         Email: u.email,
         Phone: u.number,
-        Score: u.score,
+        Score: `${u.score} / 7`,
         Date: new Date(u.completedAt).toLocaleString()
       }));
 
@@ -49,14 +50,34 @@ export async function registerRoutes(
   app.post("/api/register", async (req, res) => {
     try {
       const { name, email, number } = req.body;
-      const user = await MongoUser.findOneAndUpdate(
-        { email },
-        { name, number },
-        { upsert: true, new: true }
-      );
-      res.status(200).json(user);
+      
+      if (!name || !email || !number) {
+        return res.status(400).json({ message: "Missing required fields" });
+      }
+
+      // Check if user already exists in MongoDB
+      const emailLower = email.toLowerCase();
+      
+      // Ensure DB connection
+      try {
+        await connectMongo();
+      } catch (connErr) {
+        console.error("Database connection failed during registration:", connErr);
+        return res.status(500).json({ message: "Database connection failed" });
+      }
+
+      const existingUser = await MongoUser.findOne({ 
+        $or: [{ email: emailLower }, { number }] 
+      });
+
+      if (existingUser) {
+        return res.status(409).json({ message: "Email or Phone number already registered" });
+      }
+
+      res.status(200).json({ name, email: emailLower, number });
     } catch (err) {
-      res.status(500).json({ message: "Failed to register user" });
+      console.error("Registration error:", err);
+      res.status(500).json({ message: "Internal server error" });
     }
   });
 
@@ -65,11 +86,19 @@ export async function registerRoutes(
       const input = api.quiz.submit.input.parse(req.body);
       const submission = await storage.createQuizSubmission(input);
 
-      // Update score in MongoDB if email is provided
+      // Save user and results to MongoDB ONLY on successful quiz completion
       if (req.body.email) {
+        const emailLower = req.body.email.toLowerCase();
         await MongoUser.findOneAndUpdate(
-          { email: req.body.email },
-          { score: input.score, completedAt: new Date() }
+          { email: emailLower },
+          { 
+            name: req.body.name,
+            number: req.body.number,
+            score: input.score, 
+            answers: input.answers,
+            completedAt: new Date() 
+          },
+          { upsert: true, new: true }
         );
       }
 

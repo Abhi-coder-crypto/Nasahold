@@ -1,7 +1,4 @@
-
-import { db } from "./db";
 import {
-  quizSubmissions,
   type InsertQuizSubmission,
   type QuizSubmission
 } from "@shared/schema";
@@ -12,8 +9,16 @@ export interface IStorage {
 
 export class DatabaseStorage implements IStorage {
   async createQuizSubmission(submission: InsertQuizSubmission): Promise<QuizSubmission> {
-    const [result] = await db.insert(quizSubmissions).values(submission).returning();
-    return result;
+    // We are only using MongoDB, so we return the input as if it was saved to fulfill the interface
+    // The actual persistence is handled in the route via MongoUser
+    return {
+      id: Math.floor(Math.random() * 1000000),
+      ...submission,
+      name: (submission as any).name || "",
+      email: (submission as any).email || "",
+      number: (submission as any).number || "",
+      createdAt: new Date()
+    } as QuizSubmission;
   }
 }
 
