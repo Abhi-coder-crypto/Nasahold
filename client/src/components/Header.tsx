@@ -18,7 +18,7 @@ export function Header() {
         <img
           src={aristoLogo}
           alt="Aristo Logo"
-          className="h-8 md:h-12 object-contain"
+          className="h-10 md:h-16 object-contain"
         />
       </div>
     </header>
