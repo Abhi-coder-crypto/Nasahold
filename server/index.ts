@@ -89,7 +89,7 @@ app.use((req, res, next) => {
       return next();
     }
     const indexPage = process.env.NODE_ENV === "production" 
-      ? path.resolve(process.cwd(), "dist", "index.html")
+      ? path.resolve(process.cwd(), "dist", "public", "index.html")
       : path.resolve(process.cwd(), "client", "index.html");
     res.sendFile(indexPage);
   });

@@ -4,7 +4,8 @@ import type { Server } from "http";
 import { storage } from "./storage";
 import { api } from "@shared/routes";
 import { z } from "zod";
-import { MongoUser } from "./db";
+import { MongoUser, connectMongo } from "./db";
+import mongoose from "mongoose";
 import * as XLSX from "xlsx";
 
 export async function registerRoutes(
@@ -56,6 +57,12 @@ export async function registerRoutes(
 
       // Check if user already exists in MongoDB
       const emailLower = email.toLowerCase();
+      
+      // Ensure DB connection
+      if (mongoose.connection.readyState !== 1) {
+        await connectMongo();
+      }
+
       const existingUser = await MongoUser.findOne({ 
         $or: [{ email: emailLower }, { number }] 
       });
