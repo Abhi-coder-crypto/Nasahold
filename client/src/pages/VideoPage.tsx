@@ -1,14 +1,16 @@
 import { motion } from "framer-motion";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 export default function VideoPage() {
+  const [, setLocation] = useLocation();
+
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-white to-blue-50/30 flex flex-col">
       <Header />
-      
+
       <main className="container mx-auto flex-1 flex flex-col items-center justify-center px-6 py-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -16,10 +18,21 @@ export default function VideoPage() {
           transition={{ duration: 0.8 }}
           className="w-full max-w-4xl space-y-8"
         >
+          <div className="flex items-center justify-between mb-4">
+            <Button
+              variant="ghost"
+              onClick={() => setLocation("/")}
+              className="flex items-center text-muted-foreground hover:text-primary transition-colors"
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" /> Back
+            </Button>
+            <div className="flex-1 text-center pr-12">
+              <h2 className="text-3xl md:text-5xl font-display text-secondary">
+                Watch & Learn
+              </h2>
+            </div>
+          </div>
           <div className="text-center space-y-2">
-            <h2 className="text-3xl md:text-5xl font-display text-secondary">
-              Watch & Learn
-            </h2>
             <p className="text-muted-foreground text-lg">
               Pay close attention to the video to answer questions later!
             </p>
