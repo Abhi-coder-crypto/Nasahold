@@ -72,7 +72,7 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 pt-2 pb-4 md:pt-2 md:pb-6">
+      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 pt-2 pb-4 md:pt-2 md:pb-6 -mt-8 md:mt-0">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -103,22 +103,22 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="w-full max-w-[320px] z-20 mt-0"
+          className="w-full max-w-[340px] z-20 mt-0"
         >
           <Card className="border-none shadow-2xl bg-white/10 backdrop-blur-md">
-            <CardContent className="pt-3 pb-3">
+            <CardContent className="pt-4 pb-4">
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-1.5">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
                   <FormField
                     control={form.control}
                     name="name"
                     render={({ field }) => (
-                      <FormItem className="space-y-0.5">
+                      <FormItem className="space-y-1">
                         <FormControl>
                           <Input
                             placeholder="Full Name"
                             {...field}
-                            className="h-8 bg-white text-gray-900 placeholder:text-gray-400 text-sm"
+                            className="h-10 bg-white text-gray-900 placeholder:text-gray-400 text-sm"
                           />
                         </FormControl>
                         <FormMessage className="text-[10px]" />
@@ -129,13 +129,13 @@ export default function Home() {
                     control={form.control}
                     name="email"
                     render={({ field }) => (
-                      <FormItem className="space-y-0.5">
+                      <FormItem className="space-y-1">
                         <FormControl>
                           <Input
                             placeholder="Email Address"
                             type="email"
                             {...field}
-                            className="h-8 bg-white text-gray-900 placeholder:text-gray-400 text-sm"
+                            className="h-10 bg-white text-gray-900 placeholder:text-gray-400 text-sm"
                           />
                         </FormControl>
                         <FormMessage className="text-[10px]" />
@@ -146,7 +146,7 @@ export default function Home() {
                     control={form.control}
                     name="number"
                     render={({ field }) => (
-                      <FormItem className="space-y-0.5">
+                      <FormItem className="space-y-1">
                         <FormControl>
                           <Input
                             placeholder="Phone Number"
@@ -158,7 +158,7 @@ export default function Home() {
                                 field.onChange(value);
                               }
                             }}
-                            className="h-8 bg-white text-gray-900 placeholder:text-gray-400 text-sm"
+                            className="h-10 bg-white text-gray-900 placeholder:text-gray-400 text-sm"
                           />
                         </FormControl>
                         <FormMessage className="text-[10px]" />
@@ -167,7 +167,7 @@ export default function Home() {
                   />
                   <Button
                     type="submit"
-                    className="w-full h-9 bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] font-bold text-sm rounded-md shadow-lg transition-all active:scale-[0.98]"
+                    className="w-full h-11 bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] font-bold text-base rounded-md shadow-lg transition-all active:scale-[0.98]"
                   >
                     REGISTER TO PLAY
                   </Button>
