@@ -50,18 +50,24 @@ export async function registerRoutes(
     try {
       const { name, email, number } = req.body;
       
+      if (!name || !email || !number) {
+        return res.status(400).json({ message: "Missing required fields" });
+      }
+
       // Check if user already exists in MongoDB
+      const emailLower = email.toLowerCase();
       const existingUser = await MongoUser.findOne({ 
-        $or: [{ email: email.toLowerCase() }, { number }] 
+        $or: [{ email: emailLower }, { number }] 
       });
 
       if (existingUser) {
         return res.status(409).json({ message: "Email or Phone number already registered" });
       }
 
-      res.status(200).json({ name, email, number });
+      res.status(200).json({ name, email: emailLower, number });
     } catch (err) {
-      res.status(500).json({ message: "Failed to register user" });
+      console.error("Registration error:", err);
+      res.status(500).json({ message: "Internal server error" });
     }
   });
 

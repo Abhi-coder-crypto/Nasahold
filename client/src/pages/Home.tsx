@@ -52,16 +52,24 @@ export default function Home() {
         body: JSON.stringify(data),
       });
       if (response.ok) {
-        localStorage.setItem("userEmail", data.email);
+        localStorage.setItem("userEmail", data.email.toLowerCase());
         localStorage.setItem("userName", data.name);
         localStorage.setItem("userNumber", data.number);
         window.location.href = "/video";
       } else {
-        const errorData = await response.json();
+        const errorText = await response.text();
+        let errorMessage = "Registration failed";
+        try {
+          const errorData = JSON.parse(errorText);
+          errorMessage = errorData.message || errorMessage;
+        } catch (e) {
+          console.error("Failed to parse error JSON:", errorText);
+        }
+
         if (response.status === 409) {
-          form.setError("email", { message: "Email or Phone number already registered" });
+          form.setError("email", { message: errorMessage });
         } else {
-          console.error("Registration failed:", errorData.message);
+          console.error("Registration failed:", errorMessage);
         }
       }
     } catch (err) {
