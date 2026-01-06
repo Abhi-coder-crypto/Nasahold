@@ -32,7 +32,7 @@ export default function VideoPage() {
       </div>
 
       {/* Main Content - Centered in one view */}
-      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 py-0">
+      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 py-0 -mt-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
