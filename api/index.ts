@@ -32,10 +32,10 @@ app.use((req, res, next) => {
     return next();
   }
   
-  // Vercel specific path resolution
+  // Vercel deployment path for static files is often in /var/task/dist/public
   const distPath = path.resolve(process.cwd(), "dist", "public");
   
-  // Check if it's a static file (with extension)
+  // Try to serve static files first
   if (req.path.includes(".")) {
     const filePath = path.join(distPath, req.path);
     if (fs.existsSync(filePath) && fs.lstatSync(filePath).isFile()) {
