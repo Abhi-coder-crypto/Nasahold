@@ -244,7 +244,9 @@ export default function Quiz() {
 
       </main>
 
-      <Mascot className="scale-75 origin-bottom-right" />
+      <div className="fixed bottom-4 left-4 z-20 pointer-events-none hidden md:block">
+        <Mascot className="scale-75 origin-bottom-left" />
+      </div>
 
       {/* Result Dialog */}
       <Dialog open={isFinished} onOpenChange={(open) => !open && setLocation("/")}>

@@ -21,7 +21,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 const loginSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
-  number: z.string().min(10, "Phone number must be at least 10 digits").regex(/^[0-9]+$/, "Must be only digits"),
+  number: z
+    .string()
+    .min(10, "Phone number must be at least 10 digits")
+    .regex(/^[0-9]+$/, "Must be only digits"),
 });
 
 type LoginFormValues = z.infer<typeof loginSchema>;
@@ -95,8 +98,12 @@ export default function Home() {
               </p>
             ) : (
               <Link href="/video">
-                <Button size="lg" className="h-12 md:h-14 px-6 md:px-8 text-base md:text-lg rounded-full shadow-lg shadow-primary/20 transition-all hover:shadow-xl hover:shadow-primary/30 active:scale-95 group w-full sm:w-auto">
-                  Watch Video <Play className="ml-2 h-5 md:h-6 w-5 md:w-6 fill-current" />
+                <Button
+                  size="lg"
+                  className="h-12 md:h-14 px-6 md:px-8 text-base md:text-lg rounded-full shadow-lg shadow-primary/20 transition-all hover:shadow-xl hover:shadow-primary/30 active:scale-95 group w-full sm:w-auto"
+                >
+                  Watch Video{" "}
+                  <Play className="ml-2 h-5 md:h-6 w-5 md:w-6 fill-current" />
                 </Button>
               </Link>
             )}
@@ -125,12 +132,19 @@ export default function Home() {
         >
           <Card className="border-primary/10 shadow-xl bg-white/80 backdrop-blur-sm">
             <CardHeader className="space-y-1 pb-4">
-              <CardTitle className="text-2xl font-display text-secondary">Get Started</CardTitle>
-              <p className="text-sm text-muted-foreground">Enter your details to play and win</p>
+              <CardTitle className="text-2xl font-display text-secondary">
+                Get Started
+              </CardTitle>
+              <p className="text-sm text-muted-foreground">
+                Enter your details to play and win
+              </p>
             </CardHeader>
             <CardContent>
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="space-y-4"
+                >
                   <FormField
                     control={form.control}
                     name="name"
@@ -138,7 +152,11 @@ export default function Home() {
                       <FormItem>
                         <FormLabel>Full Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="John Doe" {...field} className="bg-white/50" />
+                          <Input
+                            placeholder=""
+                            {...field}
+                            className="bg-white/50"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -151,7 +169,12 @@ export default function Home() {
                       <FormItem>
                         <FormLabel>Email Address</FormLabel>
                         <FormControl>
-                          <Input placeholder="john@example.com" type="email" {...field} className="bg-white/50" />
+                          <Input
+                            placeholder=""
+                            type="email"
+                            {...field}
+                            className="bg-white/50"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -164,13 +187,20 @@ export default function Home() {
                       <FormItem>
                         <FormLabel>Phone Number</FormLabel>
                         <FormControl>
-                          <Input placeholder="1234567890" {...field} className="bg-white/50" />
+                          <Input
+                            placeholder=""
+                            {...field}
+                            className="bg-white/50"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-                  <Button type="submit" className="w-full h-11 rounded-md shadow-md hover:shadow-lg transition-all active:scale-[0.98]">
+                  <Button
+                    type="submit"
+                    className="w-full h-11 rounded-md shadow-md hover:shadow-lg transition-all active:scale-[0.98]"
+                  >
                     Register to Play
                   </Button>
                 </form>
