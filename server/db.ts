@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
 
 // MongoDB Setup
-if (!process.env.MONGODB_URI) {
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://abhijeet18012001_db_user:rOzpJgudgnLiO4Xp@nasahold.tokzqiw.mongodb.net/?appName=Nasahold";
+
+if (!MONGODB_URI) {
   throw new Error("MONGODB_URI must be set. MongoDB is required for this application.");
 }
 
@@ -11,7 +13,7 @@ export const connectMongo = async () => {
   if (isConnected) return;
   
   try {
-    const db = await mongoose.connect(process.env.MONGODB_URI!);
+    const db = await mongoose.connect(MONGODB_URI);
     isConnected = db.connections[0].readyState === 1;
     console.log("Connected to MongoDB");
   } catch (err) {
