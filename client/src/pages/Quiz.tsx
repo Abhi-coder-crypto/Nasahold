@@ -142,9 +142,9 @@ export default function Quiz() {
   const progress = ((currentStep + 1) / QUESTIONS.length) * 100;
 
   const handleSelect = (option: string) => {
-    if (answers[currentQuestion.id]) return; // Prevent multiple selections
-
     if (currentQuestion.type === "single") {
+      if (answers[currentQuestion.id]) return; // Prevent multiple selections for single choice
+      
       setAnswers(prev => ({ ...prev, [currentQuestion.id]: option }));
       
       // Check if correct
