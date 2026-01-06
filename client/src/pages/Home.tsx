@@ -72,12 +72,12 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 pt-2 pb-8">
+      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 pt-2 pb-8 md:pt-4 md:pb-12">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center space-y-0.5 mb-2 mt-2"
+          className="text-center space-y-0.5 mb-2 mt-0 md:mt-2"
         >
           <p className="text-white text-base md:text-lg font-medium">Welcome to</p>
           <div className="flex flex-col items-center">
@@ -103,7 +103,7 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="w-full max-w-sm z-20"
+          className="w-full max-w-sm z-20 -mt-4 md:mt-0"
         >
           <Card className="border-none shadow-2xl bg-white/10 backdrop-blur-md">
             <CardContent className="pt-4 pb-4">
