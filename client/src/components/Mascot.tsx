@@ -17,7 +17,7 @@ export function Mascot({ className }: { className?: string }) {
       <img
         src={mascotImg}
         alt="Nasohold Mascot"
-        className="w-40 md:w-72 lg:w-80 object-contain drop-shadow-2xl"
+        className="w-32 md:w-56 lg:w-64 object-contain drop-shadow-2xl"
       />
     </motion.div>
   );
