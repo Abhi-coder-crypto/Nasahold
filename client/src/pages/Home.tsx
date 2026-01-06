@@ -72,12 +72,12 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 pt-0 pb-4 md:pt-2 md:pb-6">
+      <main className="flex-1 flex flex-col items-center justify-start px-6 relative z-10 pt-4 pb-4 md:justify-center md:pt-2 md:pb-6">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center space-y-0 mb-6 md:mb-8 mt-0"
+          className="text-center space-y-0 mb-4 md:mb-8 mt-4 md:mt-0"
         >
           <p className="text-white text-sm md:text-base font-medium">Welcome to</p>
           <div className="flex flex-col items-center">
