@@ -74,6 +74,8 @@ export async function registerRoutes(
         return res.status(409).json({ message: "Email or Phone number already registered" });
       }
 
+      // Return 200 to match what the frontend expects for a pre-registration check or initial step
+      // The user is actually created/updated in /api/quiz submit
       res.status(200).json({ name, email: emailLower, number });
     } catch (err) {
       console.error("Registration error:", err);
