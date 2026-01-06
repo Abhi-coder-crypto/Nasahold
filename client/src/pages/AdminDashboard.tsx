@@ -19,6 +19,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { apiRequest, queryClient } from "@/lib/queryClient";
 
 interface User {
   _id: string;
@@ -43,13 +44,33 @@ const QUESTIONS = [
 export default function AdminDashboard() {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
-  const { data: users, isLoading, refetch } = useQuery<User[]>({
+  const { data: users, isLoading } = useQuery<User[]>({
     queryKey: ["/api/admin/users"],
   });
 
+  const handleRefresh = async () => {
+    setIsRefreshing(true);
+    await queryClient.invalidateQueries({ queryKey: ["/api/admin/users"] });
+    setIsRefreshing(false);
+  };
+
   const handleExport = async () => {
-    window.open("/api/admin/export", "_blank");
+    try {
+      const response = await apiRequest("GET", "/api/admin/export");
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `participants_${new Date().toISOString().split('T')[0]}.xlsx`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    } catch (error) {
+      console.error("Export failed:", error);
+    }
   };
 
   const filteredUsers = users?.filter(user => 
@@ -137,8 +158,13 @@ export default function AdminDashboard() {
               <p className="text-sm text-gray-500">Manage and process quiz participant data</p>
             </div>
             <div className="flex gap-3">
-              <Button variant="outline" onClick={() => refetch()} className="bg-white border-gray-200">
-                <RefreshCcw className="h-4 w-4 mr-2" /> Refresh
+              <Button 
+                variant="outline" 
+                onClick={handleRefresh} 
+                disabled={isRefreshing}
+                className="bg-white border-gray-200"
+              >
+                <RefreshCcw className={`h-4 w-4 mr-2 ${isRefreshing ? 'animate-spin' : ''}`} /> Refresh
               </Button>
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
