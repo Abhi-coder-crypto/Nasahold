@@ -1,7 +1,7 @@
 import mascotImg from "@assets/Picture1-removebg-preview_1767675939575.png";
 import { motion } from "framer-motion";
 
-export function Mascot({ className }: { className?: string }) {
+export function Mascot({ className = "" }: { className?: string }) {
   return (
     <motion.div
       animate={{

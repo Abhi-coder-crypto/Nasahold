@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { useSubmitQuiz } from "@/hooks/use-quiz";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ChevronRight, Loader2, Trophy } from "lucide-react";
+import { Check, ChevronRight, Loader2, Trophy, Zap } from "lucide-react";
 import confetti from "canvas-confetti";
 import {
   Dialog,
@@ -123,6 +123,14 @@ export default function Quiz() {
   const handleSelect = (option: string) => {
     if (currentQuestion.type === "single") {
       setAnswers(prev => ({ ...prev, [currentQuestion.id]: option }));
+      // Automatically proceed for single choice after a short delay for feedback
+      setTimeout(() => {
+        if (currentStep < QUESTIONS.length - 1) {
+          setCurrentStep(prev => prev + 1);
+        } else {
+          finishQuiz();
+        }
+      }, 300);
     } else {
       // Multiple select logic
       const current = (answers[currentQuestion.id] as string[]) || [];
@@ -167,18 +175,20 @@ export default function Quiz() {
     }
 
     // Submit to backend
+    const email = localStorage.getItem("userEmail");
+    const name = localStorage.getItem("userName");
+    const number = localStorage.getItem("userNumber");
+
+    const submissionData = {
+      answers: answers,
+      score: calculatedScore,
+      email: email || undefined,
+      name: name || undefined,
+      number: number || undefined
+    };
+
     try {
-      const email = localStorage.getItem("userEmail");
-      const name = localStorage.getItem("userName");
-      const number = localStorage.getItem("userNumber");
-      
-      await submitQuiz.mutateAsync({
-        answers: answers,
-        score: calculatedScore,
-        email: email || undefined,
-        name: name || undefined,
-        number: number || undefined
-      } as any);
+      await submitQuiz.mutateAsync(submissionData as any);
     } catch (e) {
       console.error("Submission failed", e);
     }
@@ -195,21 +205,18 @@ export default function Quiz() {
     (Array.isArray(answers[currentQuestion.id]) ? (answers[currentQuestion.id] as string[]).length > 0 : true);
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden bg-gradient-to-br from-blue-50 to-white">
+    <div className="min-h-screen flex flex-col relative overflow-hidden bg-[#0047AB]">
+      {/* Background Decorations */}
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+        <div className="absolute top-10 left-10 w-24 h-24 border-2 border-white rounded-full" />
+        <div className="absolute top-1/4 right-10 w-16 h-16 border-2 border-yellow-400 rotate-45" />
+        <div className="absolute bottom-1/3 left-20 w-12 h-12 bg-white/10 rounded-lg -rotate-12" />
+        <Zap className="absolute top-10 right-1/4 text-yellow-400 w-6 h-6" />
+      </div>
+
       <Header />
       
-      <main className="flex-1 container mx-auto px-4 py-8 flex flex-col items-center max-w-4xl relative z-10 mb-20 md:mb-0">
-        
-        {/* Progress Bar */}
-        <div className="w-full max-w-2xl mb-8">
-          <div className="flex justify-between text-sm font-medium text-muted-foreground mb-2">
-            <span>Question {currentStep + 1} of {QUESTIONS.length}</span>
-            <span>{Math.round(progress)}% Complete</span>
-          </div>
-          <Progress value={progress} className="h-3 rounded-full bg-blue-100" />
-        </div>
-
-        {/* Question Card */}
+      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 py-0 -mt-20">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentStep}
@@ -219,64 +226,82 @@ export default function Quiz() {
             transition={{ duration: 0.3 }}
             className="w-full max-w-2xl"
           >
-            <div className="glass-card rounded-3xl p-6 md:p-10 shadow-2xl">
-              <span className="text-primary font-bold tracking-wider uppercase text-sm">
-                {currentQuestion.survey ? "Survey" : "Quiz Question"}
-              </span>
-              
-              <h2 className="text-2xl md:text-3xl font-display text-secondary mt-2 mb-8 leading-snug">
-                {currentQuestion.text}
+            <div className="space-y-6">
+              <h2 className="text-xl md:text-3xl font-bold text-white leading-tight">
+                {currentStep + 1}. {currentQuestion.text}
               </h2>
 
-              <div className="space-y-3">
-                {currentQuestion.options.map((option, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => handleSelect(option)}
-                    className={`
-                      w-full text-left p-4 md:p-5 rounded-xl border-2 transition-all duration-200 flex items-center justify-between group
-                      ${isOptionSelected(option) 
-                        ? "border-primary bg-primary/5 shadow-md shadow-primary/10" 
-                        : "border-border hover:border-primary/50 hover:bg-white/50 bg-white/30"
-                      }
-                    `}
-                  >
-                    <span className={`text-lg font-medium ${isOptionSelected(option) ? "text-primary" : "text-foreground"}`}>
-                      {option}
-                    </span>
-                    
-                    <div className={`
-                      w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors
-                      ${isOptionSelected(option) 
-                        ? "bg-primary border-primary text-primary-foreground" 
-                        : "border-muted-foreground/30 group-hover:border-primary/50"
-                      }
-                    `}>
-                      {isOptionSelected(option) && <Check className="w-4 h-4" />}
-                    </div>
-                  </button>
-                ))}
+              <div className="space-y-4">
+                {currentQuestion.options.map((option, idx) => {
+                  const label = String.fromCharCode(97 + idx); // a, b, c...
+                  const isSelected = isOptionSelected(option);
+                  const isAnswered = !!answers[currentQuestion.id];
+                  
+                  // For feedback after selection
+                  const isCorrect = isSelected && !currentQuestion.survey && option === currentQuestion.correctAnswer;
+                  const isWrong = isSelected && !currentQuestion.survey && currentQuestion.correctAnswer && option !== currentQuestion.correctAnswer;
+
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => handleSelect(option)}
+                      disabled={isAnswered && currentQuestion.type === "single"}
+                      className={`
+                        w-full text-left p-4 md:p-5 rounded-full border-2 transition-all duration-200 flex items-center group
+                        ${isSelected 
+                          ? "border-yellow-400 bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg" 
+                          : "border-blue-400 bg-gradient-to-r from-blue-600 to-blue-700 hover:border-white/50"
+                        }
+                        ${isCorrect ? "ring-2 ring-green-400" : ""}
+                        ${isWrong ? "ring-2 ring-red-400" : ""}
+                      `}
+                    >
+                      <span className={`text-xl md:text-2xl font-bold mr-3 ${isSelected ? "text-yellow-400" : "text-cyan-300"}`}>
+                        {label}.
+                      </span>
+                      <span className={`text-xl md:text-2xl font-bold text-white`}>
+                        {option}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
 
-              <div className="mt-8 flex justify-end">
-                <Button 
-                  onClick={handleNext}
-                  disabled={!canProceed}
-                  size="lg"
-                  className="px-8 rounded-xl text-lg font-semibold shadow-lg shadow-primary/20"
-                >
-                  {currentStep === QUESTIONS.length - 1 ? "Finish Quiz" : "Next Question"}
-                  <ChevronRight className="ml-2 w-5 h-5" />
-                </Button>
-              </div>
+              {currentQuestion.type === "multiple" && (
+                <div className="mt-8 flex justify-end">
+                  <Button 
+                    onClick={handleNext}
+                    disabled={!canProceed}
+                    size="lg"
+                    className="h-12 px-8 text-lg font-bold rounded-full bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] shadow-xl"
+                  >
+                    Next <ChevronRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </div>
+              )}
             </div>
           </motion.div>
         </AnimatePresence>
-
       </main>
 
-      <div className="fixed bottom-4 left-4 z-20 pointer-events-none hidden md:block">
-        <Mascot className="scale-75 origin-bottom-left" />
+      {/* Bottom White Area with Mascot - Compressed */}
+      <div className="h-16 bg-white rounded-t-[2rem] relative z-20 flex items-center px-12 mt-auto">
+        <div className="flex flex-col">
+          <h3 className="text-[#0047AB] text-lg md:text-xl font-bold leading-none">
+            Nasohold<span className="text-[10px] align-top">™</span>
+          </h3>
+          <p className="text-[#0047AB] text-[10px] md:text-xs font-semibold">Nasal Sprays</p>
+        </div>
+        
+        {/* Mascot - positioned like in the image */}
+        <div className="absolute right-[10%] -top-12 pointer-events-none">
+           <Mascot className="scale-[0.8]" />
+        </div>
+
+        {/* Floating elements at bottom */}
+        <div className="absolute bottom-4 right-10 opacity-20 hidden md:block">
+           <Zap className="text-blue-600 w-8 h-8" />
+        </div>
       </div>
 
       {/* Result Dialog */}
@@ -286,16 +311,16 @@ export default function Quiz() {
             <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-2">
               <Trophy className="w-10 h-10 text-green-600" />
             </div>
-            <DialogTitle className="text-3xl font-display text-secondary">Quiz Completed!</DialogTitle>
+            <DialogTitle className="text-3xl font-display text-secondary">Congratulations!</DialogTitle>
             <DialogDescription className="text-lg text-center">
-              Thank you for participating in the Nasohold knowledge challenge.
+              You have successfully completed the Nasohold knowledge challenge.
             </DialogDescription>
           </DialogHeader>
 
           <div className="py-6 text-center space-y-2">
-            <p className="text-muted-foreground uppercase tracking-wider text-sm font-semibold">Your Score</p>
+            <p className="text-muted-foreground uppercase tracking-wider text-sm font-semibold">Your Final Score</p>
             <p className="text-6xl font-bold text-primary">
-              {score}<span className="text-2xl text-muted-foreground">/7</span>
+              {score}<span className="text-2xl text-muted-foreground">/5</span>
             </p>
             {submitQuiz.isPending && (
               <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground pt-4">
