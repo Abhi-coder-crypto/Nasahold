@@ -37,18 +37,18 @@ export default function VideoPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="w-full max-w-2xl space-y-4"
+          className="w-full max-w-2xl lg:max-w-4xl space-y-4"
         >
           <div className="text-center space-y-1 mb-2">
-            <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+            <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-white tracking-tight">
               Watch & Learn
             </h2>
-            <p className="text-blue-100 text-sm md:text-base font-medium opacity-90">
+            <p className="text-blue-100 text-sm md:text-base lg:text-xl font-medium opacity-90">
               Pay close attention to answer questions later!
             </p>
           </div>
 
-          <div className="aspect-video w-full max-h-[45vh] rounded-xl overflow-hidden shadow-2xl border-4 border-white bg-black mx-auto">
+          <div className="aspect-video w-full max-h-[45vh] lg:max-h-[60vh] rounded-xl overflow-hidden shadow-2xl border-4 border-white bg-black mx-auto">
             <iframe
               width="100%"
               height="100%"

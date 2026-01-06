@@ -81,14 +81,14 @@ export default function Home() {
         >
           <p className="text-white text-base md:text-lg font-medium">Welcome to</p>
           <div className="flex flex-col items-center">
-            <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight leading-none">
-              Nasohold<span className="text-xl align-top">™</span>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-none">
+              Nasohold<span className="text-xl lg:text-2xl align-top">™</span>
             </h1>
-            <h2 className="text-2xl md:text-4xl font-bold text-white">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white">
               MEMORY GAME
             </h2>
           </div>
-          <p className="text-[#FFD700] text-sm md:text-lg font-bold pt-1 max-w-xs md:max-w-md leading-tight">
+          <p className="text-[#FFD700] text-sm md:text-base lg:text-lg font-bold pt-1 max-w-xs md:max-w-md lg:max-w-lg leading-tight">
             Watch the video and test your memory to win exciting prices!!!
           </p>
         </motion.div>

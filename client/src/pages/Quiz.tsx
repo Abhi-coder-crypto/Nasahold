@@ -208,14 +208,14 @@ export default function Quiz() {
 
       <Header />
       
-      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 py-0 -mt-20">
+      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 py-0 -mt-20 lg:-mt-10">
         {/* Progress Chart and Question Number at the top */}
-        <div className="w-full max-w-2xl mb-8 space-y-2">
+        <div className="w-full max-w-2xl lg:max-w-4xl mb-8 space-y-2">
           <div className="flex justify-between items-end text-white">
-            <span className="text-sm font-medium opacity-80 uppercase tracking-wider">Question {currentStep + 1} of {QUESTIONS.length}</span>
-            <span className="text-2xl font-bold">{Math.round(progress)}%</span>
+            <span className="text-sm md:text-base font-medium opacity-80 uppercase tracking-wider">Question {currentStep + 1} of {QUESTIONS.length}</span>
+            <span className="text-2xl md:text-3xl font-bold">{Math.round(progress)}%</span>
           </div>
-          <Progress value={progress} className="h-2 bg-white/20" />
+          <Progress value={progress} className="h-2 md:h-3 bg-white/20" />
         </div>
 
         <AnimatePresence mode="wait">
@@ -225,14 +225,14 @@ export default function Quiz() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3 }}
-            className="w-full max-w-2xl"
+            className="w-full max-w-2xl lg:max-w-4xl"
           >
-            <div className="space-y-6">
-              <h2 className="text-xl md:text-3xl font-bold text-white leading-tight">
+            <div className="space-y-6 md:space-y-8">
+              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">
                 {currentStep + 1}. {currentQuestion.text}
               </h2>
 
-              <div className="space-y-4">
+              <div className="space-y-4 md:grid md:grid-cols-2 md:gap-4 md:space-y-0">
                 {currentQuestion.options.map((option, idx) => {
                   const label = String.fromCharCode(97 + idx); // a, b, c...
                   const isSelected = isOptionSelected(option);
