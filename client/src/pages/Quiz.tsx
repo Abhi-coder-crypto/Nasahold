@@ -17,6 +17,26 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 
+// Add ThumbsUp feedback component
+function ThumbsUpFeedback({ visible }: { visible: boolean }) {
+  return (
+    <AnimatePresence>
+      {visible && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5, y: 20 }}
+          animate={{ opacity: 1, scale: 1.2, y: 0 }}
+          exit={{ opacity: 0, scale: 0.5, y: -20 }}
+          className="fixed inset-0 flex items-center justify-center z-[100] pointer-events-none"
+        >
+          <div className="bg-white/90 backdrop-blur-sm rounded-full p-8 shadow-2xl border-4 border-yellow-400">
+            <span className="text-8xl">👍👍</span>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
 // --- Types & Data ---
 
 type QuestionType = "single" | "multiple";
@@ -87,6 +107,7 @@ export default function Quiz() {
   const [answers, setAnswers] = useState<Record<number, string | string[]>>({});
   const [isFinished, setIsFinished] = useState(false);
   const [score, setScore] = useState(0);
+  const [showFeedback, setShowFeedback] = useState(false);
   const [, setLocation] = useLocation();
   
   useEffect(() => {
@@ -121,8 +142,22 @@ export default function Quiz() {
   const progress = ((currentStep + 1) / QUESTIONS.length) * 100;
 
   const handleSelect = (option: string) => {
+    if (answers[currentQuestion.id]) return; // Prevent multiple selections
+
     if (currentQuestion.type === "single") {
       setAnswers(prev => ({ ...prev, [currentQuestion.id]: option }));
+      
+      // Check if correct
+      if (!currentQuestion.survey && option === currentQuestion.correctAnswer) {
+        setShowFeedback(true);
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#FFD700', '#0047AB', '#FFFFFF']
+        });
+        setTimeout(() => setShowFeedback(false), 2000);
+      }
     } else {
       // Multiple select logic
       const current = (answers[currentQuestion.id] as string[]) || [];
@@ -207,6 +242,7 @@ export default function Quiz() {
       </div>
 
       <Header />
+      <ThumbsUpFeedback visible={showFeedback} />
       
       <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 py-0 -mt-20 lg:-mt-10">
         {/* Progress Chart and Question Number at the top */}
