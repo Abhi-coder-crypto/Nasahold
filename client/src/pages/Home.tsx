@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
+import { Header } from "@/components/Header";
 
 const loginSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -58,6 +59,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-[#0047AB] flex flex-col overflow-hidden font-sans">
+      <Header />
       {/* Background Decorative Icons */}
       <div className="absolute inset-0 pointer-events-none opacity-20">
         <X className="absolute top-10 left-10 text-white w-8 h-8" />
@@ -78,7 +80,7 @@ export default function Home() {
         >
           <p className="text-white text-xl md:text-2xl font-medium">Welcome to</p>
           <div className="flex flex-col items-center">
-            <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight">
+            <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-none">
               Nasohold<span className="text-3xl align-top">™</span>
             </h1>
             <h2 className="text-4xl md:text-6xl font-bold text-white mt-1">
@@ -90,12 +92,22 @@ export default function Home() {
           </p>
         </motion.div>
 
+        {/* Mascot Positioned at the bottom left relative to content */}
+        <div className="absolute bottom-24 left-10 z-30 pointer-events-none hidden lg:block">
+          <Mascot className="scale-125" />
+        </div>
+
+        {/* Mobile Mascot */}
+        <div className="lg:hidden mb-6">
+           <Mascot className="scale-90" />
+        </div>
+
         {/* Form Container */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full max-w-sm mb-8"
+          className="w-full max-w-sm mb-8 z-20"
         >
           <Card className="border-none shadow-2xl bg-white/10 backdrop-blur-md">
             <CardContent className="pt-6">
@@ -179,11 +191,6 @@ export default function Home() {
               <p className="text-[#0047AB] text-sm md:text-base font-semibold">Nasal Sprays</p>
            </div>
         </div>
-      </div>
-
-      {/* Mascot Positioned at the bottom center */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
-        <Mascot className="scale-90 md:scale-125" />
       </div>
     </div>
   );

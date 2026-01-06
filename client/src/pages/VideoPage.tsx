@@ -3,12 +3,14 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Mascot } from "@/components/Mascot";
 import { ArrowLeft, ArrowRight, X, Zap, Gamepad2, Plus } from "lucide-react";
+import { Header } from "@/components/Header";
 
 export default function VideoPage() {
   const [, setLocation] = useLocation();
 
   return (
     <div className="relative min-h-screen bg-[#0047AB] flex flex-col overflow-hidden font-sans">
+      <Header />
       {/* Background Decorative Icons */}
       <div className="absolute inset-0 pointer-events-none opacity-20">
         <X className="absolute top-10 left-10 text-white w-8 h-8" />
@@ -17,8 +19,8 @@ export default function VideoPage() {
         <Gamepad2 className="absolute top-32 left-5 text-blue-300 w-10 h-10 -rotate-12" />
       </div>
 
-      {/* Top Header */}
-      <header className="p-4 flex justify-start items-center relative z-20">
+      {/* Top Header Controls */}
+      <div className="p-4 flex justify-start items-center relative z-20">
         <Button
           variant="ghost"
           onClick={() => setLocation("/")}
@@ -26,7 +28,7 @@ export default function VideoPage() {
         >
           <ArrowLeft className="mr-2 h-5 w-5" /> Back
         </Button>
-      </header>
+      </div>
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col items-center px-6 relative z-10 pt-4 pb-32">
@@ -65,6 +67,16 @@ export default function VideoPage() {
             </Link>
           </div>
         </motion.div>
+
+        {/* Mascot Positioned at the bottom left relative to content */}
+        <div className="absolute bottom-24 left-10 z-30 pointer-events-none hidden lg:block">
+          <Mascot className="scale-125" />
+        </div>
+
+        {/* Mobile Mascot */}
+        <div className="lg:hidden mb-6">
+           <Mascot className="scale-90" />
+        </div>
       </main>
 
       {/* Bottom White Wave Area */}
@@ -77,11 +89,6 @@ export default function VideoPage() {
               <p className="text-[#0047AB] text-sm md:text-base font-semibold">Nasal Sprays</p>
            </div>
         </div>
-      </div>
-
-      {/* Mascot Positioned at the bottom center */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
-        <Mascot className="scale-90 md:scale-125" />
       </div>
     </div>
   );
