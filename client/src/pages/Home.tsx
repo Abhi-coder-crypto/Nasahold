@@ -12,13 +12,13 @@ export default function Home() {
       <Header />
 
       {/* Main Content */}
-      <main className="container mx-auto flex-1 flex flex-col md:flex-row items-center justify-center px-6 gap-4 md:gap-8 py-2">
+      <main className="container mx-auto flex-1 flex flex-col md:flex-row items-center justify-center px-6 md:px-20 lg:px-32 relative z-10 gap-0">
         {/* Left Side: Welcome Content */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex-1 text-left space-y-2 md:space-y-4 max-w-lg"
+          className="flex-1 text-left space-y-3 md:space-y-4 max-w-sm md:max-w-md"
         >
           {/* Badge */}
           <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary font-bold text-[10px] md:text-xs tracking-wider uppercase">
@@ -32,12 +32,12 @@ export default function Home() {
           </h1>
 
           {/* Description */}
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+          <p className="text-sm md:text-lg text-muted-foreground leading-relaxed max-w-sm">
             Watch the video and test your memory to win exciting prizes!
           </p>
 
           {/* CTA */}
-          <div className="pt-1">
+          <div className="pt-2">
             <Link href="/video">
               <Button size="lg" className="h-10 md:h-12 px-5 md:px-6 text-sm md:text-base rounded-full shadow-lg shadow-primary/20 transition-all hover:shadow-xl hover:shadow-primary/30 active:scale-95 group">
                 Watch Video <Play className="ml-2 h-4 md:h-5 w-4 md:w-5 fill-current" />
@@ -48,14 +48,14 @@ export default function Home() {
 
         {/* Right Side: Mascot */}
         <motion.div
-          initial={{ opacity: 0, x: 50, scale: 0.9 }}
+          initial={{ opacity: 0, x: 30, scale: 0.95 }}
           animate={{ opacity: 1, x: 0, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="flex-1 flex justify-center md:justify-end items-center relative"
+          className="flex-1 flex justify-center md:justify-start items-center relative"
         >
           <div className="relative group">
             <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl group-hover:bg-primary/30 transition-colors duration-500" />
-            <Mascot />
+            <Mascot className="scale-90 md:scale-100 origin-left" />
           </div>
         </motion.div>
       </main>
