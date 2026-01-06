@@ -14,6 +14,14 @@
       "use": "@vercel/node"
     },
     {
+      "src": "api/admin/users.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/admin/export.js",
+      "use": "@vercel/node"
+    },
+    {
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
@@ -29,6 +37,14 @@
     {
       "source": "/api/quiz",
       "destination": "/api/quiz.js"
+    },
+    {
+      "source": "/api/admin/users",
+      "destination": "/api/admin/users.js"
+    },
+    {
+      "source": "/api/admin/export",
+      "destination": "/api/admin/export.js"
     },
     {
       "source": "/api/(.*)",
