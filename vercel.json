@@ -27,7 +27,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "dist/public/200.html"
+      "dest": "dist/public/index.html"
     }
   ]
 }
