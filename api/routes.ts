@@ -1,10 +1,10 @@
 
 import type { Express } from "express";
 import type { Server } from "http";
-import { storage } from "./storage";
-import { api } from "@shared/routes";
+import { storage } from "./storage.js";
+import { api } from "../shared/routes.js";
 import { z } from "zod";
-import { MongoUser, connectMongo } from "./db";
+import { MongoUser, connectMongo } from "./db.js";
 import mongoose from "mongoose";
 import * as XLSX from "xlsx";
 

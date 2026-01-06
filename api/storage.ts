@@ -1,7 +1,7 @@
 import {
   type InsertQuizSubmission,
   type QuizSubmission
-} from "@shared/schema";
+} from "../shared/schema.js";
 
 export interface IStorage {
   createQuizSubmission(submission: InsertQuizSubmission): Promise<QuizSubmission>;

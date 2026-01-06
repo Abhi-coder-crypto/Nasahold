@@ -1,0 +1,139 @@
+
+Jan 06 21:35:43.68
+GET
+---
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/favicon.png
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:35:41.31
+GET
+500
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/favicon.png
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:35:40.00
+GET
+---
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/favicon.png
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:35:39.65
+GET
+500
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/favicon.ico
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:35:37.26
+GET
+500
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/favicon.ico
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:35:35.87
+GET
+500
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/favicon.ico
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:35:35.47
+GET
+500
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:35:35.43
+GET
+500
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/favicon.png
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:35:34.16
+GET
+---
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:35:32.99
+GET
+500
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/favicon.png
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:35:31.65
+GET
+500
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/favicon.png
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:35:31.34
+GET
+500
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/favicon.ico
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:35:28.96
+GET
+500
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/favicon.ico
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:35:27.59
+GET
+500
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/favicon.ico
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:35:27.21
+GET
+---
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:35:25.89
+GET
+---
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:32:57.78
+GET
+500
+nasahold.vercel.app
+/
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:32:47.30
+GET
+500
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/favicon.ico
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:32:46.88
+GET
+500
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:32:46.72
+GET
+500
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/favicon.ico
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:32:46.30
+GET
+500
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:32:45.70
+GET
+500
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue. Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
+Jan 06 21:32:45.70
+GET
+500
+nasahold-co22kzjb0-abhi-coder-cryptos-projects.vercel.app
+/
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/var/task/api/routes' imported from /var/task/api/index.js at finalizeResolution (node:internal/modules/esm/resolve:280:11) at moduleResolve (node:internal/modules/esm/resolve:870:10) at moduleResolveWithNodePath (node:internal/modules/esm/resolve:996:14) at defaultResolve (node:internal/modules/esm/resolve:1039:79) at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20) at ModuleLoader.resolve (node:internal/modules/esm/loader:734:38) at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:317:38) at #link (node:internal/modules/esm/module_job:208:49) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) { code: 'ERR_MODULE_NOT_FOUND', url: 'file:///var/task/api/routes' } Node.js process exited with exit status: 1. The logs above can help with debugging the issue.
