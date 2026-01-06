@@ -128,10 +128,12 @@ export default function Quiz() {
       setLocation("/");
     }
     
-    // Detect refresh by checking performance navigation type
+    // Detect refresh or direct navigation
     const navEntries = performance.getEntriesByType("navigation");
     if (navEntries.length > 0 && (navEntries[0] as PerformanceNavigationTiming).type === "reload") {
-      localStorage.removeItem("userEmail"); // Clear registration on refresh
+      localStorage.removeItem("userEmail");
+      localStorage.removeItem("userName");
+      localStorage.removeItem("userNumber");
       setLocation("/");
     }
   }, [setLocation, isFinished]);
