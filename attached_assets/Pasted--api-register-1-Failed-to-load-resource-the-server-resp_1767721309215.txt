@@ -1,0 +1,129 @@
+/api/register:1  Failed to load resource: the server responded with a status of 404 ()
+index-BYRdzfkp.js:16 Failed to parse error JSON: <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot POST /api/register</pre>
+</body>
+</html>
+
+t @ index-BYRdzfkp.js:16
+index-BYRdzfkp.js:16 Registration failed: Registration failed
+t @ index-BYRdzfkp.js:16
+index-BYRdzfkp.js:16  POST https://nasahold.vercel.app/api/register 404 (Not Found)
+t @ index-BYRdzfkp.js:16
+(anonymous) @ index-BYRdzfkp.js:16
+await in (anonymous)
+YC @ index-BYRdzfkp.js:5
+eT @ index-BYRdzfkp.js:5
+tT @ index-BYRdzfkp.js:5
+ug @ index-BYRdzfkp.js:5
+cg @ index-BYRdzfkp.js:5
+(anonymous) @ index-BYRdzfkp.js:5
+rf @ index-BYRdzfkp.js:8
+gm @ index-BYRdzfkp.js:5
+rd @ index-BYRdzfkp.js:5
+Vc @ index-BYRdzfkp.js:5
+yT @ index-BYRdzfkp.js:5
+index-BYRdzfkp.js:16 Failed to parse error JSON: <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot POST /api/register</pre>
+</body>
+</html>
+
+t @ index-BYRdzfkp.js:16
+await in t
+(anonymous) @ index-BYRdzfkp.js:16
+await in (anonymous)
+YC @ index-BYRdzfkp.js:5
+eT @ index-BYRdzfkp.js:5
+tT @ index-BYRdzfkp.js:5
+ug @ index-BYRdzfkp.js:5
+cg @ index-BYRdzfkp.js:5
+(anonymous) @ index-BYRdzfkp.js:5
+rf @ index-BYRdzfkp.js:8
+gm @ index-BYRdzfkp.js:5
+rd @ index-BYRdzfkp.js:5
+Vc @ index-BYRdzfkp.js:5
+yT @ index-BYRdzfkp.js:5
+index-BYRdzfkp.js:16 Registration failed: Registration failed
+t @ index-BYRdzfkp.js:16
+await in t
+(anonymous) @ index-BYRdzfkp.js:16
+await in (anonymous)
+YC @ index-BYRdzfkp.js:5
+eT @ index-BYRdzfkp.js:5
+tT @ index-BYRdzfkp.js:5
+ug @ index-BYRdzfkp.js:5
+cg @ index-BYRdzfkp.js:5
+(anonymous) @ index-BYRdzfkp.js:5
+rf @ index-BYRdzfkp.js:8
+gm @ index-BYRdzfkp.js:5
+rd @ index-BYRdzfkp.js:5
+Vc @ index-BYRdzfkp.js:5
+yT @ index-BYRdzfkp.js:5
+index-BYRdzfkp.js:16  POST https://nasahold.vercel.app/api/register 404 (Not Found)
+t @ index-BYRdzfkp.js:16
+(anonymous) @ index-BYRdzfkp.js:16
+await in (anonymous)
+YC @ index-BYRdzfkp.js:5
+eT @ index-BYRdzfkp.js:5
+tT @ index-BYRdzfkp.js:5
+ug @ index-BYRdzfkp.js:5
+cg @ index-BYRdzfkp.js:5
+(anonymous) @ index-BYRdzfkp.js:5
+rf @ index-BYRdzfkp.js:8
+gm @ index-BYRdzfkp.js:5
+rd @ index-BYRdzfkp.js:5
+Vc @ index-BYRdzfkp.js:5
+yT @ index-BYRdzfkp.js:5
+index-BYRdzfkp.js:16 Failed to parse error JSON: <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot POST /api/register</pre>
+</body>
+</html>
+
+t @ index-BYRdzfkp.js:16
+await in t
+(anonymous) @ index-BYRdzfkp.js:16
+await in (anonymous)
+YC @ index-BYRdzfkp.js:5
+eT @ index-BYRdzfkp.js:5
+tT @ index-BYRdzfkp.js:5
+ug @ index-BYRdzfkp.js:5
+cg @ index-BYRdzfkp.js:5
+(anonymous) @ index-BYRdzfkp.js:5
+rf @ index-BYRdzfkp.js:8
+gm @ index-BYRdzfkp.js:5
+rd @ index-BYRdzfkp.js:5
+Vc @ index-BYRdzfkp.js:5
+yT @ index-BYRdzfkp.js:5
+index-BYRdzfkp.js:16 Registration failed: Registration failed
+t @ index-BYRdzfkp.js:16
+await in t
+(anonymous) @ index-BYRdzfkp.js:16
+await in (anonymous)
+YC @ index-BYRdzfkp.js:5
+eT @ index-BYRdzfkp.js:5
+tT @ index-BYRdzfkp.js:5
+ug @ index-BYRdzfkp.js:5
+cg @ index-BYRdzfkp.js:5
+(anonymous) @ index-BYRdzfkp.js:5
+rf @ index-BYRdzfkp.js:8
+gm @ index-BYRdzfkp.js:5
+rd @ index-BYRdzfkp.js:5
+Vc @ index-BYRdzfkp.js:5
+yT @ index-BYRdzfkp.js:5

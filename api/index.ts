@@ -23,6 +23,16 @@ app.get("/api/health", (_req, res) => {
   res.json({ status: "ok" });
 });
 
+// Explicit registration route for Vercel edge cases
+app.post("/api/register", async (req, res, next) => {
+  try {
+    // This is handled by registerRoutes, but adding explicit proxy for Vercel routing
+    next();
+  } catch (err) {
+    next(err);
+  }
+});
+
 // Error handling middleware
 app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
   const status = err.status || err.statusCode || 500;
