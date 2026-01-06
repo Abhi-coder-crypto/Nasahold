@@ -285,7 +285,7 @@ export default function Quiz() {
       </main>
 
       {/* Bottom White Area with Mascot - Compressed */}
-      <div className="h-16 bg-white rounded-t-[2rem] relative z-20 flex items-center px-12 mt-auto">
+      <div className="h-20 bg-white rounded-t-[2rem] relative z-20 flex items-center px-12 mt-auto">
         <div className="flex flex-col">
           <h3 className="text-[#0047AB] text-lg md:text-xl font-bold leading-none">
             Nasohold<span className="text-[10px] align-top">™</span>
@@ -294,7 +294,7 @@ export default function Quiz() {
         </div>
         
         {/* Mascot - positioned like in the image */}
-        <div className="absolute right-[10%] -top-12 pointer-events-none">
+        <div className="absolute right-[10%] -top-24 pointer-events-none">
            <Mascot className="scale-[0.8]" />
         </div>
 
