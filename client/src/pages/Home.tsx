@@ -151,6 +151,13 @@ export default function Home() {
                           <Input
                             placeholder="Phone Number"
                             {...field}
+                            maxLength={10}
+                            onChange={(e) => {
+                              const value = e.target.value.replace(/[^0-9]/g, "");
+                              if (value.length <= 10) {
+                                field.onChange(value);
+                              }
+                            }}
                             className="h-10 bg-white text-gray-900 placeholder:text-gray-400"
                           />
                         </FormControl>
