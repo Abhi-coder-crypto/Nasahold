@@ -1,6 +1,5 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
-import { serveStatic } from "./static";
 import { createServer } from "http";
 import { connectMongo } from "./db";
 import path from "path";
@@ -12,6 +11,7 @@ const httpServer = createServer(app);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Initialize DB and Routes
 (async () => {
   try {
     await connectMongo();
@@ -19,47 +19,46 @@ app.use(express.urlencoded({ extended: false }));
   } catch (err) {
     console.error("Initialization error:", err);
   }
+})();
 
-  // Handle SPA routing - serve index.html for all non-API routes
-  app.use((req, res, next) => {
-    if (req.path.startsWith("/api")) {
-      return next();
-    }
-    
-    // In Vercel and local prod, static files are usually handled by the platform, 
-    // but we'll provide a fallback here for robustness.
-    const distPath = path.resolve(process.cwd(), "dist", "public");
-    const filePath = path.join(distPath, req.path);
-    
-    if (fs.existsSync(filePath) && fs.lstatSync(filePath).isFile()) {
-      return res.sendFile(filePath);
-    }
+// Health check endpoint
+app.get("/api/health", (_req, res) => {
+  res.json({ status: "ok" });
+});
 
-    const indexPage = process.env.NODE_ENV === "production" 
-      ? path.join(distPath, "index.html")
-      : path.resolve(process.cwd(), "client", "index.html");
-      
-    if (fs.existsSync(indexPage)) {
-      res.sendFile(indexPage);
+// Handle SPA routing
+app.use((req, res, next) => {
+  if (req.path.startsWith("/api")) {
+    return next();
+  }
+  
+  const distPath = path.resolve(process.cwd(), "dist", "public");
+  const filePath = path.join(distPath, req.path);
+  
+  if (fs.existsSync(filePath) && fs.lstatSync(filePath).isFile()) {
+    return res.sendFile(filePath);
+  }
+
+  const indexPage = path.join(distPath, "index.html");
+  if (fs.existsSync(indexPage)) {
+    res.sendFile(indexPage);
+  } else {
+    // Fallback for dev or missing build
+    const clientIndex = path.resolve(process.cwd(), "client", "index.html");
+    if (fs.existsSync(clientIndex)) {
+      res.sendFile(clientIndex);
     } else {
       next();
     }
-  });
-
-  // ALWAYS serve the app on the port specified in the environment variable PORT
-  const port = parseInt(process.env.PORT || "5000", 10);
-  if (process.env.NODE_ENV !== "production" && !process.env.VERCEL) {
-    httpServer.listen(
-      {
-        port,
-        host: "0.0.0.0",
-        reusePort: true,
-      },
-      () => {
-        console.log(`serving on port ${port}`);
-      },
-    );
   }
-})();
+});
+
+// Production specific listener
+if (process.env.NODE_ENV !== "production" && !process.env.VERCEL) {
+  const port = parseInt(process.env.PORT || "5000", 10);
+  httpServer.listen(port, "0.0.0.0", () => {
+    console.log(`serving on port ${port}`);
+  });
+}
 
 export default app;
