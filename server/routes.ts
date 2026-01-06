@@ -28,7 +28,7 @@ export async function registerRoutes(
         Name: u.name,
         Email: u.email,
         Phone: u.number,
-        Score: u.score,
+        Score: `${u.score} / 7`,
         Date: new Date(u.completedAt).toLocaleString()
       }));
 
