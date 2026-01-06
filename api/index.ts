@@ -32,27 +32,30 @@ app.use((req, res, next) => {
     return next();
   }
   
+  // Vercel specific path resolution
   const distPath = path.resolve(process.cwd(), "dist", "public");
   
-  // Try to serve static files first
-  const filePath = path.join(distPath, req.path);
-  if (fs.existsSync(filePath) && fs.lstatSync(filePath).isFile()) {
-    return res.sendFile(filePath);
+  // Check if it's a static file (with extension)
+  if (req.path.includes(".")) {
+    const filePath = path.join(distPath, req.path);
+    if (fs.existsSync(filePath) && fs.lstatSync(filePath).isFile()) {
+      return res.sendFile(filePath);
+    }
   }
 
-  // Fallback to index.html for SPA routes
+  // Fallback to index.html for all other routes (SPA)
   const indexPage = path.join(distPath, "index.html");
   if (fs.existsSync(indexPage)) {
     return res.sendFile(indexPage);
   }
   
-  // Final fallback to client index (for dev or if build is missing)
+  // Final fallback to client index for local development
   const clientIndex = path.resolve(process.cwd(), "client", "index.html");
   if (fs.existsSync(clientIndex)) {
     return res.sendFile(clientIndex);
   }
   
-  next();
+  res.status(404).send("Not Found");
 });
 
 // Production specific listener
