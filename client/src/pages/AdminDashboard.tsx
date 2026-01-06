@@ -99,8 +99,8 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen bg-[#F0F4F8]">
       {/* Dark Header */}
-      <header className="bg-[#1A1C2E] text-white py-4 px-6 flex justify-between items-center">
-        <div className="flex items-center gap-3">
+      <header className="bg-[#1A1C2E] text-white py-3 px-4 md:py-4 md:px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="flex items-center gap-3 w-full sm:w-auto">
           <div className="bg-primary p-2 rounded-lg">
             <Trophy className="h-5 w-5 text-white" />
           </div>
@@ -109,13 +109,13 @@ export default function AdminDashboard() {
             <p className="text-xs text-gray-400">Participant Management System</p>
           </div>
         </div>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center justify-between sm:justify-end gap-4 w-full sm:w-auto">
           <div 
             className="flex items-center gap-2 text-sm text-gray-400 cursor-pointer hover:text-white transition-colors"
             onClick={handleRefresh}
           >
             <RefreshCcw className={`h-4 w-4 ${isRefreshing ? 'animate-spin' : ''}`} />
-            <span>Refresh Data</span>
+            <span className="hidden xs:inline">Refresh Data</span>
           </div>
           <div className="flex items-center gap-3">
             <div className="bg-primary/20 text-primary h-8 w-8 rounded-full flex items-center justify-center font-bold">
@@ -129,14 +129,14 @@ export default function AdminDashboard() {
         </div>
       </header>
 
-      <main className="container mx-auto px-6 py-8 max-w-7xl">
+      <main className="container mx-auto px-4 py-6 md:px-6 md:py-8 max-w-7xl">
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-8">
           <Card className="border-none shadow-sm overflow-hidden">
-            <CardContent className="p-6 flex justify-between items-center">
+            <CardContent className="p-4 md:p-6 flex justify-between items-center">
               <div>
                 <p className="text-sm font-medium text-gray-500 mb-1">Total Participants</p>
-                <div className="text-3xl font-bold text-[#1A1C2E]">{totalParticipants}</div>
+                <div className="text-2xl md:text-3xl font-bold text-[#1A1C2E]">{totalParticipants}</div>
               </div>
               <div className="bg-blue-600/10 p-3 rounded-xl">
                 <Users className="h-6 w-6 text-blue-600" />
@@ -145,10 +145,10 @@ export default function AdminDashboard() {
           </Card>
           
           <Card className="border-none shadow-sm overflow-hidden">
-            <CardContent className="p-6 flex justify-between items-center">
+            <CardContent className="p-4 md:p-6 flex justify-between items-center">
               <div>
                 <p className="text-sm font-medium text-gray-500 mb-1">Average Score</p>
-                <div className="text-3xl font-bold text-orange-500">{averageScore}</div>
+                <div className="text-2xl md:text-3xl font-bold text-orange-500">{averageScore}</div>
               </div>
             </CardContent>
           </Card>
@@ -156,30 +156,30 @@ export default function AdminDashboard() {
 
         {/* Content Section */}
         <div className="flex flex-col gap-4">
-          <div className="flex justify-between items-end">
+          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-end gap-4">
             <div>
-              <h2 className="text-2xl font-bold text-[#1A1C2E]">User Requests</h2>
+              <h2 className="text-xl md:text-2xl font-bold text-[#1A1C2E]">User Requests</h2>
               <p className="text-sm text-gray-500">Manage and process quiz participant data</p>
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-2 sm:gap-3">
               <Button 
                 variant="outline" 
                 onClick={handleRefresh} 
                 disabled={isRefreshing}
-                className="bg-white border-gray-200"
+                className="bg-white border-gray-200 flex-1 sm:flex-none"
               >
                 <RefreshCcw className={`h-4 w-4 mr-2 ${isRefreshing ? 'animate-spin' : ''}`} /> Refresh
               </Button>
-              <div className="relative">
+              <div className="relative flex-1 sm:flex-none sm:min-w-[250px]">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
                 <Input 
                   placeholder="Search users..." 
-                  className="pl-10 w-64 bg-white border-gray-200"
+                  className="pl-10 w-full bg-white border-gray-200"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
               </div>
-              <Button onClick={handleExport} className="bg-primary hover:bg-primary/90">
+              <Button onClick={handleExport} className="bg-primary hover:bg-primary/90 flex-1 sm:flex-none">
                 <Download className="h-4 w-4 mr-2" /> Export
               </Button>
             </div>
@@ -187,43 +187,47 @@ export default function AdminDashboard() {
 
           <Card className="border-none shadow-sm overflow-hidden bg-white">
             <CardContent className="p-0">
-              <Table>
-                <TableHeader className="bg-slate-50/50">
-                  <TableRow className="border-b border-gray-100">
-                    <TableHead className="py-4 px-6 text-xs font-semibold uppercase tracking-wider text-gray-500">User</TableHead>
-                    <TableHead className="py-4 px-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Email</TableHead>
-                    <TableHead className="py-4 px-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Phone</TableHead>
-                    <TableHead className="py-4 px-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Date</TableHead>
-                    <TableHead className="py-4 px-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Status</TableHead>
-                    <TableHead className="py-4 px-6 text-xs font-semibold uppercase tracking-wider text-right text-gray-500">Actions</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {filteredUsers?.map((user) => (
-                    <TableRow key={user._id} className="border-b border-gray-50 hover:bg-slate-50/50 transition-colors">
-                      <TableCell className="py-4 px-6 font-medium text-gray-900">{user.name}</TableCell>
-                      <TableCell className="py-4 px-6 text-gray-600">{user.email}</TableCell>
-                      <TableCell className="py-4 px-6 text-gray-600">{user.number}</TableCell>
-                      <TableCell className="py-4 px-6 text-gray-500">
-                        {new Date(user.completedAt).toLocaleDateString()}
-                      </TableCell>
-                      <TableCell className="py-4 px-6">
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                          Completed: {user.score}/7
-                        </span>
-                      </TableCell>
-                      <TableCell className="py-4 px-6 text-right">
-                        <Button 
-                          variant="ghost" 
-                          size="sm" 
-                          className="text-primary hover:text-primary/80"
-                          onClick={() => setSelectedUser(user)}
-                        >
-                          View
-                        </Button>
-                      </TableCell>
+              <div className="overflow-x-auto">
+                <Table>
+                  <TableHeader className="bg-slate-50/50">
+                    <TableRow className="border-b border-gray-100">
+                      <TableHead className="py-4 px-4 md:px-6 text-xs font-semibold uppercase tracking-wider text-gray-500">User</TableHead>
+                      <TableHead className="hidden sm:table-cell py-4 px-4 md:px-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Email</TableHead>
+                      <TableHead className="hidden md:table-cell py-4 px-4 md:px-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Phone</TableHead>
+                      <TableHead className="hidden lg:table-cell py-4 px-4 md:px-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Date</TableHead>
+                      <TableHead className="py-4 px-4 md:px-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Status</TableHead>
+                      <TableHead className="py-4 px-4 md:px-6 text-xs font-semibold uppercase tracking-wider text-right text-gray-500">Actions</TableHead>
                     </TableRow>
-                  ))}
+                  </TableHeader>
+                  <TableBody>
+                    {filteredUsers?.map((user) => (
+                      <TableRow key={user._id} className="border-b border-gray-50 hover:bg-slate-50/50 transition-colors">
+                        <TableCell className="py-4 px-4 md:px-6">
+                          <div className="font-medium text-gray-900">{user.name}</div>
+                          <div className="sm:hidden text-xs text-gray-500 mt-0.5">{user.email}</div>
+                        </TableCell>
+                        <TableCell className="hidden sm:table-cell py-4 px-4 md:px-6 text-gray-600">{user.email}</TableCell>
+                        <TableCell className="hidden md:table-cell py-4 px-4 md:px-6 text-gray-600">{user.number}</TableCell>
+                        <TableCell className="hidden lg:table-cell py-4 px-4 md:px-6 text-gray-500">
+                          {new Date(user.completedAt).toLocaleDateString()}
+                        </TableCell>
+                        <TableCell className="py-4 px-4 md:px-6">
+                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] md:text-xs font-medium bg-green-100 text-green-800">
+                            {user.score}/7
+                          </span>
+                        </TableCell>
+                        <TableCell className="py-4 px-4 md:px-6 text-right">
+                          <Button 
+                            variant="ghost" 
+                            size="sm" 
+                            className="text-primary hover:text-primary/80 px-2"
+                            onClick={() => setSelectedUser(user)}
+                          >
+                            View
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
                   {filteredUsers?.length === 0 && (
                     <TableRow>
                       <TableCell colSpan={6} className="text-center py-20">
@@ -243,18 +247,18 @@ export default function AdminDashboard() {
 
       {/* Details Dialog */}
       <Dialog open={!!selectedUser} onOpenChange={() => setSelectedUser(null)}>
-        <DialogContent className="max-w-2xl bg-white p-0 overflow-hidden flex flex-col max-h-[90vh]">
-          <DialogHeader className="p-6 pb-4 border-b bg-white">
-            <DialogTitle className="text-xl font-bold text-[#1A1C2E]">
+        <DialogContent className="max-w-2xl bg-white p-0 overflow-hidden flex flex-col max-h-[90vh] w-[95vw]">
+          <DialogHeader className="p-4 md:p-6 pb-4 border-b bg-white">
+            <DialogTitle className="text-lg md:text-xl font-bold text-[#1A1C2E]">
               Participant Details: {selectedUser?.name}
             </DialogTitle>
           </DialogHeader>
           <ScrollArea className="flex-1 overflow-y-auto">
-            <div className="p-6">
-              <div className="grid grid-cols-2 gap-4 mb-6">
+            <div className="p-4 md:p-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-6">
                 <div className="p-3 bg-slate-50 rounded-lg">
                   <p className="text-xs text-gray-500 uppercase font-semibold">Email</p>
-                  <p className="text-sm font-medium">{selectedUser?.email}</p>
+                  <p className="text-sm font-medium break-all">{selectedUser?.email}</p>
                 </div>
                 <div className="p-3 bg-slate-50 rounded-lg">
                   <p className="text-xs text-gray-500 uppercase font-semibold">Phone</p>
