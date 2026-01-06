@@ -13,8 +13,7 @@
     },
     {
       "src": "/assets/(.*)",
-      "dest": "/assets/$1",
-      "continue": true
+      "dest": "/assets/$1"
     },
     {
       "src": "/(.*)",
