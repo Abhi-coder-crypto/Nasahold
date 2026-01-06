@@ -7,6 +7,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import Quiz from "@/pages/Quiz";
 import VideoPage from "@/pages/VideoPage";
+import AdminDashboard from "@/pages/AdminDashboard";
 
 function Router() {
   return (
@@ -14,6 +15,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/video" component={VideoPage} />
       <Route path="/quiz" component={Quiz} />
+      <Route path="/admin" component={AdminDashboard} />
       <Route component={NotFound} />
     </Switch>
   );
