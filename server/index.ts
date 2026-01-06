@@ -3,6 +3,7 @@ import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
 import { connectMongo } from "./db";
+import path from "path";
 
 const app = express();
 const httpServer = createServer(app);
@@ -81,6 +82,17 @@ app.use((req, res, next) => {
     const { setupVite } = await import("./vite");
     await setupVite(httpServer, app);
   }
+
+  // Handle SPA routing - serve index.html for all non-API routes
+  app.use((req, res, next) => {
+    if (req.path.startsWith("/api") || req.path.includes(".")) {
+      return next();
+    }
+    const indexPage = process.env.NODE_ENV === "production" 
+      ? path.resolve(process.cwd(), "dist", "index.html")
+      : path.resolve(process.cwd(), "client", "index.html");
+    res.sendFile(indexPage);
+  });
 
   // ALWAYS serve the app on the port specified in the environment variable PORT
   // Other ports are firewalled. Default to 5000 if not specified.
