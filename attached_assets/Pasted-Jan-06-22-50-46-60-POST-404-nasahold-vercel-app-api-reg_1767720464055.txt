@@ -1,0 +1,263 @@
+Jan 06 22:50:46.60
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:50:04.87
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:50:02.68
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:50:02.47
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:50:02.27
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:50:00.63
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:49:16.55
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:48:54.03
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:48:52.33
+GET
+404
+nasahold.vercel.app
+/api/admin/users
+Jan 06 22:48:05.19
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:47:53.45
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:46:52.54
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:46:52.36
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:46:52.20
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:46:52.04
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:46:51.12
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:46:27.65
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:46:27.45
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:46:27.27
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:46:24.23
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:46:24.07
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:46:23.90
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:46:23.70
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:46:23.19
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:46:22.41
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:46:20.94
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:43:18.26
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:43:17.28
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:43:11.22
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:41:46.00
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:41:43.20
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:41:26.22
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:41:23.20
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:37:15.42
+POST
+404
+nasahold.vercel.app
+/api/register
+2
+Initialization error: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/ at _handleConnectionErrors (/var/task/node_modules/mongoose/lib/connection.js:1169:11) at NativeConnection.openUri (/var/task/node_modules/mongoose/lib/connection.js:1100:11) at runNextTicks (node:internal/process/task_queues:65:5) at process.processTimers (node:internal/timers:540:9) at async connectMongo (/vercel/path0/api/db.ts:16:16) at async <anonymous> (/vercel/path0/api/index.ts:15:5) { errorLabelSet: Set(0) {}, reason: TopologyDescription { type: 'ReplicaSetNoPrimary', servers: Map(3) { 'ac-g2v6hsb-shard-00-00.tokzqiw.mongodb.net:27017' => [ServerDescription], 'ac-g2v6hsb-shard-00-01.tokzqiw.mongodb.net:27017' => [ServerDescription], 'ac-g2v6hsb-shard-00-02.tokzqiw.mongodb.net:27017' => [ServerDescription] }, stale: false, compatible: true, heartbeatFrequencyMS: 10000, localThresholdMS: 15, setName: 'atlas-b5e6el-shard-0', maxElectionId: null, maxSetVersion: null, commonWireVersion: 0, logicalSessionTimeoutMinutes: null }, code: undefined, cause: TopologyDescription { type: 'ReplicaSetNoPrimary', servers: Map(3) { 'ac-g2v6hsb-shard-00-00.tokzqiw.mongodb.net:27017' => [ServerDescription], 'ac-g2v6hsb-shard-00-01.tokzqiw.mongodb.net:27017' => [ServerDescription], 'ac-g2v6hsb-shard-00-02.tokzqiw.mongodb.net:27017' => [ServerDescription] }, stale: false, compatible: true, heartbeatFrequencyMS: 10000, localThresholdMS: 15, setName: 'atlas-b5e6el-shard-0', maxElectionId: null, maxSetVersion: null, commonWireVersion: 0, logicalSessionTimeoutMinutes: null } }
+Jan 06 22:37:13.57
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:36:49.03
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:36:42.07
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:29:58.45
+POST
+201
+nasahold.vercel.app
+/api/quiz
+Jan 06 22:29:36.73
+POST
+200
+nasahold.vercel.app
+/api/register
+Jan 06 22:29:02.21
+GET
+200
+nasahold.vercel.app
+/api/admin/users
+Jan 06 22:28:40.84
+GET
+304
+nasahold.vercel.app
+/api/admin/users
+Jan 06 22:28:18.27
+GET
+304
+nasahold.vercel.app
+/api/admin/users
+Jan 06 22:28:09.07
+GET
+304
+nasahold.vercel.app
+/api/admin/users
+Jan 06 22:26:23.54
+POST
+200
+nasahold.vercel.app
+/api/register
+Jan 06 22:26:16.13
+POST
+409
+nasahold.vercel.app
+/api/register
+Jan 06 22:25:24.48
+POST
+200
+nasahold.vercel.app
+/api/register
+Jan 06 22:25:24.26
+POST
+200
+nasahold.vercel.app
+/api/register
+Jan 06 22:25:24.08
+POST
+200
+nasahold.vercel.app
+/api/register
+Jan 06 22:25:23.13
+POST
+200
+nasahold.vercel.app
+/api/register
+Connected to MongoDB
+Jan 06 22:25:06.93
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:25:04.98
+POST
+404
+nasahold.vercel.app
+/api/register
+Jan 06 22:25:00.07
+POST
+404
+nasahold.vercel.app
+/api/register
