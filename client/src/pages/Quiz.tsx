@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { useSubmitQuiz } from "@/hooks/use-quiz";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ChevronRight, Loader2, Trophy, Zap } from "lucide-react";
+import { Check, ChevronRight, Loader2, Trophy, Zap, X, Plus, Gamepad2 } from "lucide-react";
 import confetti from "canvas-confetti";
 import {
   Dialog,
