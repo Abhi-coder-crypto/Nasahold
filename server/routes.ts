@@ -72,10 +72,11 @@ export async function registerRoutes(
 
       // Save user and results to MongoDB ONLY on successful quiz completion
       if (req.body.email) {
+        const emailLower = req.body.email.toLowerCase();
         await MongoUser.findOneAndUpdate(
-          { email: req.body.email },
+          { email: emailLower },
           { 
-            name: req.body.name, // Ensure name is passed or stored in local context
+            name: req.body.name,
             number: req.body.number,
             score: input.score, 
             answers: input.answers,
