@@ -94,7 +94,7 @@ export default function Home() {
         </motion.div>
 
         {/* Mascot Positioned left-ish but not overlapping form */}
-        <div className="absolute left-[5%] bottom-[2%] z-30 pointer-events-none hidden lg:block">
+        <div className="absolute left-[5%] bottom-[0%] z-30 pointer-events-none hidden lg:block">
           <Mascot className="scale-75" />
         </div>
 
