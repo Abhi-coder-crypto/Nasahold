@@ -5,13 +5,22 @@ if (!process.env.MONGODB_URI) {
   throw new Error("MONGODB_URI must be set. MongoDB is required for this application.");
 }
 
+let isConnected = false;
+
 export const connectMongo = async () => {
+  if (isConnected) return;
+  
   try {
-    await mongoose.connect(process.env.MONGODB_URI!);
+    const db = await mongoose.connect(process.env.MONGODB_URI!);
+    isConnected = db.connections[0].readyState === 1;
     console.log("Connected to MongoDB");
   } catch (err) {
     console.error("MongoDB connection error:", err);
-    process.exit(1);
+    // Don't exit process in serverless
+    if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
+      process.exit(1);
+    }
+    throw err;
   }
 };
 

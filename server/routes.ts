@@ -59,8 +59,11 @@ export async function registerRoutes(
       const emailLower = email.toLowerCase();
       
       // Ensure DB connection
-      if (mongoose.connection.readyState !== 1) {
+      try {
         await connectMongo();
+      } catch (connErr) {
+        console.error("Database connection failed during registration:", connErr);
+        return res.status(500).json({ message: "Database connection failed" });
       }
 
       const existingUser = await MongoUser.findOne({ 

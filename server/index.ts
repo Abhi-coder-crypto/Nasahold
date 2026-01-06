@@ -4,6 +4,7 @@ import { serveStatic } from "./static";
 import { createServer } from "http";
 import { connectMongo } from "./db";
 import path from "path";
+import fs from "fs";
 
 const app = express();
 const httpServer = createServer(app);
@@ -85,13 +86,28 @@ app.use((req, res, next) => {
 
   // Handle SPA routing - serve index.html for all non-API routes
   app.use((req, res, next) => {
-    if (req.path.startsWith("/api") || req.path.includes(".")) {
+    if (req.path.startsWith("/api")) {
       return next();
     }
+    
+    // In Vercel, static files are usually handled by the platform, 
+    // but if we're routing everything to Express, we need to serve them.
+    const distPath = path.resolve(process.cwd(), "dist", "public");
+    const filePath = path.join(distPath, req.path);
+    
+    if (fs.existsSync(filePath) && fs.lstatSync(filePath).isFile()) {
+      return res.sendFile(filePath);
+    }
+
     const indexPage = process.env.NODE_ENV === "production" 
-      ? path.resolve(process.cwd(), "dist", "public", "index.html")
+      ? path.join(distPath, "index.html")
       : path.resolve(process.cwd(), "client", "index.html");
-    res.sendFile(indexPage);
+      
+    if (fs.existsSync(indexPage)) {
+      res.sendFile(indexPage);
+    } else {
+      next();
+    }
   });
 
   // ALWAYS serve the app on the port specified in the environment variable PORT
