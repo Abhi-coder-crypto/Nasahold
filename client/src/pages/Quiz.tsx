@@ -348,6 +348,10 @@ export default function Quiz() {
       {/* Result Dialog */}
       <Dialog open={isFinished} onOpenChange={(open) => !open && setLocation("/")}>
         <DialogContent className="max-w-md p-0 overflow-hidden bg-transparent border-none shadow-none">
+          <DialogTitle className="sr-only">Quiz Results</DialogTitle>
+          <DialogDescription className="sr-only">
+            Congratulations on completing the Nasohold Memory Game. Your final score is {score} out of 7.
+          </DialogDescription>
           <div className="relative w-full aspect-[9/16] md:aspect-auto md:h-[85vh] bg-[#0047AB] flex flex-col overflow-hidden font-sans">
             {/* Background Decorative Icons */}
             <div className="absolute inset-0 pointer-events-none opacity-20">

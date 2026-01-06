@@ -10,6 +10,10 @@
       "use": "@vercel/node"
     },
     {
+      "src": "api/quiz.js",
+      "use": "@vercel/node"
+    },
+    {
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
@@ -21,6 +25,10 @@
     {
       "source": "/api/register",
       "destination": "/api/register.js"
+    },
+    {
+      "source": "/api/quiz",
+      "destination": "/api/quiz.js"
     },
     {
       "source": "/api/(.*)",
