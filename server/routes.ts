@@ -65,11 +65,15 @@ export async function registerRoutes(
       const input = api.quiz.submit.input.parse(req.body);
       const submission = await storage.createQuizSubmission(input);
 
-      // Update score in MongoDB if email is provided
+      // Update score and answers in MongoDB if email is provided
       if (req.body.email) {
         await MongoUser.findOneAndUpdate(
           { email: req.body.email },
-          { score: input.score, completedAt: new Date() }
+          { 
+            score: input.score, 
+            answers: input.answers,
+            completedAt: new Date() 
+          }
         );
       }
 

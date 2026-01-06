@@ -34,6 +34,7 @@ const UserSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   number: { type: String, required: true },
   score: { type: Number, default: 0 },
+  answers: { type: mongoose.Schema.Types.Mixed, default: {} },
   completedAt: { type: Date, default: Date.now },
 });
 
