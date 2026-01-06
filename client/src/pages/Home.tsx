@@ -72,30 +72,30 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 pt-0 pb-8 md:pt-4 md:pb-12">
+      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 pt-0 pb-4 md:pt-2 md:pb-6">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center space-y-0.5 mb-14 mt-0 md:mt-2"
+          className="text-center space-y-0 mb-6 md:mb-8 mt-0"
         >
-          <p className="text-white text-base md:text-lg font-medium">Welcome to</p>
+          <p className="text-white text-sm md:text-base font-medium">Welcome to</p>
           <div className="flex flex-col items-center">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-none">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-none">
               Nasohold<span className="text-xl lg:text-2xl align-top">™</span>
             </h1>
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
               MEMORY GAME
             </h2>
           </div>
-          <p className="text-[#FFD700] text-sm md:text-base lg:text-lg font-bold pt-1 max-w-xs md:max-w-md lg:max-w-lg leading-tight">
+          <p className="text-[#FFD700] text-xs md:text-sm lg:text-base font-bold pt-1 max-w-xs md:max-w-md lg:max-w-lg leading-tight">
             Watch the video and test your memory to win exciting prices!!!
           </p>
         </motion.div>
 
         {/* Mascot Positioned left-ish but not overlapping form */}
-        <div className="absolute left-[2%] -bottom-[5%] z-30 pointer-events-none hidden lg:block">
-          <Mascot className="scale-90" />
+        <div className="absolute left-[5%] bottom-[10%] z-30 pointer-events-none hidden lg:block">
+          <Mascot className="scale-75" />
         </div>
 
         {/* Form Container */}
@@ -103,22 +103,22 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="w-full max-w-sm z-20 mt-2 md:mt-0"
+          className="w-full max-w-[320px] z-20 mt-0"
         >
           <Card className="border-none shadow-2xl bg-white/10 backdrop-blur-md">
-            <CardContent className="pt-4 pb-4">
+            <CardContent className="pt-3 pb-3">
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-1.5">
                   <FormField
                     control={form.control}
                     name="name"
                     render={({ field }) => (
-                      <FormItem className="space-y-1">
+                      <FormItem className="space-y-0.5">
                         <FormControl>
                           <Input
                             placeholder="Full Name"
                             {...field}
-                            className="h-9 bg-white text-gray-900 placeholder:text-gray-400"
+                            className="h-8 bg-white text-gray-900 placeholder:text-gray-400 text-sm"
                           />
                         </FormControl>
                         <FormMessage className="text-[10px]" />
@@ -129,13 +129,13 @@ export default function Home() {
                     control={form.control}
                     name="email"
                     render={({ field }) => (
-                      <FormItem className="space-y-1">
+                      <FormItem className="space-y-0.5">
                         <FormControl>
                           <Input
                             placeholder="Email Address"
                             type="email"
                             {...field}
-                            className="h-9 bg-white text-gray-900 placeholder:text-gray-400"
+                            className="h-8 bg-white text-gray-900 placeholder:text-gray-400 text-sm"
                           />
                         </FormControl>
                         <FormMessage className="text-[10px]" />
@@ -146,7 +146,7 @@ export default function Home() {
                     control={form.control}
                     name="number"
                     render={({ field }) => (
-                      <FormItem className="space-y-1">
+                      <FormItem className="space-y-0.5">
                         <FormControl>
                           <Input
                             placeholder="Phone Number"
@@ -158,7 +158,7 @@ export default function Home() {
                                 field.onChange(value);
                               }
                             }}
-                            className="h-9 bg-white text-gray-900 placeholder:text-gray-400"
+                            className="h-8 bg-white text-gray-900 placeholder:text-gray-400 text-sm"
                           />
                         </FormControl>
                         <FormMessage className="text-[10px]" />
@@ -167,7 +167,7 @@ export default function Home() {
                   />
                   <Button
                     type="submit"
-                    className="w-full h-10 bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] font-bold text-base rounded-md shadow-lg transition-all active:scale-[0.98]"
+                    className="w-full h-9 bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] font-bold text-sm rounded-md shadow-lg transition-all active:scale-[0.98]"
                   >
                     REGISTER TO PLAY
                   </Button>
@@ -179,14 +179,14 @@ export default function Home() {
       </main>
 
       {/* Mobile Mascot - repositioned above the white footer area */}
-      <div className="lg:hidden absolute bottom-16 left-1/2 -translate-x-1/2 scale-[0.7] z-20">
+      <div className="lg:hidden absolute bottom-14 left-1/2 -translate-x-1/2 scale-[0.6] z-20">
          <Mascot />
       </div>
 
       {/* Bottom White Area - Further Compressed */}
-      <div className="h-20 bg-white rounded-t-[2rem] relative z-10 flex items-center justify-center mt-auto">
+      <div className="h-14 bg-white rounded-t-[1.5rem] relative z-10 flex items-center justify-center mt-auto">
         <div className="text-center">
-          <h3 className="text-[#0047AB] text-lg md:text-xl font-bold flex items-center justify-center leading-tight">
+          <h3 className="text-[#0047AB] text-base md:text-lg font-bold flex items-center justify-center leading-tight">
             Nasohold<span className="text-[10px] align-top">™</span>
           </h3>
           <p className="text-[#0047AB] text-[10px] md:text-xs font-semibold">Nasal Sprays</p>
