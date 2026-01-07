@@ -11,7 +11,7 @@ export function Header() {
       <div className="flex-1 flex items-center justify-center md:justify-start pt-2 md:pt-0">
         {isHome && (
           <Link href="/">
-            <div className="relative group cursor-pointer translate-y-3 md:translate-y-0">
+            <div className="relative group cursor-pointer translate-x-4 translate-y-3 md:translate-x-0 md:translate-y-0">
               <img
                 src={logoLeft}
                 alt="Nasohold Logo"
