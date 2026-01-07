@@ -67,7 +67,7 @@ export default function VideoPage() {
               <img 
                 src={videoHeadingImg} 
                 alt="Watch the video and test your memory to win exciting prizes!!!" 
-                className="w-full max-w-[300px] object-contain"
+                className="w-full max-w-[260px] object-contain"
               />
             </div>
 
