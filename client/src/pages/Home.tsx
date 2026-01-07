@@ -108,12 +108,12 @@ export default function Home() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center space-y-2 mb-4 md:mb-8 mt-2 md:mt-0 flex flex-col items-center"
+          className="text-center space-y-2 mb-4 md:mb-8 mt-12 md:mt-0 flex flex-col items-center"
         >
           <img 
             src={welcomeLogo} 
             alt="Welcome to Nasohold Memory Game" 
-            className="w-full max-w-[280px] md:max-w-[400px] object-contain"
+            className="w-full max-w-[280px] md:max-w-[400px] object-contain relative z-10"
           />
         </motion.div>
 
