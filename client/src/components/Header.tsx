@@ -7,7 +7,7 @@ export function Header() {
   const isHome = location === "/";
 
   return (
-    <header className="w-full py-4 px-6 md:px-12 flex justify-between items-center sticky top-0 z-50 bg-[#0047AB]">
+    <header className="w-full py-4 px-6 md:px-12 flex justify-between items-center sticky top-0 z-50 bg-[#0047AB] md:bg-[#0047AB] max-md:bg-transparent">
       <div className="flex items-center">
         {isHome && (
           <Link href="/">
