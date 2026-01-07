@@ -1,4 +1,4 @@
-import mascotImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.23__1_-removebg-preview_1767770695897.png";
+import mascotImg from "@assets/Picture1-removebg-preview_1767675939575.png";
 import { motion } from "framer-motion";
 
 export function Mascot({ className = "" }: { className?: string }) {
