@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import logoLeft from "@assets/WhatsApp_Image_2026-01-07_at_10.23.23-removebg-preview_1767763199983.png";
 import mascotImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.27-removebg-preview_1767763214039.png";
+import footerDecorative from "@assets/image_1767763325734.png";
 import { useLocation } from "wouter";
 import { Header } from "@/components/Header";
 import { Mascot } from "@/components/Mascot";
@@ -329,8 +330,17 @@ export default function Quiz() {
       </main>
 
       {/* Bottom White Area with Mascot - Updated */}
-      <div className="h-24 bg-white rounded-t-[2.5rem] relative z-20 flex items-center justify-between px-8 mt-auto overflow-visible shadow-[0_-10px_20px_rgba(0,0,0,0.1)]">
-        <div className="flex flex-col">
+      <div className="h-24 bg-white rounded-t-[2.5rem] relative z-20 flex items-center justify-between px-8 mt-auto overflow-hidden shadow-[0_-10px_20px_rgba(0,0,0,0.1)]">
+        {/* Mobile-only decorative background */}
+        <div className="absolute inset-0 z-0 pointer-events-none md:hidden">
+          <img 
+            src={footerDecorative} 
+            alt="" 
+            className="w-full h-full object-cover opacity-100"
+          />
+        </div>
+
+        <div className="flex flex-col relative z-10">
           <img 
             src={logoLeft} 
             alt="Nasohold Logo" 
@@ -339,7 +349,7 @@ export default function Quiz() {
         </div>
         
         {/* Mascot positioned half-in half-out of the white area */}
-        <div className="absolute right-[5%] bottom-[20%] pointer-events-none">
+        <div className="absolute right-[5%] bottom-[20%] pointer-events-none z-10">
            <img 
              src={mascotImg} 
              alt="Mascot" 
