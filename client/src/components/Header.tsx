@@ -32,7 +32,7 @@ export function Header() {
         <img
           src={logoRight}
           alt="Aristo Logo"
-          className="h-6 md:h-12 object-contain brightness-0 invert translate-x-4 translate-y-2 md:translate-x-0 md:translate-y-0"
+          className="h-5 md:h-12 object-contain brightness-0 invert translate-x-6 translate-y-2 md:translate-x-0 md:translate-y-0"
         />
       </div>
     </header>
