@@ -151,6 +151,8 @@ export default function Quiz() {
   const progress = ((currentStep + 1) / QUESTIONS.length) * 100;
 
   const handleSelect = (option: string) => {
+    if (showFeedback) return; // Prevent multiple selections during feedback
+    
     if (currentQuestion.type === "single") {
       setAnswers(prev => ({ ...prev, [currentQuestion.id]: option }));
       
@@ -171,7 +173,9 @@ export default function Quiz() {
         }, 1500);
       } else {
         // If wrong or survey, still move to next after a short delay
+        setShowFeedback(true); // Still set feedback to true to lock interaction
         setTimeout(() => {
+          setShowFeedback(false);
           handleNext();
         }, 1000);
       }
@@ -338,7 +342,7 @@ export default function Quiz() {
               </div>
 
               {currentQuestion.type === "multiple" && (
-                <div className="mt-4 flex justify-end pb-12 md:pb-0">
+                <div className="mt-4 flex justify-start pb-12 md:pb-0">
                   <Button 
                     onClick={handleNext}
                     disabled={!canProceed}
