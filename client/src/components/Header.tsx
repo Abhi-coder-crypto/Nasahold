@@ -6,6 +6,7 @@ export function Header() {
   const [location] = useLocation();
   const isHome = location === "/";
   const isVideo = location === "/video";
+  const isQuiz = location === "/quiz";
 
   return (
     <header className="w-full py-2 px-6 md:px-12 flex justify-between items-center fixed top-0 left-0 right-0 z-50 bg-[#0047AB] md:bg-[#0047AB] max-md:bg-transparent">
@@ -18,7 +19,7 @@ export function Header() {
               className="h-8 md:h-16 object-contain brightness-0 invert"
             />
           </div>
-          {!isHome && !isVideo && (
+          {!isHome && !isVideo && !isQuiz && (
             <div className="relative group cursor-pointer translate-x-4 translate-y-3 md:translate-x-0 md:translate-y-0 md:hidden">
               <img
                 src={logoLeft}
