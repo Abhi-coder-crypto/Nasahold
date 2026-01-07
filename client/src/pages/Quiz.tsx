@@ -443,8 +443,8 @@ export default function Quiz() {
               </div>
               
               {/* Result Mascot */}
-              <div className="absolute right-[2%] -top-40 pointer-events-none w-48 h-48">
-                 <Mascot className="scale-125" />
+              <div className="absolute right-[2%] -top-24 md:-top-40 pointer-events-none w-32 h-32 md:w-48 md:h-48">
+                 <Mascot className="scale-75 md:scale-125" />
               </div>
 
               <button 
