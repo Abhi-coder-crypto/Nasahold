@@ -284,11 +284,11 @@ export default function Quiz() {
             className="w-full max-w-2xl lg:max-w-4xl px-4"
           >
             <div className="space-y-4 md:space-y-8">
-              <h2 className="text-xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight drop-shadow-lg pr-2">
+              <h2 className="text-xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight drop-shadow-lg pl-6 pr-2">
                 {currentStep + 1}. {currentQuestion.text}
               </h2>
 
-              <div className="space-y-2 md:grid md:grid-cols-2 md:gap-4 md:space-y-0">
+              <div className="space-y-2 md:grid md:grid-cols-2 md:gap-4 md:space-y-0 pl-6 pr-4">
                 {currentQuestion.options.map((option, idx) => {
                   const label = String.fromCharCode(97 + idx); // a, b, c...
                   const isSelected = isOptionSelected(option);
@@ -328,7 +328,7 @@ export default function Quiz() {
                 })}
               </div>
 
-              <div className="mt-4 flex justify-end pb-32 md:pb-0">
+              <div className="mt-4 flex justify-end pb-40 md:pb-0">
                 <Button 
                   onClick={handleNext}
                   disabled={!canProceed}
