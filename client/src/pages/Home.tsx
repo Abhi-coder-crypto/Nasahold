@@ -1,3 +1,4 @@
+import welcomeLogo from "@assets/WhatsApp_Image_2026-01-07_at_10.23.26__1_-removebg-preview_1767762590148.png";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Mascot } from "@/components/Mascot";
@@ -95,17 +96,13 @@ export default function Home() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center space-y-0 mb-4 md:mb-8 mt-2 md:mt-0"
+          className="text-center space-y-2 mb-4 md:mb-8 mt-2 md:mt-0 flex flex-col items-center"
         >
-          <p className="text-white text-sm md:text-base font-medium">Welcome to</p>
-          <div className="flex flex-col items-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-none">
-              Nasohold<span className="text-xl lg:text-2xl align-top">™</span>
-            </h1>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
-              MEMORY GAME
-            </h2>
-          </div>
+          <img 
+            src={welcomeLogo} 
+            alt="Welcome to Nasohold Memory Game" 
+            className="w-full max-w-[280px] md:max-w-[400px] object-contain"
+          />
           <p className="text-[#FFD700] text-xs md:text-sm lg:text-base font-bold pt-1 max-w-xs md:max-w-md lg:max-w-lg leading-tight">
             Watch the video and test your memory to win exciting prices!!!
           </p>
