@@ -286,23 +286,23 @@ export default function Quiz() {
                       className={`
                         w-full text-left p-4 md:p-5 rounded-full border-2 transition-all duration-200 flex items-center group
                         ${isSelected 
-                          ? "border-yellow-400 bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg" 
-                          : "border-blue-400 bg-gradient-to-r from-blue-600 to-blue-700 hover:border-white/50"
+                          ? "border-yellow-400 bg-gradient-to-b from-[#00A3E0] to-[#0055A4] shadow-lg shadow-black/20" 
+                          : "border-blue-400 bg-gradient-to-b from-[#00A3E0] to-[#0055A4] hover:border-white/50 shadow-md shadow-black/10"
                         }
                         ${isCorrect ? "ring-2 ring-green-400" : ""}
                         ${isWrong ? "ring-2 ring-red-400" : ""}
                       `}
                     >
                       {currentQuestion.type === "multiple" ? (
-                        <div className={`w-6 h-6 rounded border-2 mr-3 flex items-center justify-center transition-colors ${isSelected ? "bg-yellow-400 border-yellow-400" : "border-cyan-300"}`}>
+                        <div className={`w-6 h-6 rounded border-2 mr-3 flex items-center justify-center transition-colors ${isSelected ? "bg-yellow-400 border-yellow-400" : "border-yellow-400/50"}`}>
                           {isSelected && <Check className="w-4 h-4 text-[#0047AB]" />}
                         </div>
                       ) : (
-                        <span className={`text-xl md:text-2xl font-bold mr-3 ${isSelected ? "text-yellow-400" : "text-cyan-300"}`}>
+                        <span className={`text-xl md:text-2xl font-bold mr-3 ${isSelected ? "text-yellow-400" : "text-yellow-400/80"}`}>
                           {label}.
                         </span>
                       )}
-                      <span className={`text-xl md:text-2xl font-bold text-white`}>
+                      <span className={`text-xl md:text-2xl font-bold text-yellow-400 drop-shadow-sm`}>
                         {option}
                       </span>
                     </button>
