@@ -213,12 +213,12 @@ export default function Home() {
           />
         </div>
         
-        {/* Mascot positioned in the footer right */}
-        <div className="absolute right-[5%] bottom-0 pointer-events-none z-10">
+        {/* Mascot positioned half-in half-out of the white area */}
+        <div className="absolute right-[2%] bottom-[15%] pointer-events-none z-30">
            <img 
              src={mascotImg} 
              alt="Mascot" 
-             className="h-20 md:h-24 object-contain"
+             className="h-48 md:h-72 object-contain"
            />
         </div>
       </div>
