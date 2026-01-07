@@ -349,11 +349,11 @@ export default function Quiz() {
         </div>
         
         {/* Mascot positioned fully on the footer right */}
-        <div className="absolute right-[1%] bottom-0 pointer-events-none z-30">
+        <div className="absolute right-0 bottom-0 pointer-events-none z-30 flex items-end justify-end w-full h-full overflow-visible">
            <img 
              src={mascotImg} 
              alt="Mascot" 
-             className="h-[220px] md:h-[350px] object-contain translate-y-[12%]"
+             className="h-[280px] md:h-[450px] object-contain translate-y-[5%] translate-x-[10%]"
            />
         </div>
       </div>
