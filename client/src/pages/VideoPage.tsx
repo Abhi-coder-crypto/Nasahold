@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import logoLeft from "@assets/WhatsApp_Image_2026-01-07_at_10.23.23-removebg-preview_1767763199983.png";
 import logoRight from "@assets/WhatsApp_Image_2026-01-07_at_10.23.22-removebg-preview_1767762430087.png";
 import mascotImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.27-removebg-preview_1767763214039.png";
 import footerDecorative from "@assets/image_1767763325734.png";
@@ -109,8 +110,8 @@ export default function VideoPage() {
 
         <div className="flex flex-col relative z-10">
           <img 
-            src={logoRight} 
-            alt="Aristo Logo" 
+            src={logoLeft} 
+            alt="Nasohold Logo" 
             className="h-14 md:h-20 object-contain"
           />
         </div>
