@@ -238,21 +238,8 @@ export default function Quiz() {
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden bg-[#0047AB]">
-      {/* Background Decorations - Enhanced */}
+      {/* Background Decorations - Enhanced - Removed wavy lines from sides */}
       <div className="absolute inset-0 z-0 opacity-100 pointer-events-none">
-        {/* Left Side Decorative Image */}
-        <img 
-          src={footerDecorative} 
-          alt="" 
-          className="absolute left-0 top-0 h-full w-auto object-cover object-left opacity-100"
-        />
-        {/* Right Side Decorative Image */}
-        <img 
-          src={footerDecorative} 
-          alt="" 
-          className="absolute right-0 top-0 h-full w-auto object-cover object-right opacity-100 scale-x-[-1]"
-        />
-        
         {/* Legacy icons with lower opacity */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-10 left-10 w-24 h-24 border-2 border-white/30 rounded-full" />

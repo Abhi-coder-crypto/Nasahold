@@ -16,21 +16,8 @@ export default function VideoPage() {
     <div className="relative h-screen bg-[#0047AB] flex flex-col overflow-hidden font-sans">
       <Header />
       
-      {/* Background Decorative Design - Left and Right */}
+      {/* Background Decorative Design - Left and Right - Removed */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        {/* Left Side Design */}
-        <img 
-          src={footerDecorative} 
-          alt="" 
-          className="absolute left-0 top-0 h-full w-auto object-cover object-left opacity-100"
-        />
-        {/* Right Side Design */}
-        <img 
-          src={footerDecorative} 
-          alt="" 
-          className="absolute right-0 top-0 h-full w-auto object-cover object-right opacity-100 scale-x-[-1]"
-        />
-
         {/* Floating Icons with lower opacity */}
         <div className="absolute inset-0 opacity-20">
           <X className="absolute top-20 left-10 text-white w-8 h-8" />
