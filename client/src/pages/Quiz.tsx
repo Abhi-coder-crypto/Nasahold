@@ -392,7 +392,7 @@ export default function Quiz() {
               <div className="flex-1 flex items-center justify-center md:justify-start pt-2 md:pt-0">
                 <div 
                   onClick={() => setLocation("/")}
-                  className="relative group cursor-pointer translate-x-4 translate-y-3 md:translate-x-0 md:translate-y-0"
+                  className="relative group cursor-pointer translate-x-4 translate-y-3 md:translate-x-0 md:translate-y-0 md:block hidden"
                 >
                   <img
                     src={logoLeft}
@@ -405,12 +405,12 @@ export default function Quiz() {
                 <img
                   src={logoRight}
                   alt="Aristo Logo"
-                  className="h-5 md:h-8 object-contain translate-x-4 translate-y-2 md:translate-x-0 md:translate-y-0 md:block hidden"
+                  className="h-5 md:h-8 object-contain translate-x-4 translate-y-2 md:translate-x-0 md:translate-y-0"
                 />
               </div>
             </header>
 
-            <main className="flex-1 flex flex-col items-center justify-start px-6 relative z-10 pt-8 text-center">
+            <main className="flex-1 flex flex-col items-center justify-start px-6 relative z-10 pt-16 md:pt-8 text-center">
               <img src={thankYouImg} alt="Thank you for playing" className="w-full max-w-xs mb-4" />
               
               <div className="mb-6">
@@ -422,7 +422,7 @@ export default function Quiz() {
               </div>
 
               {/* Score Badge */}
-              <div className="w-full bg-gradient-to-b from-[#00A3E0] to-[#0055A4] rounded-full py-4 px-8 mb-8 shadow-xl border-2 border-yellow-400">
+              <div className="w-full bg-gradient-to-b from-[#00A3E0] to-[#0055A4] rounded-full py-4 px-8 mb-8 shadow-xl border-2 border-yellow-400 whitespace-nowrap">
                 <p className="text-yellow-400 text-3xl md:text-5xl font-bold drop-shadow-lg uppercase tracking-tight">
                   Your Score: {score} / 7
                 </p>
