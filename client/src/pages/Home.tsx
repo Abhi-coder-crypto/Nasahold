@@ -103,9 +103,6 @@ export default function Home() {
             alt="Welcome to Nasohold Memory Game" 
             className="w-full max-w-[280px] md:max-w-[400px] object-contain"
           />
-          <p className="text-[#FFD700] text-xs md:text-sm lg:text-base font-bold pt-1 max-w-xs md:max-w-md lg:max-w-lg leading-tight">
-            Watch the video and test your memory to win exciting prices!!!
-          </p>
         </motion.div>
 
         {/* Mascot Positioned left-ish but not overlapping form */}
