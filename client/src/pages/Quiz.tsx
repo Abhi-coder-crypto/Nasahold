@@ -328,7 +328,7 @@ export default function Quiz() {
                 })}
               </div>
 
-              <div className="mt-4 flex justify-end pb-40 md:pb-0">
+              <div className="mt-4 flex justify-end pb-12 md:pb-0">
                 <Button 
                   onClick={handleNext}
                   disabled={!canProceed}
