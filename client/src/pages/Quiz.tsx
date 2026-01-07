@@ -330,7 +330,7 @@ export default function Quiz() {
       </main>
 
       {/* Bottom White Area with Mascot - Updated */}
-      <div className="h-32 md:h-40 bg-white rounded-t-[2.5rem] relative z-20 flex items-center justify-between px-8 mt-auto shadow-[0_-10px_20px_rgba(0,0,0,0.1)]">
+      <div className="h-40 md:h-48 bg-white rounded-t-[2.5rem] relative z-20 flex items-center justify-between px-8 mt-auto shadow-[0_-10px_20px_rgba(0,0,0,0.1)]">
         {/* Mobile-only decorative background */}
         <div className="absolute inset-0 z-0 pointer-events-none md:hidden overflow-hidden rounded-t-[2.5rem]">
           <img 
@@ -344,7 +344,7 @@ export default function Quiz() {
           <img 
             src={logoLeft} 
             alt="Nasohold Logo" 
-            className="h-12 md:h-16 object-contain"
+            className="h-14 md:h-20 object-contain"
           />
         </div>
         
@@ -353,7 +353,7 @@ export default function Quiz() {
            <img 
              src={mascotImg} 
              alt="Mascot" 
-             className="h-28 md:h-36 object-contain"
+             className="h-36 md:h-44 object-contain"
            />
         </div>
       </div>
