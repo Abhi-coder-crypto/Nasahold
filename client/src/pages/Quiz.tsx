@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import logoLeft from "@assets/WhatsApp_Image_2026-01-07_at_10.23.23-removebg-preview_1767763199983.png";
-import mascotImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.27-removebg-preview_1767763214039.png";
+import mascotImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.23__1_-removebg-preview_1767770695897.png";
 import footerDecorative from "@assets/image_1767763325734.png";
 import { useLocation } from "wouter";
 import { Header } from "@/components/Header";
