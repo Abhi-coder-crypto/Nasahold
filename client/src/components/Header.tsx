@@ -8,15 +8,19 @@ export function Header() {
 
   return (
     <header className="w-full py-4 px-6 md:px-12 flex justify-between items-center sticky top-0 z-50 bg-[#0047AB]">
-      <Link href="/">
-        <div className="relative group cursor-pointer">
-          <img
-            src={logoLeft}
-            alt="Nasohold Logo"
-            className="h-10 md:h-16 object-contain brightness-0 invert"
-          />
-        </div>
-      </Link>
+      <div className="flex items-center">
+        {isHome && (
+          <Link href="/">
+            <div className="relative group cursor-pointer">
+              <img
+                src={logoLeft}
+                alt="Nasohold Logo"
+                className="h-10 md:h-16 object-contain brightness-0 invert"
+              />
+            </div>
+          </Link>
+        )}
+      </div>
       <div className="flex items-center">
         <img
           src={logoRight}
