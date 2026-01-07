@@ -214,11 +214,11 @@ export default function Home() {
         </div>
         
         {/* Mascot positioned fully on the footer right */}
-        <div className="relative z-10 flex items-end h-full pb-0 translate-y-4">
+        <div className="absolute right-[2%] bottom-0 pointer-events-none z-30">
            <img 
              src={mascotImg} 
              alt="Mascot" 
-             className="h-44 md:h-64 object-contain"
+             className="h-[180px] md:h-[280px] object-contain translate-y-[10%]"
            />
         </div>
       </div>
