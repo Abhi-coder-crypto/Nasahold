@@ -115,6 +115,7 @@ export default function Quiz() {
   const [isFinished, setIsFinished] = useState(false);
   const [score, setScore] = useState(0);
   const [showFeedback, setShowFeedback] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
   const [, setLocation] = useLocation();
   
   useEffect(() => {
@@ -151,7 +152,7 @@ export default function Quiz() {
   const progress = ((currentStep + 1) / QUESTIONS.length) * 100;
 
   const handleSelect = (option: string) => {
-    if (showFeedback) return; // Prevent multiple selections during feedback
+    if (showFeedback || isProcessing) return; // Prevent multiple selections during feedback/processing
     
     if (currentQuestion.type === "single") {
       setAnswers(prev => ({ ...prev, [currentQuestion.id]: option }));
@@ -172,10 +173,10 @@ export default function Quiz() {
           handleNext();
         }, 1500);
       } else {
-        // If wrong or survey, still move to next after a short delay
-        setShowFeedback(true); // Still set feedback to true to lock interaction
+        // If wrong or survey, still move to next after a short delay without thumbs up
+        setIsProcessing(true);
         setTimeout(() => {
-          setShowFeedback(false);
+          setIsProcessing(false);
           handleNext();
         }, 1000);
       }
