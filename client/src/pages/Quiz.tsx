@@ -264,15 +264,19 @@ export default function Quiz() {
       <Header />
       <ThumbsUpFeedback visible={showFeedback} />
       
-      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 py-0 -mt-20 lg:-mt-10">
-        {/* Progress Chart and Question Number at the top */}
-        <div className="w-full max-w-2xl lg:max-w-4xl mb-8 space-y-2">
-          <div className="flex justify-between items-end text-white">
-            <span className="text-sm md:text-base font-medium opacity-80 uppercase tracking-wider">Question {currentStep + 1} of {QUESTIONS.length}</span>
-            <span className="text-2xl md:text-3xl font-bold">{Math.round(progress)}%</span>
+      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 pt-20 pb-4 md:pt-32">
+          <div className="flex justify-between items-end mb-2">
+            <span className="text-white font-bold text-sm md:text-xl tracking-wider uppercase drop-shadow-md">
+              Question {currentStep + 1} of {QUESTIONS.length}
+            </span>
           </div>
-          <Progress value={progress} className="h-2 md:h-3 bg-white/20" />
-        </div>
+          <div className="h-2 md:h-4 w-full bg-white/20 rounded-full overflow-hidden backdrop-blur-sm border border-white/10 shadow-inner">
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: `${progress}%` }}
+              className="h-full bg-gradient-to-r from-cyan-400 to-blue-500 shadow-[0_0_15px_rgba(34,211,238,0.5)]"
+            />
+          </div>
 
         <AnimatePresence mode="wait">
           <motion.div
