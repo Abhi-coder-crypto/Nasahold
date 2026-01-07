@@ -118,7 +118,7 @@ export default function Home() {
           <img 
             src={welcomeLogo} 
             alt="Welcome to Nasohold Memory Game" 
-            className="w-full max-w-[280px] md:max-w-[400px] object-contain relative z-10"
+            className="w-full max-w-[240px] md:max-w-[400px] object-contain relative z-10"
           />
         </motion.div>
 
