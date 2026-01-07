@@ -237,13 +237,29 @@ export default function Quiz() {
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden bg-[#0047AB]">
-      {/* Background Decorations */}
-      <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
-        <div className="absolute top-10 left-10 w-24 h-24 border-2 border-white/30 rounded-full" />
-        <div className="absolute top-1/4 right-10 w-16 h-16 border-2 border-yellow-400/30 rotate-45" />
-        <div className="absolute bottom-1/3 left-20 w-12 h-12 bg-white/20 rounded-lg -rotate-12" />
-        <Zap className="absolute top-10 right-1/4 text-yellow-400/40 w-8 h-8" />
-        <Gamepad2 className="absolute bottom-1/4 right-1/4 text-white/20 w-16 h-16 rotate-12" />
+      {/* Background Decorations - Enhanced */}
+      <div className="absolute inset-0 z-0 opacity-100 pointer-events-none">
+        {/* Left Side Decorative Image */}
+        <img 
+          src={footerDecorative} 
+          alt="" 
+          className="absolute left-0 top-0 h-full w-auto object-cover object-left opacity-100"
+        />
+        {/* Right Side Decorative Image */}
+        <img 
+          src={footerDecorative} 
+          alt="" 
+          className="absolute right-0 top-0 h-full w-auto object-cover object-right opacity-100 scale-x-[-1]"
+        />
+        
+        {/* Legacy icons with lower opacity */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-10 left-10 w-24 h-24 border-2 border-white/30 rounded-full" />
+          <div className="absolute top-1/4 right-10 w-16 h-16 border-2 border-yellow-400/30 rotate-45" />
+          <div className="absolute bottom-1/3 left-20 w-12 h-12 bg-white/20 rounded-lg -rotate-12" />
+          <Zap className="absolute top-10 right-1/4 text-yellow-400/40 w-8 h-8" />
+          <Gamepad2 className="absolute bottom-1/4 right-1/4 text-white/20 w-16 h-16 rotate-12" />
+        </div>
       </div>
 
       <Header />

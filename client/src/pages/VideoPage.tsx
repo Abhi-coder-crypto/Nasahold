@@ -15,12 +15,28 @@ export default function VideoPage() {
     <div className="relative h-screen bg-[#0047AB] flex flex-col overflow-hidden font-sans">
       <Header />
       
-      {/* Background Decorative Icons */}
-      <div className="absolute inset-0 pointer-events-none opacity-20">
-        <X className="absolute top-20 left-10 text-white w-8 h-8" />
-        <Plus className="absolute top-40 right-10 text-white w-6 h-6" />
-        <Zap className="absolute top-10 left-1/2 text-yellow-400 w-6 h-6" />
-        <Gamepad2 className="absolute top-32 left-5 text-blue-300 w-10 h-10 -rotate-12" />
+      {/* Background Decorative Design - Left and Right */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        {/* Left Side Design */}
+        <img 
+          src={footerDecorative} 
+          alt="" 
+          className="absolute left-0 top-0 h-full w-auto object-cover object-left opacity-100"
+        />
+        {/* Right Side Design */}
+        <img 
+          src={footerDecorative} 
+          alt="" 
+          className="absolute right-0 top-0 h-full w-auto object-cover object-right opacity-100 scale-x-[-1]"
+        />
+
+        {/* Floating Icons with lower opacity */}
+        <div className="absolute inset-0 opacity-20">
+          <X className="absolute top-20 left-10 text-white w-8 h-8" />
+          <Plus className="absolute top-40 right-10 text-white w-6 h-6" />
+          <Zap className="absolute top-10 left-1/2 text-yellow-400 w-6 h-6" />
+          <Gamepad2 className="absolute top-32 left-5 text-blue-300 w-10 h-10 -rotate-12" />
+        </div>
       </div>
 
       <div className="px-4 flex justify-start items-center relative z-20 h-6">
