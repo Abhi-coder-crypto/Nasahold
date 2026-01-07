@@ -108,8 +108,13 @@ export default function Home() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center space-y-2 mb-4 md:mb-8 mt-12 md:mt-0 flex flex-col items-center"
+          className="text-center space-y-4 mb-4 md:mb-8 mt-12 md:mt-0 flex flex-col items-center"
         >
+          <img 
+            src={logoLeft} 
+            alt="Nasohold" 
+            className="h-10 md:h-16 object-contain brightness-0 invert"
+          />
           <img 
             src={welcomeLogo} 
             alt="Welcome to Nasohold Memory Game" 
