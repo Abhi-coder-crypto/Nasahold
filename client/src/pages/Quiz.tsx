@@ -404,9 +404,9 @@ export default function Quiz() {
               </div>
 
               {/* Score Badge */}
-              <div className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full py-3 px-8 mb-8 shadow-xl border-2 border-white/20">
-                <p className="text-white text-3xl font-bold">
-                  Your Score: <span className="text-yellow-300">{score} / 7</span>
+              <div className="w-full bg-gradient-to-b from-[#00A3E0] to-[#0055A4] rounded-full py-4 px-8 mb-8 shadow-xl border-2 border-yellow-400">
+                <p className="text-yellow-400 text-3xl md:text-5xl font-bold drop-shadow-lg uppercase tracking-tight">
+                  Your Score: {score} / 7
                 </p>
               </div>
 
