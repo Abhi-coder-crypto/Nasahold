@@ -195,9 +195,9 @@ export default function Home() {
       {/* Mobile Mascot - Removed */}
 
       {/* Bottom White Area - Updated with Logo and Mascot */}
-      <div className="h-24 bg-white rounded-t-[2.5rem] relative z-20 flex items-center justify-between px-8 mt-auto overflow-hidden shadow-[0_-10px_20px_rgba(0,0,0,0.1)]">
+      <div className="h-32 md:h-40 bg-white rounded-t-[2.5rem] relative z-20 flex items-center justify-between px-8 mt-auto shadow-[0_-10px_20px_rgba(0,0,0,0.1)]">
         {/* Mobile-only decorative background */}
-        <div className="absolute inset-0 z-0 pointer-events-none md:hidden">
+        <div className="absolute inset-0 z-0 pointer-events-none md:hidden overflow-hidden rounded-t-[2.5rem]">
           <img 
             src={footerDecorative} 
             alt="" 
@@ -209,16 +209,16 @@ export default function Home() {
           <img 
             src={logoLeft} 
             alt="Nasohold Logo" 
-            className="h-10 md:h-12 object-contain"
+            className="h-12 md:h-16 object-contain"
           />
         </div>
         
-        {/* Mascot positioned half-in half-out of the white area */}
-        <div className="absolute right-[2%] bottom-[15%] pointer-events-none z-30">
+        {/* Mascot positioned fully on the footer right */}
+        <div className="relative z-10 flex items-end h-full pb-2">
            <img 
              src={mascotImg} 
              alt="Mascot" 
-             className="h-48 md:h-72 object-contain"
+             className="h-28 md:h-36 object-contain"
            />
         </div>
       </div>
