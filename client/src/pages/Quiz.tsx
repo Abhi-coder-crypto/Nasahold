@@ -5,6 +5,7 @@ import congratulationsImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.24__1
 import logoRight from "@assets/WhatsApp_Image_2026-01-07_at_10.23.22-removebg-preview_1767762430087.png";
 import mascotImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.26-removebg-preview_1767770881510.png";
 import footerDecorative from "@assets/image_1767763325734.png";
+import mobileBg from "@assets/image_1767776551106.png";
 import { useLocation } from "wouter";
 import { Header } from "@/components/Header";
 import { Mascot } from "@/components/Mascot";
@@ -240,8 +241,16 @@ export default function Quiz() {
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden bg-[#0047AB]">
+      {/* Mobile background image */}
+      <div className="absolute inset-0 z-0 md:hidden pointer-events-none">
+        <img 
+          src={mobileBg} 
+          alt="" 
+          className="w-full h-full object-cover opacity-100"
+        />
+      </div>
       {/* Background Decorations - Enhanced - Removed wavy lines from sides */}
-      <div className="absolute inset-0 z-0 opacity-100 pointer-events-none">
+      <div className="absolute inset-0 z-0 opacity-100 pointer-events-none hidden md:block">
         {/* Legacy icons with lower opacity */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-10 left-10 w-24 h-24 border-2 border-white/30 rounded-full" />

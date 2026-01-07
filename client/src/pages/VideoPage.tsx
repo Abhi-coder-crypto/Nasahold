@@ -3,6 +3,7 @@ import logoLeft from "@assets/WhatsApp_Image_2026-01-07_at_10.23.23-removebg-pre
 import logoRight from "@assets/WhatsApp_Image_2026-01-07_at_10.23.22-removebg-preview_1767762430087.png";
 import mascotImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.27-removebg-preview_1767763214039.png";
 import footerDecorative from "@assets/image_1767763325734.png";
+import mobileBg from "@assets/image_1767776551106.png";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Mascot } from "@/components/Mascot";
@@ -14,10 +15,18 @@ export default function VideoPage() {
 
   return (
     <div className="relative h-screen bg-[#0047AB] flex flex-col overflow-hidden font-sans">
+      {/* Mobile background image */}
+      <div className="absolute inset-0 z-0 md:hidden pointer-events-none">
+        <img 
+          src={mobileBg} 
+          alt="" 
+          className="w-full h-full object-cover opacity-100"
+        />
+      </div>
       <Header />
       
       {/* Background Decorative Design - Left and Right - Removed */}
-      <div className="absolute inset-0 pointer-events-none z-0">
+      <div className="absolute inset-0 pointer-events-none z-0 hidden md:block">
         {/* Floating Icons with lower opacity */}
         <div className="absolute inset-0 opacity-20">
           <X className="absolute top-20 left-10 text-white w-8 h-8" />

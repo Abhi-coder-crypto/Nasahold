@@ -2,6 +2,7 @@ import welcomeLogo from "@assets/WhatsApp_Image_2026-01-07_at_10.23.26__1_-remov
 import logoLeft from "@assets/WhatsApp_Image_2026-01-07_at_10.23.23-removebg-preview_1767763199983.png";
 import mascotImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.23__1_-removebg-preview_1767770695897.png";
 import footerDecorative from "@assets/image_1767763325734.png";
+import mobileBg from "@assets/image_1767776551106.png";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Mascot } from "@/components/Mascot";
@@ -83,10 +84,18 @@ export default function Home() {
 
   return (
     <div className="relative h-screen bg-[#0047AB] flex flex-col overflow-hidden font-sans">
+      {/* Mobile background image */}
+      <div className="absolute inset-0 z-0 md:hidden pointer-events-none">
+        <img 
+          src={mobileBg} 
+          alt="" 
+          className="w-full h-full object-cover opacity-100"
+        />
+      </div>
       <Header />
       
       {/* Background Decorative Icons */}
-      <div className="absolute inset-0 pointer-events-none opacity-20">
+      <div className="absolute inset-0 pointer-events-none opacity-20 hidden md:block">
         <X className="absolute top-20 left-10 text-white w-8 h-8" />
         <Plus className="absolute top-40 right-10 text-white w-6 h-6" />
         <Zap className="absolute top-10 left-1/2 text-yellow-400 w-6 h-6" />
