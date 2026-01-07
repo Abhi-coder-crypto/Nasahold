@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import logoLeft from "@assets/WhatsApp_Image_2026-01-07_at_10.23.23-removebg-preview_1767763199983.png";
+import thankYouImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.24-removebg-preview_1767771551442.png";
+import congratulationsImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.24__1_-removebg-preview_1767771551442.png";
 import logoRight from "@assets/WhatsApp_Image_2026-01-07_at_10.23.22-removebg-preview_1767762430087.png";
 import mascotImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.26-removebg-preview_1767770881510.png";
 import footerDecorative from "@assets/image_1767763325734.png";
@@ -381,9 +383,9 @@ export default function Quiz() {
             <Header />
 
             <main className="flex-1 flex flex-col items-center justify-start px-6 relative z-10 pt-8 text-center">
-              <p className="text-[#FFD700] text-xl font-bold uppercase tracking-widest mb-2">THANK YOU FOR PLAYING</p>
+              <img src={thankYouImg} alt="Thank you for playing" className="w-full max-w-xs mb-4" />
               
-              <div className="mb-8">
+              <div className="mb-6">
                 <p className="text-white text-sm font-medium opacity-80 uppercase tracking-widest">THE</p>
                 <h1 className="text-5xl font-bold text-white tracking-tight leading-none">
                   Nasohold<span className="text-2xl align-top">™</span>
@@ -398,11 +400,8 @@ export default function Quiz() {
                 </p>
               </div>
 
-              <div className="space-y-2 mb-8">
-                <h2 className="text-[#FFD700] text-5xl font-serif italic leading-tight">Congratulations!</h2>
-                <p className="text-[#FFD700] text-xl font-bold max-w-xs mx-auto leading-tight">
-                  You've won a personalized Nasohold calendar featuring your photo.
-                </p>
+              <div className="w-full max-w-sm mx-auto">
+                <img src={congratulationsImg} alt="Congratulations" className="w-full h-auto" />
               </div>
             </main>
 
