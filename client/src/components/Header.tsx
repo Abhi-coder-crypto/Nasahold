@@ -8,10 +8,10 @@ export function Header() {
 
   return (
     <header className="w-full py-2 px-6 md:px-12 flex justify-between items-center fixed top-0 left-0 right-0 z-50 bg-[#0047AB] md:bg-[#0047AB] max-md:bg-transparent">
-      <div className="flex items-center pt-2 md:pt-0">
+      <div className="flex-1 flex items-center justify-center md:justify-start pt-2 md:pt-0">
         {isHome && (
           <Link href="/">
-            <div className="relative group cursor-pointer translate-y-2 md:translate-y-0">
+            <div className="relative group cursor-pointer translate-y-3 md:translate-y-0">
               <img
                 src={logoLeft}
                 alt="Nasohold Logo"
