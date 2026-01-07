@@ -100,11 +100,11 @@ export default function VideoPage() {
         </div>
         
         {/* Mascot positioned fully on the footer right */}
-        <div className="absolute right-[2%] bottom-0 pointer-events-none z-30">
+        <div className="absolute right-[1%] bottom-0 pointer-events-none z-30">
            <img 
              src={mascotImg} 
              alt="Mascot" 
-             className="h-[180px] md:h-[280px] object-contain translate-y-[10%]"
+             className="h-[220px] md:h-[350px] object-contain translate-y-[12%]"
            />
         </div>
       </div>
