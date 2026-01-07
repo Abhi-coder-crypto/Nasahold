@@ -4,6 +4,7 @@ import logoRight from "@assets/WhatsApp_Image_2026-01-07_at_10.23.22-removebg-pr
 import mascotImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.27-removebg-preview_1767763214039.png";
 import footerDecorative from "@assets/image_1767763325734.png";
 import mobileBg from "@assets/image_1767776793981.png";
+import videoHeadingImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.23-removebg-preview_1767778126833.png";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Mascot } from "@/components/Mascot";
@@ -55,13 +56,30 @@ export default function VideoPage() {
           transition={{ duration: 0.6 }}
           className="w-full max-w-2xl lg:max-w-4xl space-y-4 -mt-4 md:-mt-6"
         >
-          <div className="text-center space-y-1 mb-2">
-            <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-white tracking-tight">
-              Watch & Learn
-            </h2>
-            <p className="text-blue-100 text-sm md:text-base lg:text-xl font-medium opacity-90">
-              Pay close attention to answer questions later!
-            </p>
+          <div className="text-center space-y-2 mb-2 flex flex-col items-center">
+            {/* Mobile-only logo and heading */}
+            <div className="md:hidden flex flex-col items-center space-y-2 mb-2">
+              <img 
+                src={logoLeft} 
+                alt="Nasohold" 
+                className="h-10 object-contain brightness-0 invert"
+              />
+              <img 
+                src={videoHeadingImg} 
+                alt="Watch the video and test your memory to win exciting prizes!!!" 
+                className="w-full max-w-[300px] object-contain"
+              />
+            </div>
+
+            {/* Desktop-only heading */}
+            <div className="hidden md:block space-y-1">
+              <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-white tracking-tight">
+                Watch & Learn
+              </h2>
+              <p className="text-blue-100 text-sm md:text-base lg:text-xl font-medium opacity-90">
+                Pay close attention to answer questions later!
+              </p>
+            </div>
           </div>
 
           <div className="aspect-video w-full max-h-[40vh] lg:max-h-[50vh] rounded-xl overflow-hidden shadow-2xl border-4 border-white bg-black mx-auto">
