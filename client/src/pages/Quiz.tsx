@@ -383,7 +383,7 @@ export default function Quiz() {
            <img 
              src={mascotImg} 
              alt="Mascot" 
-             className="h-[280px] md:h-[450px] object-contain translate-y-[-10%] md:translate-y-[-20%] translate-x-[-15%]"
+             className="h-[180px] md:h-[450px] object-contain translate-y-[-10%] md:translate-y-[-20%] translate-x-[-15%]"
            />
         </div>
       </div>
