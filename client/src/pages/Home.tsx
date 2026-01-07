@@ -113,7 +113,7 @@ export default function Home() {
           <img 
             src={logoLeft} 
             alt="Nasohold" 
-            className="h-10 md:h-16 object-contain brightness-0 invert"
+            className="h-10 md:h-16 object-contain brightness-0 invert md:hidden"
           />
           <img 
             src={welcomeLogo} 

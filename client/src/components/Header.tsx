@@ -9,17 +9,24 @@ export function Header() {
   return (
     <header className="w-full py-2 px-6 md:px-12 flex justify-between items-center fixed top-0 left-0 right-0 z-50 bg-[#0047AB] md:bg-[#0047AB] max-md:bg-transparent">
       <div className="flex-1 flex items-center justify-center md:justify-start pt-2 md:pt-0">
-        {isHome ? null : (
-          <Link href="/">
-            <div className="relative group cursor-pointer translate-x-4 translate-y-3 md:translate-x-0 md:translate-y-0">
+        <Link href="/">
+          <div className="relative group cursor-pointer translate-x-4 translate-y-3 md:translate-x-0 md:translate-y-0 md:block hidden">
+            <img
+              src={logoLeft}
+              alt="Nasohold Logo"
+              className="h-8 md:h-16 object-contain brightness-0 invert"
+            />
+          </div>
+          {!isHome && (
+            <div className="relative group cursor-pointer translate-x-4 translate-y-3 md:translate-x-0 md:translate-y-0 md:hidden">
               <img
                 src={logoLeft}
                 alt="Nasohold Logo"
                 className="h-8 md:h-16 object-contain brightness-0 invert"
               />
             </div>
-          </Link>
-        )}
+          )}
+        </Link>
       </div>
       <div className="flex items-center pt-2 md:pt-0">
         <img
