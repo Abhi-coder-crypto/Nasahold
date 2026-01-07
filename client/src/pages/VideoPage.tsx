@@ -37,16 +37,6 @@ export default function VideoPage() {
         </div>
       </div>
 
-      <div className="px-4 flex justify-start items-center relative z-20 h-6 mt-4">
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => setLocation("/")}
-          className="text-white hover:bg-white/10 h-6"
-        >
-          <ArrowLeft className="mr-1 h-3 w-3" /> Back
-        </Button>
-      </div>
 
       {/* Main Content - Centered in one view */}
       <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 py-0">
