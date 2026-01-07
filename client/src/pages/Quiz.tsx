@@ -264,9 +264,9 @@ export default function Quiz() {
       <Header />
       <ThumbsUpFeedback visible={showFeedback} />
       
-      <main className="flex-1 flex flex-col items-center justify-center px-4 relative z-10 pt-16 pb-2 md:pt-32">
+      <main className="flex-1 flex flex-col items-center justify-center px-4 relative z-10 pt-24 pb-2 md:pt-40">
         {/* Progress Chart and Question Number at the top */}
-        <div className="w-full max-w-2xl lg:max-w-4xl mb-4 space-y-1 px-4">
+        <div className="w-full max-w-2xl lg:max-w-4xl mb-6 space-y-1 px-4">
           <div className="flex justify-between items-end text-white">
             <span className="text-[10px] md:text-base font-medium opacity-80 uppercase tracking-wider">Question {currentStep + 1} of {QUESTIONS.length}</span>
             <span className="text-lg md:text-3xl font-bold">{Math.round(progress)}%</span>
@@ -283,7 +283,7 @@ export default function Quiz() {
             transition={{ duration: 0.3 }}
             className="w-full max-w-2xl lg:max-w-4xl px-4"
           >
-            <div className="space-y-4 md:space-y-8">
+            <div className="space-y-6 md:space-y-10">
               <h2 className="text-xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight drop-shadow-lg pl-6 pr-2">
                 {currentStep + 1}. {currentQuestion.text}
               </h2>
