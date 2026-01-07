@@ -37,7 +37,7 @@ export default function VideoPage() {
         </div>
       </div>
 
-      <div className="px-4 flex justify-start items-center relative z-20 h-6">
+      <div className="px-4 flex justify-start items-center relative z-20 h-6 mt-4">
         <Button
           variant="ghost"
           size="sm"
