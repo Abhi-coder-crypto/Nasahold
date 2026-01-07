@@ -5,7 +5,7 @@ import congratulationsImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.24__1
 import logoRight from "@assets/WhatsApp_Image_2026-01-07_at_10.23.22-removebg-preview_1767762430087.png";
 import mascotImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.26-removebg-preview_1767770881510.png";
 import footerDecorative from "@assets/image_1767763325734.png";
-import mobileBg from "@assets/image_1767776551106.png";
+import mobileBg from "@assets/image_1767776793981.png";
 import { useLocation } from "wouter";
 import { Header } from "@/components/Header";
 import { Mascot } from "@/components/Mascot";

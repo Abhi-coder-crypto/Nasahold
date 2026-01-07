@@ -2,7 +2,7 @@ import welcomeLogo from "@assets/WhatsApp_Image_2026-01-07_at_10.23.26__1_-remov
 import logoLeft from "@assets/WhatsApp_Image_2026-01-07_at_10.23.23-removebg-preview_1767763199983.png";
 import mascotImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.23__1_-removebg-preview_1767770695897.png";
 import footerDecorative from "@assets/image_1767763325734.png";
-import mobileBg from "@assets/image_1767776551106.png";
+import mobileBg from "@assets/image_1767776793981.png";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Mascot } from "@/components/Mascot";
