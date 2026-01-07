@@ -36,7 +36,7 @@ function ThumbsUpFeedback({ visible }: { visible: boolean }) {
           className="fixed inset-0 flex items-center justify-center z-[100] pointer-events-none"
         >
           <div className="bg-white/90 backdrop-blur-sm rounded-full p-8 shadow-2xl border-4 border-yellow-400">
-            <span className="text-8xl">👍👍</span>
+            <span className="text-8xl">👍</span>
           </div>
         </motion.div>
       )}
@@ -152,11 +152,11 @@ export default function Quiz() {
 
   const handleSelect = (option: string) => {
     if (currentQuestion.type === "single") {
-      // Allow changing selection
       setAnswers(prev => ({ ...prev, [currentQuestion.id]: option }));
       
-      // Check if correct
-      if (!currentQuestion.survey && option === currentQuestion.correctAnswer) {
+      const isCorrect = !currentQuestion.survey && option === currentQuestion.correctAnswer;
+      
+      if (isCorrect) {
         setShowFeedback(true);
         confetti({
           particleCount: 150,
@@ -164,16 +164,25 @@ export default function Quiz() {
           origin: { y: 0.6 },
           colors: ['#FFD700', '#0047AB', '#FFFFFF']
         });
-        setTimeout(() => setShowFeedback(false), 2000);
+        
+        setTimeout(() => {
+          setShowFeedback(false);
+          handleNext();
+        }, 1500);
+      } else {
+        // If wrong or survey, still move to next after a short delay
+        setTimeout(() => {
+          handleNext();
+        }, 1000);
       }
     } else {
       // Multiple select logic
       const current = (answers[currentQuestion.id] as string[]) || [];
-      if (current.includes(option)) {
-        setAnswers(prev => ({ ...prev, [currentQuestion.id]: current.filter(o => o !== option) }));
-      } else {
-        setAnswers(prev => ({ ...prev, [currentQuestion.id]: [...current, option] }));
-      }
+      const updated = current.includes(option)
+        ? current.filter(o => o !== option)
+        : [...current, option];
+      
+      setAnswers(prev => ({ ...prev, [currentQuestion.id]: updated }));
     }
   };
 
@@ -328,16 +337,18 @@ export default function Quiz() {
                 })}
               </div>
 
-              <div className="mt-4 flex justify-end pb-12 md:pb-0">
-                <Button 
-                  onClick={handleNext}
-                  disabled={!canProceed}
-                  size="lg"
-                  className="h-10 px-6 text-base font-bold rounded-full bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] shadow-xl relative z-[60]"
-                >
-                  Next <ChevronRight className="ml-1.5 w-4 h-4" />
-                </Button>
-              </div>
+              {currentQuestion.type === "multiple" && (
+                <div className="mt-4 flex justify-end pb-12 md:pb-0">
+                  <Button 
+                    onClick={handleNext}
+                    disabled={!canProceed}
+                    size="lg"
+                    className="h-10 px-6 text-base font-bold rounded-full bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] shadow-xl relative z-[60]"
+                  >
+                    Next <ChevronRight className="ml-1.5 w-4 h-4" />
+                  </Button>
+                </div>
+              )}
             </div>
           </motion.div>
         </AnimatePresence>
@@ -367,7 +378,7 @@ export default function Quiz() {
            <img 
              src={mascotImg} 
              alt="Mascot" 
-             className="h-[280px] md:h-[450px] object-contain translate-y-[5%] translate-x-[-15%]"
+             className="h-[280px] md:h-[450px] object-contain translate-y-[-10%] md:translate-y-[-20%] translate-x-[-15%]"
            />
         </div>
       </div>
