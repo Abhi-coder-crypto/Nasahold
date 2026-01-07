@@ -264,19 +264,15 @@ export default function Quiz() {
       <Header />
       <ThumbsUpFeedback visible={showFeedback} />
       
-      <main className="flex-1 flex flex-col items-center justify-center px-6 relative z-10 pt-20 pb-4 md:pt-32">
-          <div className="flex justify-between items-end mb-2">
-            <span className="text-white font-bold text-sm md:text-xl tracking-wider uppercase drop-shadow-md">
-              Question {currentStep + 1} of {QUESTIONS.length}
-            </span>
+      <main className="flex-1 flex flex-col items-center justify-center px-4 relative z-10 pt-16 pb-2 md:pt-32">
+        {/* Progress Chart and Question Number at the top */}
+        <div className="w-full max-w-2xl lg:max-w-4xl mb-4 space-y-1 px-4">
+          <div className="flex justify-between items-end text-white">
+            <span className="text-[10px] md:text-base font-medium opacity-80 uppercase tracking-wider">Question {currentStep + 1} of {QUESTIONS.length}</span>
+            <span className="text-lg md:text-3xl font-bold">{Math.round(progress)}%</span>
           </div>
-          <div className="h-2 md:h-4 w-full bg-white/20 rounded-full overflow-hidden backdrop-blur-sm border border-white/10 shadow-inner">
-            <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: `${progress}%` }}
-              className="h-full bg-gradient-to-r from-cyan-400 to-blue-500 shadow-[0_0_15px_rgba(34,211,238,0.5)]"
-            />
-          </div>
+          <Progress value={progress} className="h-1 md:h-3 bg-white/20" />
+        </div>
 
         <AnimatePresence mode="wait">
           <motion.div
@@ -285,18 +281,17 @@ export default function Quiz() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3 }}
-            className="w-full max-w-2xl lg:max-w-4xl"
+            className="w-full max-w-2xl lg:max-w-4xl px-4"
           >
-            <div className="space-y-6 md:space-y-8">
-              <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight drop-shadow-lg">
+            <div className="space-y-4 md:space-y-8">
+              <h2 className="text-xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight drop-shadow-lg pr-2">
                 {currentStep + 1}. {currentQuestion.text}
               </h2>
 
-              <div className="space-y-3 md:grid md:grid-cols-2 md:gap-4 md:space-y-0">
+              <div className="space-y-2 md:grid md:grid-cols-2 md:gap-4 md:space-y-0">
                 {currentQuestion.options.map((option, idx) => {
                   const label = String.fromCharCode(97 + idx); // a, b, c...
                   const isSelected = isOptionSelected(option);
-                  const isAnswered = !!answers[currentQuestion.id];
                   
                   // For feedback after selection
                   const isCorrect = isSelected && !currentQuestion.survey && option === currentQuestion.correctAnswer;
@@ -307,7 +302,7 @@ export default function Quiz() {
                       key={idx}
                       onClick={() => handleSelect(option)}
                       className={`
-                        w-full text-left p-3 md:p-5 rounded-full border-2 transition-all duration-200 flex items-center group
+                        w-full text-left p-2.5 md:p-5 rounded-full border-2 transition-all duration-200 flex items-center group
                         ${isSelected 
                           ? "border-yellow-400 bg-gradient-to-b from-[#00A3E0] to-[#0055A4] shadow-lg shadow-black/20" 
                           : "border-blue-400 bg-gradient-to-b from-[#00A3E0] to-[#0055A4] hover:border-white/50 shadow-md shadow-black/10"
@@ -317,15 +312,15 @@ export default function Quiz() {
                       `}
                     >
                       {currentQuestion.type === "multiple" ? (
-                        <div className={`w-5 h-5 rounded border-2 mr-3 flex items-center justify-center transition-colors ${isSelected ? "bg-yellow-400 border-yellow-400" : "border-yellow-400/50"}`}>
-                          {isSelected && <Check className="w-3 h-3 text-[#0047AB]" />}
+                        <div className={`w-4 h-4 rounded border-2 mr-2.5 flex items-center justify-center transition-colors ${isSelected ? "bg-yellow-400 border-yellow-400" : "border-yellow-400/50"}`}>
+                          {isSelected && <Check className="w-2.5 h-2.5 text-[#0047AB]" />}
                         </div>
                       ) : (
-                        <span className={`text-lg md:text-2xl font-bold mr-3 ${isSelected ? "text-yellow-400" : "text-yellow-400/80"}`}>
+                        <span className={`text-base md:text-2xl font-bold mr-2.5 ${isSelected ? "text-yellow-400" : "text-yellow-400/80"}`}>
                           {label}.
                         </span>
                       )}
-                      <span className={`text-lg md:text-2xl font-bold text-yellow-400 drop-shadow-sm`}>
+                      <span className={`text-base md:text-2xl font-bold text-yellow-400 drop-shadow-sm`}>
                         {option}
                       </span>
                     </button>
@@ -333,14 +328,14 @@ export default function Quiz() {
                 })}
               </div>
 
-              <div className="mt-8 flex justify-end">
+              <div className="mt-4 flex justify-end pb-32 md:pb-0">
                 <Button 
                   onClick={handleNext}
                   disabled={!canProceed}
                   size="lg"
-                  className="h-12 px-8 text-lg font-bold rounded-full bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] shadow-xl"
+                  className="h-10 px-6 text-base font-bold rounded-full bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] shadow-xl relative z-[60]"
                 >
-                  Next <ChevronRight className="ml-2 w-5 h-5" />
+                  Next <ChevronRight className="ml-1.5 w-4 h-4" />
                 </Button>
               </div>
             </div>
