@@ -10,7 +10,7 @@ export function Header() {
           <img
             src={logoLeft}
             alt="Nasohold Logo"
-            className="h-10 md:h-16 object-contain"
+            className="h-10 md:h-16 object-contain brightness-0 invert"
           />
         </div>
       </Link>
