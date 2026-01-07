@@ -278,9 +278,9 @@ export default function Quiz() {
       <Header />
       <ThumbsUpFeedback visible={showFeedback} />
       
-      <main className="flex-1 flex flex-col items-center justify-center px-4 relative z-10 pt-24 pb-2 md:pt-40">
+      <main className="flex-1 flex flex-col items-center justify-start px-4 relative z-10 pt-16 pb-4 md:pt-40">
         {/* Progress Chart and Question Number at the top */}
-        <div className="w-full max-w-2xl lg:max-w-4xl mb-6 space-y-1 px-4">
+        <div className="w-full max-w-2xl lg:max-w-4xl mb-4 md:mb-6 space-y-1 px-4">
           <div className="flex justify-between items-end text-white">
             <span className="text-[10px] md:text-base font-medium opacity-80 uppercase tracking-wider">Question {currentStep + 1} of {QUESTIONS.length}</span>
             <span className="text-lg md:text-3xl font-bold">{Math.round(progress)}%</span>
@@ -295,14 +295,14 @@ export default function Quiz() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3 }}
-            className="w-full max-w-2xl lg:max-w-4xl px-4"
+            className="w-full max-w-2xl lg:max-w-4xl px-4 overflow-y-auto max-h-[calc(100vh-250px)] md:max-h-none"
           >
-            <div className="space-y-6 md:space-y-10">
-              <h2 className="text-xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight drop-shadow-lg pl-6 pr-2">
+            <div className="space-y-4 md:space-y-10">
+              <h2 className="text-lg md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight drop-shadow-lg pl-2 md:pl-6 pr-2">
                 {currentStep + 1}. {currentQuestion.text}
               </h2>
 
-              <div className="space-y-2 md:grid md:grid-cols-2 md:gap-4 md:space-y-0 pl-6 pr-4">
+              <div className="space-y-2 md:grid md:grid-cols-2 md:gap-4 md:space-y-0 pl-2 md:pl-6 pr-2">
                 {currentQuestion.options.map((option, idx) => {
                   const label = String.fromCharCode(97 + idx); // a, b, c...
                   const isSelected = isOptionSelected(option);
@@ -360,7 +360,7 @@ export default function Quiz() {
       </main>
 
       {/* Bottom White Area with Mascot - Updated */}
-      <div className="h-40 md:h-48 bg-white rounded-t-[2.5rem] relative z-20 flex items-center justify-between px-8 mt-auto shadow-[0_-10px_20px_rgba(0,0,0,0.1)]">
+      <div className="h-32 md:h-48 bg-white rounded-t-[2.5rem] relative z-20 flex items-center justify-between px-8 mt-auto shadow-[0_-10px_20px_rgba(0,0,0,0.1)]">
         {/* Mobile-only decorative background */}
         <div className="absolute inset-0 z-0 pointer-events-none md:hidden overflow-hidden rounded-t-[2.5rem]">
           <img 
@@ -374,7 +374,7 @@ export default function Quiz() {
           <img 
             src={logoLeft} 
             alt="Nasohold Logo" 
-            className="h-14 md:h-20 object-contain"
+            className="h-10 md:h-20 object-contain"
           />
         </div>
         
@@ -383,7 +383,7 @@ export default function Quiz() {
            <img 
              src={mascotImg} 
              alt="Mascot" 
-             className="h-[280px] md:h-[450px] object-contain translate-y-[-10%] md:translate-y-[-20%] translate-x-[-15%]"
+             className="h-[200px] md:h-[450px] object-contain translate-y-[-5%] md:translate-y-[-20%] translate-x-[-5%] md:translate-x-[-15%]"
            />
         </div>
       </div>
