@@ -266,7 +266,7 @@ export default function Quiz() {
             className="w-full max-w-2xl lg:max-w-4xl"
           >
             <div className="space-y-6 md:space-y-8">
-              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight drop-shadow-lg">
                 {currentStep + 1}. {currentQuestion.text}
               </h2>
 
