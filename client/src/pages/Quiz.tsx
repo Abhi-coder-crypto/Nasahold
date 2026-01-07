@@ -348,12 +348,12 @@ export default function Quiz() {
           />
         </div>
         
-        {/* Mascot positioned half-in half-out of the white area */}
-        <div className="absolute right-[5%] bottom-[20%] pointer-events-none z-10">
+        {/* Mascot positioned in footer right */}
+        <div className="absolute right-[5%] bottom-0 pointer-events-none z-10">
            <img 
              src={mascotImg} 
              alt="Mascot" 
-             className="h-40 md:h-56 object-contain"
+             className="h-20 md:h-24 object-contain"
            />
         </div>
       </div>

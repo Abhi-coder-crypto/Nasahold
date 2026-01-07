@@ -78,10 +78,7 @@ export default function VideoPage() {
         </div>
       </main>
 
-      {/* Mobile Mascot - repositioned above the white footer area */}
-      <div className="lg:hidden absolute bottom-16 left-1/2 -translate-x-1/2 scale-[0.7] z-20">
-         <Mascot />
-      </div>
+      {/* Mobile Mascot - Removed */}
 
       {/* Bottom White Area - Updated */}
       <div className="h-24 bg-white rounded-t-[2.5rem] relative z-20 flex items-center justify-between px-8 mt-auto overflow-hidden shadow-[0_-10px_20px_rgba(0,0,0,0.1)]">
@@ -102,12 +99,12 @@ export default function VideoPage() {
           />
         </div>
         
-        {/* Mascot positioned half-in half-out of the white area */}
-        <div className="absolute right-[5%] bottom-[20%] pointer-events-none z-10">
+        {/* Mascot positioned in footer right */}
+        <div className="absolute right-[5%] bottom-0 pointer-events-none z-10">
            <img 
              src={mascotImg} 
              alt="Mascot" 
-             className="h-40 md:h-56 object-contain"
+             className="h-20 md:h-24 object-contain"
            />
         </div>
       </div>
