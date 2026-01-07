@@ -1,4 +1,6 @@
 import welcomeLogo from "@assets/WhatsApp_Image_2026-01-07_at_10.23.26__1_-removebg-preview_1767762590148.png";
+import logoLeft from "@assets/WhatsApp_Image_2026-01-07_at_10.23.23-removebg-preview_1767763199983.png";
+import mascotImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.27-removebg-preview_1767763214039.png";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Mascot } from "@/components/Mascot";
@@ -195,13 +197,23 @@ export default function Home() {
          <Mascot />
       </div>
 
-      {/* Bottom White Area - Further Compressed */}
-      <div className="h-14 bg-white rounded-t-[1.5rem] relative z-10 flex items-center justify-center mt-auto">
-        <div className="text-center">
-          <h3 className="text-[#0047AB] text-base md:text-lg font-bold flex items-center justify-center leading-tight">
-            Nasohold<span className="text-[10px] align-top">™</span>
-          </h3>
-          <p className="text-[#0047AB] text-[10px] md:text-xs font-semibold">Nasal Sprays</p>
+      {/* Bottom White Area - Updated with Logo and Mascot */}
+      <div className="h-24 bg-white rounded-t-[2.5rem] relative z-20 flex items-center justify-between px-8 mt-auto overflow-visible shadow-[0_-10px_20px_rgba(0,0,0,0.1)]">
+        <div className="flex flex-col">
+          <img 
+            src={logoLeft} 
+            alt="Nasohold Logo" 
+            className="h-10 md:h-12 object-contain"
+          />
+        </div>
+        
+        {/* Mascot positioned half-in half-out of the white area */}
+        <div className="absolute right-[5%] bottom-[20%] pointer-events-none">
+           <img 
+             src={mascotImg} 
+             alt="Mascot" 
+             className="h-40 md:h-56 object-contain"
+           />
         </div>
       </div>
     </div>

@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import logoLeft from "@assets/WhatsApp_Image_2026-01-07_at_10.23.23-removebg-preview_1767763199983.png";
+import mascotImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.27-removebg-preview_1767763214039.png";
 import { useLocation } from "wouter";
 import { Header } from "@/components/Header";
 import { Mascot } from "@/components/Mascot";
@@ -326,23 +328,23 @@ export default function Quiz() {
         </AnimatePresence>
       </main>
 
-      {/* Bottom White Area with Mascot - Compressed */}
-      <div className="h-20 bg-white rounded-t-[2rem] relative z-20 flex items-center px-12 mt-auto">
+      {/* Bottom White Area with Mascot - Updated */}
+      <div className="h-24 bg-white rounded-t-[2.5rem] relative z-20 flex items-center justify-between px-8 mt-auto overflow-visible shadow-[0_-10px_20px_rgba(0,0,0,0.1)]">
         <div className="flex flex-col">
-          <h3 className="text-[#0047AB] text-lg md:text-xl font-bold leading-none">
-            Nasohold<span className="text-[10px] align-top">™</span>
-          </h3>
-          <p className="text-[#0047AB] text-[10px] md:text-xs font-semibold">Nasal Sprays</p>
+          <img 
+            src={logoLeft} 
+            alt="Nasohold Logo" 
+            className="h-10 md:h-12 object-contain"
+          />
         </div>
         
-        {/* Mascot - positioned like in the image */}
-        <div className="absolute right-[5%] -top-20 pointer-events-none">
-           <Mascot className="scale-[0.8]" />
-        </div>
-
-        {/* Floating elements at bottom */}
-        <div className="absolute bottom-4 right-10 opacity-20 hidden md:block">
-           <Zap className="text-blue-600 w-8 h-8" />
+        {/* Mascot positioned half-in half-out of the white area */}
+        <div className="absolute right-[5%] bottom-[20%] pointer-events-none">
+           <img 
+             src={mascotImg} 
+             alt="Mascot" 
+             className="h-40 md:h-56 object-contain"
+           />
         </div>
       </div>
 
