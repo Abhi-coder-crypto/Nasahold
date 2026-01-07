@@ -104,7 +104,7 @@ export default function VideoPage() {
            <img 
              src={mascotImg} 
              alt="Mascot" 
-             className="h-[280px] md:h-[450px] object-contain translate-y-[5%] translate-x-[10%]"
+             className="h-[280px] md:h-[450px] object-contain translate-y-[5%] translate-x-[-5%]"
            />
         </div>
       </div>
