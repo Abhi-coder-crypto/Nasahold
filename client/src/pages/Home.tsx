@@ -89,7 +89,7 @@ export default function Home() {
         <img 
           src={mobileBg} 
           alt="" 
-          className="w-full h-full object-cover opacity-100"
+          className="w-full h-full object-fill opacity-100"
         />
       </div>
       <Header />

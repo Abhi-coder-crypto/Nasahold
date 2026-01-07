@@ -246,7 +246,7 @@ export default function Quiz() {
         <img 
           src={mobileBg} 
           alt="" 
-          className="w-full h-full object-cover opacity-100"
+          className="w-full h-full object-fill opacity-100"
         />
       </div>
       {/* Background Decorations - Enhanced - Removed wavy lines from sides */}

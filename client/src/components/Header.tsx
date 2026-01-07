@@ -7,11 +7,11 @@ export function Header() {
   const isHome = location === "/";
 
   return (
-    <header className="w-full py-2 px-6 md:px-12 flex justify-between items-center sticky top-0 z-50 bg-[#0047AB] md:bg-[#0047AB] max-md:bg-transparent">
+    <header className="w-full py-2 px-6 md:px-12 flex justify-between items-center fixed top-0 left-0 right-0 z-50 bg-[#0047AB] md:bg-[#0047AB] max-md:bg-transparent">
       <div className="flex items-center pt-2 md:pt-0">
         {isHome && (
           <Link href="/">
-            <div className="relative group cursor-pointer translate-y-1 md:translate-y-0">
+            <div className="relative group cursor-pointer translate-y-2 md:translate-y-0">
               <img
                 src={logoLeft}
                 alt="Nasohold Logo"
@@ -25,7 +25,7 @@ export function Header() {
         <img
           src={logoRight}
           alt="Aristo Logo"
-          className="h-10 md:h-12 object-contain brightness-0 invert"
+          className="h-10 md:h-12 object-contain brightness-0 invert translate-x-2 translate-y-1 md:translate-x-0 md:translate-y-0"
         />
       </div>
     </header>
