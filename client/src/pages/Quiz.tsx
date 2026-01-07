@@ -393,7 +393,27 @@ export default function Quiz() {
               <Gamepad2 className="absolute top-32 left-5 text-blue-300 w-10 h-10 -rotate-12" />
             </div>
 
-            <Header />
+            <header className="w-full py-2 px-6 md:px-12 flex justify-between items-center fixed top-0 left-0 right-0 z-50 bg-[#0047AB] md:bg-[#0047AB] max-md:bg-transparent">
+              <div className="flex-1 flex items-center justify-center md:justify-start pt-2 md:pt-0">
+                <div 
+                  onClick={() => setLocation("/")}
+                  className="relative group cursor-pointer translate-x-4 translate-y-3 md:translate-x-0 md:translate-y-0"
+                >
+                  <img
+                    src={logoLeft}
+                    alt="Nasohold Logo"
+                    className="h-8 md:h-16 object-contain brightness-0 invert"
+                  />
+                </div>
+              </div>
+              <div className="flex items-center pt-2 md:pt-0">
+                <img
+                  src={logoRight}
+                  alt="Aristo Logo"
+                  className="h-5 md:h-8 object-contain translate-x-4 translate-y-2 md:translate-x-0 md:translate-y-0 md:block hidden"
+                />
+              </div>
+            </header>
 
             <main className="flex-1 flex flex-col items-center justify-start px-6 relative z-10 pt-8 text-center">
               <img src={thankYouImg} alt="Thank you for playing" className="w-full max-w-xs mb-4" />
