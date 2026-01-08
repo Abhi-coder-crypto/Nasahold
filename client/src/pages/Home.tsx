@@ -27,10 +27,7 @@ const loginSchema = z.object({
   email: z
     .string()
     .email("Invalid email address")
-    .transform(val => val.toLowerCase())
-    .refine(val => val.endsWith("@gmail.com"), {
-      message: "Only Gmail addresses are allowed"
-    }),
+    .transform(val => val.toLowerCase()),
   number: z
     .string()
     .length(10, "Phone number must be exactly 10 digits")
