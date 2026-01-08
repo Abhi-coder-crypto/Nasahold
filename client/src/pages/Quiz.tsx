@@ -200,8 +200,8 @@ export default function Quiz() {
   };
 
   const finishQuiz = async () => {
-    // Calculate Score (only for non-survey questions)
-    let calculatedScore = 0;
+    // Calculate Score (questions 6 and 7 are always correct)
+    let calculatedScore = 2; // Start with 2 points for Q6 and Q7
     QUESTIONS.forEach(q => {
       if (!q.survey && q.correctAnswer) {
         if (answers[q.id] === q.correctAnswer) {
