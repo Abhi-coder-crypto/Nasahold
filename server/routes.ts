@@ -55,8 +55,13 @@ export async function registerRoutes(
         return res.status(400).json({ message: "Missing required fields" });
       }
 
-      // Check if user already exists in MongoDB
+      // Allow any domain (no domain restriction logic needed, just standard validation)
       const emailLower = email.toLowerCase();
+      
+      // Basic email format check
+      if (!/^\S+@\S+\.\S+$/.test(emailLower)) {
+        return res.status(400).json({ message: "Invalid email format" });
+      }
       
       // Ensure DB connection
       try {
@@ -71,7 +76,7 @@ export async function registerRoutes(
       });
 
       if (existingUser) {
-        return res.status(409).json({ message: "Email or Phone number already registered" });
+        return res.status(409).json({ message: "You have already registered or taken the exam." });
       }
 
       // Return 200 to match what the frontend expects for a pre-registration check or initial step
