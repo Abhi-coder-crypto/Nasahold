@@ -109,10 +109,12 @@ export default function VideoPage() {
           <div className="aspect-video w-full max-h-[40vh] lg:max-h-[50vh] rounded-xl overflow-hidden shadow-2xl border-4 border-white bg-black mx-auto relative group">
             <video
               ref={videoRef}
-              className="w-full h-full object-contain pointer-events-none"
+              className="w-full h-full object-contain"
               autoPlay
               muted
               playsInline
+              webkit-playsinline="true"
+              x5-playsinline="true"
               onContextMenu={(e) => e.preventDefault()}
             >
               <source src={attachedVideo} type="video/mp4" />
@@ -122,10 +124,10 @@ export default function VideoPage() {
             {/* Unmute overlay */}
             {isMuted && (
               <div 
-                className="absolute inset-0 flex items-center justify-center bg-black/20 cursor-pointer z-50 pointer-events-auto"
+                className="absolute inset-0 flex items-center justify-center bg-black/5 cursor-pointer z-50 pointer-events-auto"
                 onClick={toggleMute}
               >
-                <div className="bg-white/90 rounded-full p-4 shadow-2xl animate-pulse">
+                <div className="bg-white/90 rounded-full p-4 shadow-2xl animate-pulse flex flex-col items-center">
                   <Zap className="w-8 h-8 text-[#0047AB]" />
                   <p className="text-[#0047AB] font-bold text-xs mt-1">TAP TO UNMUTE</p>
                 </div>
