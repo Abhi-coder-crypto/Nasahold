@@ -5,14 +5,35 @@ import mascotImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.27-removebg-pr
 import footerDecorative from "@assets/image_1767763325734.png";
 import mobileBg from "@assets/image_1767776793981.png";
 import videoHeadingImg from "@assets/WhatsApp_Image_2026-01-07_at_10.23.23-removebg-preview_1767778126833.png";
+import attachedVideo from "@assets/Aoicon_video_1767865786043.mp4";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Mascot } from "@/components/Mascot";
 import { ArrowLeft, ArrowRight, X, Zap, Gamepad2, Plus } from "lucide-react";
 import { Header } from "@/components/Header";
+import { useState, useRef, useEffect } from "react";
 
 export default function VideoPage() {
   const [, setLocation] = useLocation();
+  const [showButton, setShowButton] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleTimeUpdate = () => {
+      // 1:10 is 70 seconds
+      if (video.currentTime >= 70) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    };
+
+    video.addEventListener("timeupdate", handleTimeUpdate);
+    return () => video.removeEventListener("timeupdate", handleTimeUpdate);
+  }, []);
 
   return (
     <div className="relative h-screen bg-[#0047AB] flex flex-col overflow-hidden font-sans">
@@ -73,23 +94,36 @@ export default function VideoPage() {
           </div>
 
           <div className="aspect-video w-full max-h-[40vh] lg:max-h-[50vh] rounded-xl overflow-hidden shadow-2xl border-4 border-white bg-black mx-auto">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/r8YUIZGQ6ZU?autoplay=1"
-              title="Nasohold Product Video"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            <video
+              ref={videoRef}
+              className="w-full h-full object-contain"
+              controls
+              autoPlay
+              muted
+              playsInline
+            >
+              <source src={attachedVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
 
           <div className="flex justify-center pt-1">
-            <Link href="/quiz">
-              <Button size="lg" className="h-10 px-6 text-base font-bold rounded-full bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] shadow-xl transition-all active:scale-95 group">
-                START GAME <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
+            {showButton && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="w-full flex justify-center"
+              >
+                <Link href="/quiz" className="w-full flex justify-center">
+                  <Button 
+                    size="lg" 
+                    className="h-14 md:h-12 w-full md:w-auto px-10 text-xl md:text-base font-bold rounded-full bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] shadow-xl transition-all active:scale-95 group"
+                  >
+                    START GAME <ArrowRight className="ml-2 h-6 w-6 md:h-4 md:w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+              </motion.div>
+            )}
           </div>
         </motion.div>
 
