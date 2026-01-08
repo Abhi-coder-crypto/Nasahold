@@ -55,10 +55,10 @@ export async function registerRoutes(
         return res.status(400).json({ message: "Missing required fields" });
       }
 
-      // Allow any domain (no domain restriction logic needed, just standard validation)
+      // Allow any email (company or personal)
       const emailLower = email.toLowerCase();
       
-      // Basic email format check
+      // Basic email format check that allows any domain
       if (!/^\S+@\S+\.\S+$/.test(emailLower)) {
         return res.status(400).json({ message: "Invalid email format" });
       }
