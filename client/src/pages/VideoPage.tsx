@@ -20,14 +20,23 @@ export default function VideoPage() {
 
   const [isMuted, setIsMuted] = useState(true);
 
-  const toggleMute = (e: React.MouseEvent) => {
+  const toggleMute = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     if (videoRef.current) {
-      videoRef.current.muted = !videoRef.current.muted;
-      setIsMuted(videoRef.current.muted);
-      // Ensure video continues playing
-      videoRef.current.play().catch(err => console.error("Video play failed:", err));
+      try {
+        const video = videoRef.current;
+        video.muted = !video.muted;
+        setIsMuted(video.muted);
+        
+        // On many mobile browsers, changing muted state can trigger a pause
+        // if not followed by an explicit play() call.
+        if (video.paused) {
+          await video.play();
+        }
+      } catch (err) {
+        console.error("Interaction failed:", err);
+      }
     }
   };
 
@@ -114,7 +123,7 @@ export default function VideoPage() {
               muted
               playsInline
               webkit-playsinline="true"
-              x5-playsinline="true"
+              preload="auto"
               onContextMenu={(e) => e.preventDefault()}
             >
               <source src={attachedVideo} type="video/mp4" />
