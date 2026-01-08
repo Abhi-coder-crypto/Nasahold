@@ -55,10 +55,10 @@ export async function registerRoutes(
         return res.status(400).json({ message: "Missing required fields" });
       }
 
-      // Allow any email (company or personal)
+      // Allow any email address including company domains like digitiohub.in
       const emailLower = email.toLowerCase();
       
-      // Basic email format check that allows any domain
+      // Basic email format check that allows any domain including .in
       if (!/^\S+@\S+\.\S+$/.test(emailLower)) {
         return res.status(400).json({ message: "Invalid email format" });
       }
