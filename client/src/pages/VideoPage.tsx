@@ -99,7 +99,6 @@ export default function VideoPage() {
               className="w-full h-full object-contain"
               controls
               autoPlay
-              muted
               playsInline
             >
               <source src={attachedVideo} type="video/mp4" />
