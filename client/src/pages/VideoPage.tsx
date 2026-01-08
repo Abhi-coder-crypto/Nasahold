@@ -20,10 +20,14 @@ export default function VideoPage() {
 
   const [isMuted, setIsMuted] = useState(true);
 
-  const toggleMute = () => {
+  const toggleMute = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (videoRef.current) {
       videoRef.current.muted = !videoRef.current.muted;
       setIsMuted(videoRef.current.muted);
+      // Ensure video continues playing
+      videoRef.current.play().catch(err => console.error("Video play failed:", err));
     }
   };
 
