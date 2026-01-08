@@ -98,6 +98,7 @@ export default function VideoPage() {
               ref={videoRef}
               className="w-full h-full object-contain pointer-events-none"
               autoPlay
+              muted
               playsInline
               onContextMenu={(e) => e.preventDefault()}
             >
