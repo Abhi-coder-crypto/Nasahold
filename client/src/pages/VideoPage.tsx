@@ -15,25 +15,7 @@ import { useState, useRef, useEffect } from "react";
 
 export default function VideoPage() {
   const [, setLocation] = useLocation();
-  const [showButton, setShowButton] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const handleTimeUpdate = () => {
-      // 1:10 is 70 seconds
-      if (video.currentTime >= 70) {
-        setShowButton(true);
-      } else {
-        setShowButton(false);
-      }
-    };
-
-    video.addEventListener("timeupdate", handleTimeUpdate);
-    return () => video.removeEventListener("timeupdate", handleTimeUpdate);
-  }, []);
 
   return (
     <div className="relative h-screen bg-[#0047AB] flex flex-col overflow-hidden font-sans">
@@ -110,22 +92,20 @@ export default function VideoPage() {
           </div>
 
           <div className="flex justify-center pt-1">
-            {showButton && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="w-full flex justify-center"
-              >
-                <Link href="/quiz" className="w-full flex justify-center">
-                  <Button 
-                    size="lg" 
-                    className="h-14 md:h-12 w-full md:w-auto px-10 text-xl md:text-base font-bold rounded-full bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] shadow-xl transition-all active:scale-95 group"
-                  >
-                    START GAME <ArrowRight className="ml-2 h-6 w-6 md:h-4 md:w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-              </motion.div>
-            )}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="w-full flex justify-center"
+            >
+              <Link href="/quiz" className="w-full flex justify-center">
+                <Button 
+                  size="lg" 
+                  className="h-14 md:h-12 w-full md:w-auto px-10 text-xl md:text-base font-bold rounded-full bg-[#FFD700] hover:bg-[#FFC800] text-[#0047AB] shadow-xl transition-all active:scale-95 group"
+                >
+                  START GAME <ArrowRight className="ml-2 h-6 w-6 md:h-4 md:w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+            </motion.div>
           </div>
         </motion.div>
 
