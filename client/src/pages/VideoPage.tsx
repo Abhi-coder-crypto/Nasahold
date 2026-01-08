@@ -18,28 +18,6 @@ export default function VideoPage() {
   const [showButton, setShowButton] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const [isMuted, setIsMuted] = useState(true);
-
-  const toggleMute = async (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (videoRef.current) {
-      try {
-        const video = videoRef.current;
-        video.muted = !video.muted;
-        setIsMuted(video.muted);
-        
-        // On many mobile browsers, changing muted state can trigger a pause
-        // if not followed by an explicit play() call.
-        if (video.paused) {
-          await video.play();
-        }
-      } catch (err) {
-        console.error("Interaction failed:", err);
-      }
-    }
-  };
-
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -118,7 +96,7 @@ export default function VideoPage() {
           <div className="aspect-video w-full max-h-[40vh] lg:max-h-[50vh] rounded-xl overflow-hidden shadow-2xl border-4 border-white bg-black mx-auto relative group">
             <video
               ref={videoRef}
-              className="w-full h-full object-contain"
+              className="w-full h-full object-contain pointer-events-none"
               autoPlay
               muted
               playsInline
@@ -129,19 +107,6 @@ export default function VideoPage() {
               <source src={attachedVideo} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            
-            {/* Unmute overlay */}
-            {isMuted && (
-              <div 
-                className="absolute inset-0 flex items-center justify-center bg-black/5 cursor-pointer z-50 pointer-events-auto"
-                onClick={toggleMute}
-              >
-                <div className="bg-white/90 rounded-full p-4 shadow-2xl animate-pulse flex flex-col items-center">
-                  <Zap className="w-8 h-8 text-[#0047AB]" />
-                  <p className="text-[#0047AB] font-bold text-xs mt-1">TAP TO UNMUTE</p>
-                </div>
-              </div>
-            )}
           </div>
 
           <div className="flex justify-center pt-1">
