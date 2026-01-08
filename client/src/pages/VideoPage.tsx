@@ -96,10 +96,10 @@ export default function VideoPage() {
           <div className="aspect-video w-full max-h-[40vh] lg:max-h-[50vh] rounded-xl overflow-hidden shadow-2xl border-4 border-white bg-black mx-auto">
             <video
               ref={videoRef}
-              className="w-full h-full object-contain"
-              controls
+              className="w-full h-full object-contain pointer-events-none"
               autoPlay
               playsInline
+              onContextMenu={(e) => e.preventDefault()}
             >
               <source src={attachedVideo} type="video/mp4" />
               Your browser does not support the video tag.
